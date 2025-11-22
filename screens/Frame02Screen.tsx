@@ -24,7 +24,7 @@ export default function Frame02Screen() {
         style={[
           styles.header,
           {
-            paddingTop: insets.top + Spacing.md,
+            paddingTop: insets.top + 4,
             paddingLeft: Spacing.lg,
             paddingRight: Spacing.lg,
           },
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingBottom: Spacing.md,
+    paddingBottom: 4,
     backgroundColor: "#FFFFFF",
   },
   leftSection: {
