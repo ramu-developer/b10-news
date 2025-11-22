@@ -33,19 +33,24 @@ export default function VideoIntroScreen() {
       }
       if (status.status === "idle" && status.oldStatus === "readyToPlay") {
         setHasEnded(true);
+        navigation.replace("Frame02");
       }
     });
 
     return () => {
       subscription.remove();
     };
-  }, [player]);
+  }, [player, navigation]);
 
   useEffect(() => {
-    if (hasEnded) {
-      navigation.replace("Frame02");
-    }
-  }, [hasEnded, navigation]);
+    const interval = setInterval(() => {
+      if (player.duration > 0 && player.currentTime >= player.duration - 0.1) {
+        navigation.replace("Frame02");
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [player, navigation]);
 
   const handleTogglePlayPause = () => {
     if (player.playing) {
