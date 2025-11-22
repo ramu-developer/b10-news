@@ -75,7 +75,14 @@ export default function Frame02Screen() {
                 selectedCategory === category.id && styles.categoryItemSelected,
               ]}
             >
-              <Text style={styles.categoryText}>{category.label}</Text>
+              <Text
+                style={[
+                  styles.categoryText,
+                  selectedCategory === category.id && styles.categoryTextSelected,
+                ]}
+              >
+                {category.label}
+              </Text>
             </Pressable>
           ))}
         </ScrollView>
@@ -162,6 +169,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "500",
     color: "#000000",
+  },
+  categoryTextSelected: {
+    color: "#FFFFFF",
   },
   content: {
     flex: 1,
