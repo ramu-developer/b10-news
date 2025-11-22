@@ -41,10 +41,11 @@ export default function VideoIntroScreen() {
     };
   }, [player]);
 
-  const handleReplay = () => {
-    player.replay();
-    setHasEnded(false);
-  };
+  useEffect(() => {
+    if (hasEnded) {
+      navigation.replace("Frame02");
+    }
+  }, [hasEnded, navigation]);
 
   const handleTogglePlayPause = () => {
     if (player.playing) {
@@ -52,10 +53,6 @@ export default function VideoIntroScreen() {
     } else {
       player.play();
     }
-  };
-
-  const handleNavigateToFrame02 = () => {
-    navigation.replace("Frame02");
   };
 
 
@@ -83,23 +80,6 @@ export default function VideoIntroScreen() {
           </View>
         ) : null}
 
-        {hasEnded ? (
-          <>
-            <Pressable style={styles.replayButton} onPress={handleReplay}>
-              <View style={styles.replayButtonInner}>
-                <Feather name="rotate-cw" size={64} color="#FFFFFF" />
-              </View>
-            </Pressable>
-            <Pressable
-              style={[styles.continueButton]}
-              onPress={handleNavigateToFrame02}
-            >
-              <View style={styles.continueButtonInner}>
-                <Feather name="arrow-right" size={32} color="#FFFFFF" />
-              </View>
-            </Pressable>
-          </>
-        ) : null}
 
         {!isLoading && !hasEnded ? (
           <>
@@ -158,33 +138,6 @@ const styles = StyleSheet.create({
     height: 512,
     borderRadius: 256,
     backgroundColor: "transparent",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  replayButton: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  replayButtonInner: {
-    width: 512,
-    height: 512,
-    borderRadius: 256,
-    backgroundColor: "transparent",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  continueButton: {
-    position: "absolute",
-    bottom: 60,
-    right: 20,
-    zIndex: 10,
-  },
-  continueButtonInner: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: "rgba(255, 255, 255, 0.3)",
     justifyContent: "center",
     alignItems: "center",
   },
