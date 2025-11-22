@@ -60,10 +60,6 @@ export default function Frame02Screen() {
           <Text style={styles.homeEmoji}>🏠</Text>
         </Pressable>
 
-        <View style={styles.bannerContainer}>
-          <Image source={bannerSource} style={styles.banner} contentFit="contain" />
-        </View>
-
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
@@ -90,6 +86,12 @@ export default function Frame02Screen() {
             </Pressable>
           ))}
         </ScrollView>
+      </View>
+
+      <View style={styles.bannerSection}>
+        <View style={styles.bannerContainer}>
+          <Image source={bannerSource} style={styles.banner} contentFit="contain" />
+        </View>
       </View>
 
       <View style={styles.content}>
@@ -186,14 +188,19 @@ const styles = StyleSheet.create({
   categoryTextSelected: {
     color: "#FFFFFF",
   },
+  bannerSection: {
+    paddingHorizontal: Spacing.lg,
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: "#E0E0E0",
+  },
   bannerContainer: {
     width: 80,
     height: 40,
-    marginRight: Spacing.sm,
   },
   banner: {
     width: "100%",
-    height: 40,
+    height: "100%",
     borderRadius: 8,
   },
   content: {
