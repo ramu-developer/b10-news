@@ -128,6 +128,7 @@ const styles = StyleSheet.create({
   video: {
     width: "100%",
     height: "100%",
+    transform: [{ scale: 3 }],
   },
   loadingOverlay: {
     ...StyleSheet.absoluteFillObject,
