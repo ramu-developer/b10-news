@@ -124,11 +124,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
-    transform: [{ scale: 2 }],
+    overflow: "hidden",
   },
   video: {
     width: "100%",
     height: "100%",
+    transform: [{ scale: 2 }],
   },
   loadingOverlay: {
     ...StyleSheet.absoluteFillObject,
