@@ -89,7 +89,7 @@ export default function Frame02Screen() {
       </View>
 
       <View style={styles.bannerContainer}>
-        <Image source={bannerSource} style={styles.banner} contentFit="cover" />
+        <Image source={bannerSource} style={styles.banner} contentFit="contain" />
       </View>
 
       <View style={styles.content}>
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   },
   banner: {
     width: "100%",
-    height: 120,
+    height: 160,
     borderRadius: 8,
   },
   content: {
