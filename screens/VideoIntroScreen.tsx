@@ -120,8 +120,8 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   videoContainer: {
-    width: "100%",
-    flex: 1,
+    width: "50%",
+    height: "50%",
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
