@@ -5,26 +5,26 @@ const tintColorDark = "#0A84FF";
 
 export const Colors = {
   light: {
-    text: "#11181C",
+    text: "#FFFFFF",
     buttonText: "#FFFFFF",
     tabIconDefault: "#687076",
     tabIconSelected: tintColorLight,
-    link: "#007AFF",
-    backgroundRoot: "#FFFFFF", // Elevation 0
-    backgroundDefault: "#F2F2F2", // Elevation 1
-    backgroundSecondary: "#E6E6E6", // Elevation 2
-    backgroundTertiary: "#D9D9D9", // Elevation 3
+    link: "#FFFFFF",
+    backgroundRoot: "#2196F3",
+    backgroundDefault: "#2196F3",
+    backgroundSecondary: "#1E88E5",
+    backgroundTertiary: "#1976D2",
   },
   dark: {
-    text: "#ECEDEE",
+    text: "#FFFFFF",
     buttonText: "#FFFFFF",
     tabIconDefault: "#9BA1A6",
     tabIconSelected: tintColorDark,
-    link: "#0A84FF",
-    backgroundRoot: "#1F2123", // Elevation 0
-    backgroundDefault: "#2A2C2E", // Elevation 1
-    backgroundSecondary: "#353739", // Elevation 2
-    backgroundTertiary: "#404244", // Elevation 3
+    link: "#FFFFFF",
+    backgroundRoot: "#2196F3",
+    backgroundDefault: "#2196F3",
+    backgroundSecondary: "#1E88E5",
+    backgroundTertiary: "#1976D2",
   },
 };
 

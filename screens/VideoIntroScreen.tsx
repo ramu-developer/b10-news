@@ -1,0 +1,143 @@
+import React, { useState, useRef } from "react";
+import { View, StyleSheet, ActivityIndicator, Pressable } from "react-native";
+import { VideoView, useVideoPlayer } from "expo-video";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Feather } from "@expo/vector-icons";
+import { Spacing } from "@/constants/theme";
+
+const videoSource = require("@/attached_assets/b10news_intro_cc_1763810281163.mp4");
+
+export default function VideoIntroScreen() {
+  const insets = useSafeAreaInsets();
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasEnded, setHasEnded] = useState(false);
+
+  const player = useVideoPlayer(videoSource, (player) => {
+    player.loop = false;
+    player.play();
+  });
+
+  player.addListener("statusChange", (status) => {
+    if (status.status === "readyToPlay") {
+      setIsLoading(false);
+    }
+    if (status.status === "idle" && status.oldStatus === "readyToPlay") {
+      setHasEnded(true);
+    }
+  });
+
+  const handleReplay = () => {
+    player.replay();
+    setHasEnded(false);
+  };
+
+  const handleTogglePlayPause = () => {
+    if (player.playing) {
+      player.pause();
+    } else {
+      player.play();
+    }
+  };
+
+  return (
+    <View
+      style={[
+        styles.container,
+        {
+          paddingTop: insets.top + Spacing.xl,
+          paddingBottom: insets.bottom + Spacing.xl,
+        },
+      ]}
+    >
+      <View style={styles.videoContainer}>
+        <VideoView
+          player={player}
+          style={styles.video}
+          contentFit="contain"
+          nativeControls={false}
+        />
+
+        {isLoading ? (
+          <View style={styles.loadingOverlay}>
+            <ActivityIndicator size="large" color="#FFFFFF" />
+          </View>
+        ) : null}
+
+        {hasEnded ? (
+          <Pressable style={styles.replayButton} onPress={handleReplay}>
+            <View style={styles.replayButtonInner}>
+              <Feather name="rotate-cw" size={32} color="#FFFFFF" />
+            </View>
+          </Pressable>
+        ) : null}
+
+        {!isLoading && !hasEnded ? (
+          <Pressable
+            style={styles.playPauseOverlay}
+            onPress={handleTogglePlayPause}
+          >
+            <View style={styles.playPauseButton}>
+              <Feather
+                name={player.playing ? "pause" : "play"}
+                size={32}
+                color="#FFFFFF"
+              />
+            </View>
+          </Pressable>
+        ) : null}
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#2196F3",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  videoContainer: {
+    width: "100%",
+    aspectRatio: 16 / 9,
+    justifyContent: "center",
+    alignItems: "center",
+    position: "relative",
+  },
+  video: {
+    width: "100%",
+    height: "100%",
+  },
+  loadingOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(33, 150, 243, 0.5)",
+  },
+  playPauseOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  playPauseButton: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  replayButton: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  replayButtonInner: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
