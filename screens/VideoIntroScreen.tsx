@@ -117,6 +117,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#2196F3",
     justifyContent: "center",
     alignItems: "center",
+    overflow: "hidden",
   },
   videoContainer: {
     width: "100%",
@@ -124,12 +125,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
-    overflow: "hidden",
+    transform: [{ scale: 2 }],
   },
   video: {
     width: "100%",
     height: "100%",
-    transform: [{ scale: 2 }],
   },
   loadingOverlay: {
     ...StyleSheet.absoluteFillObject,
