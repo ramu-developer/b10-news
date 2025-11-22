@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { View, StyleSheet, Pressable, Text, ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Image } from "expo-image";
-import { Feather } from "@expo/vector-icons";
 import { Spacing } from "@/constants/theme";
 
 const logoSource = require("@/assets/images/b10news_logo.png");
@@ -42,14 +41,14 @@ export default function Frame02Screen() {
       >
         <View style={styles.leftSection}>
           <Pressable onPress={handleMenuPress} style={styles.menuButton}>
-            <Feather name="menu" size={28} color="#000000" />
+            <Text style={styles.menuIcon}>☰</Text>
           </Pressable>
           <Image source={logoSource} style={styles.logo} contentFit="contain" />
         </View>
 
         <View style={styles.rightSection}>
           <Pressable onPress={handleSearchPress} style={styles.searchButton}>
-            <Feather name="search" size={24} color="#000000" />
+            <Text style={styles.searchIcon}>🔍</Text>
           </Pressable>
           <Text style={styles.liveText}>Live</Text>
         </View>
@@ -115,6 +114,10 @@ const styles = StyleSheet.create({
     padding: Spacing.sm,
     marginRight: -8,
   },
+  menuIcon: {
+    fontSize: 28,
+    color: "#000000",
+  },
   logo: {
     width: 80,
     height: 32,
@@ -127,6 +130,10 @@ const styles = StyleSheet.create({
   searchButton: {
     padding: Spacing.sm,
     marginRight: Spacing.sm,
+  },
+  searchIcon: {
+    fontSize: 24,
+    color: "#000000",
   },
   liveText: {
     fontSize: 16,
