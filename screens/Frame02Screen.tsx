@@ -56,13 +56,12 @@ export default function Frame02Screen() {
       </View>
 
       <View style={styles.categoriesContainer}>
-        <View style={styles.leftSideSection}>
-          <Pressable style={styles.homeButton}>
-            <Text style={styles.homeEmoji}>🏠</Text>
-          </Pressable>
-          <View style={styles.bannerContainer}>
-            <Image source={bannerSource} style={styles.banner} contentFit="contain" />
-          </View>
+        <Pressable style={styles.homeButton}>
+          <Text style={styles.homeEmoji}>🏠</Text>
+        </Pressable>
+
+        <View style={styles.bannerContainer}>
+          <Image source={bannerSource} style={styles.banner} contentFit="contain" />
         </View>
 
         <ScrollView
@@ -148,19 +147,16 @@ const styles = StyleSheet.create({
   },
   categoriesContainer: {
     flexDirection: "row",
-    alignItems: "flex-start",
+    alignItems: "center",
     paddingHorizontal: Spacing.lg,
     paddingTop: 8,
     paddingBottom: 0,
     borderBottomWidth: 1,
     borderBottomColor: "#E0E0E0",
   },
-  leftSideSection: {
-    alignItems: "center",
-    marginRight: Spacing.sm,
-  },
   homeButton: {
     padding: Spacing.sm,
+    marginRight: Spacing.sm,
   },
   homeEmoji: {
     fontSize: 24,
@@ -192,7 +188,8 @@ const styles = StyleSheet.create({
   },
   bannerContainer: {
     width: 80,
-    paddingVertical: 0,
+    height: 40,
+    marginRight: Spacing.sm,
   },
   banner: {
     width: "100%",
