@@ -77,7 +77,7 @@ export default function VideoIntroScreen() {
         {hasEnded ? (
           <Pressable style={styles.replayButton} onPress={handleReplay}>
             <View style={styles.replayButtonInner}>
-              <Feather name="rotate-cw" size={128} color="#FFFFFF" />
+              <Feather name="rotate-cw" size={256} color="#FFFFFF" />
             </View>
           </Pressable>
         ) : null}
@@ -91,7 +91,7 @@ export default function VideoIntroScreen() {
               <View style={styles.playPauseButton}>
                 <Feather
                   name={player.playing ? "pause" : "play"}
-                  size={128}
+                  size={256}
                   color="#FFFFFF"
                 />
               </View>
@@ -141,9 +141,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   playPauseButton: {
-    width: 256,
-    height: 256,
-    borderRadius: 128,
+    width: 512,
+    height: 512,
+    borderRadius: 256,
     backgroundColor: "rgba(0, 0, 0, 0.6)",
     justifyContent: "center",
     alignItems: "center",
@@ -154,9 +154,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   replayButtonInner: {
-    width: 256,
-    height: 256,
-    borderRadius: 128,
+    width: 512,
+    height: 512,
+    borderRadius: 256,
     backgroundColor: "rgba(0, 0, 0, 0.6)",
     justifyContent: "center",
     alignItems: "center",
