@@ -149,7 +149,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: Spacing.lg,
-    paddingVertical: 8,
+    paddingTop: 8,
+    paddingBottom: 0,
     borderBottomWidth: 1,
     borderBottomColor: "#E0E0E0",
   },
@@ -188,7 +189,7 @@ const styles = StyleSheet.create({
   bannerContainer: {
     width: "100%",
     paddingHorizontal: Spacing.lg,
-    paddingTop: 4,
+    paddingTop: 0,
     paddingBottom: 12,
   },
   banner: {
