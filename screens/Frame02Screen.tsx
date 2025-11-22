@@ -189,8 +189,7 @@ const styles = StyleSheet.create({
   bannerContainer: {
     width: "100%",
     paddingHorizontal: Spacing.lg,
-    paddingTop: 0,
-    paddingBottom: 12,
+    paddingVertical: 0,
   },
   banner: {
     width: "100%",
