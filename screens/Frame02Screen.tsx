@@ -5,6 +5,7 @@ import { Image } from "expo-image";
 import { Spacing } from "@/constants/theme";
 
 const logoSource = require("@/assets/images/b10news_logo.png");
+const bannerSource = require("@/assets/images/b10news_channel_banner.png");
 
 const categories = [
   { id: "national", label: "జాతీయం" },
@@ -85,6 +86,10 @@ export default function Frame02Screen() {
             </Pressable>
           ))}
         </ScrollView>
+      </View>
+
+      <View style={styles.bannerContainer}>
+        <Image source={bannerSource} style={styles.banner} contentFit="cover" />
       </View>
 
       <View style={styles.content}>
@@ -179,6 +184,16 @@ const styles = StyleSheet.create({
   },
   categoryTextSelected: {
     color: "#FFFFFF",
+  },
+  bannerContainer: {
+    width: "100%",
+    paddingHorizontal: Spacing.lg,
+    paddingVertical: 12,
+  },
+  banner: {
+    width: "100%",
+    height: 120,
+    borderRadius: 8,
   },
   content: {
     flex: 1,
