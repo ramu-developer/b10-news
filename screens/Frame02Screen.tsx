@@ -70,11 +70,12 @@ const styles = StyleSheet.create({
   },
   menuButton: {
     padding: Spacing.sm,
-    marginRight: 4,
+    marginRight: -8,
   },
   logo: {
-    width: 100,
-    height: 40,
+    width: 80,
+    height: 32,
+    marginLeft: 0,
   },
   rightSection: {
     flexDirection: "row",
