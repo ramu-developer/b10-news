@@ -56,9 +56,14 @@ export default function Frame02Screen() {
       </View>
 
       <View style={styles.categoriesContainer}>
-        <Pressable style={styles.homeButton}>
-          <Text style={styles.homeEmoji}>🏠</Text>
-        </Pressable>
+        <View style={styles.leftSideSection}>
+          <Pressable style={styles.homeButton}>
+            <Text style={styles.homeEmoji}>🏠</Text>
+          </Pressable>
+          <View style={styles.bannerContainer}>
+            <Image source={bannerSource} style={styles.banner} contentFit="contain" />
+          </View>
+        </View>
 
         <ScrollView
           horizontal
@@ -86,10 +91,6 @@ export default function Frame02Screen() {
             </Pressable>
           ))}
         </ScrollView>
-      </View>
-
-      <View style={styles.bannerContainer}>
-        <Image source={bannerSource} style={styles.banner} contentFit="contain" />
       </View>
 
       <View style={styles.content}>
@@ -147,16 +148,19 @@ const styles = StyleSheet.create({
   },
   categoriesContainer: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
     paddingHorizontal: Spacing.lg,
     paddingTop: 8,
     paddingBottom: 0,
     borderBottomWidth: 1,
     borderBottomColor: "#E0E0E0",
   },
+  leftSideSection: {
+    alignItems: "center",
+    marginRight: Spacing.sm,
+  },
   homeButton: {
     padding: Spacing.sm,
-    marginRight: Spacing.sm,
   },
   homeEmoji: {
     fontSize: 24,
@@ -187,8 +191,7 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
   },
   bannerContainer: {
-    width: "100%",
-    paddingHorizontal: Spacing.lg,
+    width: 80,
     paddingVertical: 0,
   },
   banner: {
