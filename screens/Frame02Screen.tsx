@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Pressable } from "react-native";
+import { View, StyleSheet, Pressable, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Image } from "expo-image";
 import { Feather } from "@expo/vector-icons";
@@ -14,6 +14,10 @@ export default function Frame02Screen() {
     // Menu action will be added later
   };
 
+  const handleSearchPress = () => {
+    // Search action will be added later
+  };
+
   return (
     <View style={styles.container}>
       <View
@@ -26,10 +30,19 @@ export default function Frame02Screen() {
           },
         ]}
       >
-        <Pressable onPress={handleMenuPress} style={styles.menuButton}>
-          <Feather name="menu" size={28} color="#000000" />
-        </Pressable>
-        <Image source={logoSource} style={styles.logo} contentFit="contain" />
+        <View style={styles.leftSection}>
+          <Pressable onPress={handleMenuPress} style={styles.menuButton}>
+            <Feather name="menu" size={28} color="#000000" />
+          </Pressable>
+          <Image source={logoSource} style={styles.logo} contentFit="contain" />
+        </View>
+
+        <View style={styles.rightSection}>
+          <Pressable onPress={handleSearchPress} style={styles.searchButton}>
+            <Feather name="search" size={24} color="#000000" />
+          </Pressable>
+          <Text style={styles.liveText}>Live</Text>
+        </View>
       </View>
 
       <View style={styles.content}>
@@ -47,16 +60,34 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "space-between",
     paddingBottom: Spacing.md,
     backgroundColor: "#FFFFFF",
   },
+  leftSection: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
   menuButton: {
     padding: Spacing.sm,
-    marginRight: Spacing.md,
+    marginRight: Spacing.sm,
   },
   logo: {
     width: 100,
     height: 40,
+  },
+  rightSection: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  searchButton: {
+    padding: Spacing.sm,
+    marginRight: Spacing.sm,
+  },
+  liveText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#FF0000",
   },
   content: {
     flex: 1,
