@@ -45,10 +45,6 @@ export default function VideoIntroScreen() {
     }
   };
 
-  const handleSkip = () => {
-    player.pause();
-    setHasEnded(true);
-  };
 
   return (
     <View
@@ -94,14 +90,6 @@ export default function VideoIntroScreen() {
                   size={64}
                   color="#FFFFFF"
                 />
-              </View>
-            </Pressable>
-            <Pressable
-              style={[styles.skipButton, { top: insets.top + Spacing.md }]}
-              onPress={handleSkip}
-            >
-              <View style={styles.skipButtonInner}>
-                <Feather name="skip-forward" size={20} color="#FFFFFF" />
               </View>
             </Pressable>
           </>
@@ -163,19 +151,5 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     justifyContent: "center",
     alignItems: "center",
-  },
-  skipButton: {
-    position: "absolute",
-    right: 16,
-    zIndex: 10,
-  },
-  skipButtonInner: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
