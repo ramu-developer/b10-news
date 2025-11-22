@@ -189,7 +189,8 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
   },
   bannerSection: {
-    paddingHorizontal: Spacing.lg,
+    paddingLeft: Spacing.sm,
+    paddingRight: Spacing.lg,
     paddingVertical: 8,
     borderBottomWidth: 1,
     borderBottomColor: "#E0E0E0",
@@ -197,6 +198,7 @@ const styles = StyleSheet.create({
   bannerContainer: {
     width: 80,
     height: 40,
+    marginLeft: Spacing.sm,
   },
   banner: {
     width: "100%",
