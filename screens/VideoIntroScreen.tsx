@@ -64,7 +64,7 @@ export default function VideoIntroScreen() {
         <VideoView
           player={player}
           style={styles.video}
-          contentFit="cover"
+          contentFit="contain"
           nativeControls={false}
         />
 
@@ -120,8 +120,8 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   videoContainer: {
-    width: "50%",
-    height: "50%",
+    width: "100%",
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
