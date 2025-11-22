@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   menuButton: {
     padding: Spacing.sm,
-    marginRight: Spacing.sm,
+    marginRight: 4,
   },
   logo: {
     width: 100,
