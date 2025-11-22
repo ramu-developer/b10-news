@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
+    transform: [{ scale: 2 }],
   },
   video: {
     width: "100%",
