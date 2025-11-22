@@ -2,12 +2,21 @@ import React, { useState, useEffect } from "react";
 import { View, StyleSheet, ActivityIndicator, Pressable } from "react-native";
 import { VideoView, useVideoPlayer } from "expo-video";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Feather } from "@expo/vector-icons";
 import { Spacing } from "@/constants/theme";
+import { RootStackParamList } from "@/navigation/RootNavigator";
 
 const videoSource = require("@/intro/b10_intro.mp4");
 
+type VideoIntroScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "VideoIntro"
+>;
+
 export default function VideoIntroScreen() {
+  const navigation = useNavigation<VideoIntroScreenNavigationProp>();
   const insets = useSafeAreaInsets();
   const [isLoading, setIsLoading] = useState(true);
   const [hasEnded, setHasEnded] = useState(false);
@@ -45,6 +54,10 @@ export default function VideoIntroScreen() {
     }
   };
 
+  const handleNavigateToFrame02 = () => {
+    navigation.replace("Frame02");
+  };
+
 
   return (
     <View
@@ -71,11 +84,21 @@ export default function VideoIntroScreen() {
         ) : null}
 
         {hasEnded ? (
-          <Pressable style={styles.replayButton} onPress={handleReplay}>
-            <View style={styles.replayButtonInner}>
-              <Feather name="rotate-cw" size={64} color="#FFFFFF" />
-            </View>
-          </Pressable>
+          <>
+            <Pressable style={styles.replayButton} onPress={handleReplay}>
+              <View style={styles.replayButtonInner}>
+                <Feather name="rotate-cw" size={64} color="#FFFFFF" />
+              </View>
+            </Pressable>
+            <Pressable
+              style={[styles.continueButton]}
+              onPress={handleNavigateToFrame02}
+            >
+              <View style={styles.continueButtonInner}>
+                <Feather name="arrow-right" size={32} color="#FFFFFF" />
+              </View>
+            </Pressable>
+          </>
         ) : null}
 
         {!isLoading && !hasEnded ? (
@@ -148,6 +171,20 @@ const styles = StyleSheet.create({
     height: 512,
     borderRadius: 256,
     backgroundColor: "transparent",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  continueButton: {
+    position: "absolute",
+    bottom: 60,
+    right: 20,
+    zIndex: 10,
+  },
+  continueButtonInner: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: "rgba(255, 255, 255, 0.3)",
     justifyContent: "center",
     alignItems: "center",
   },
