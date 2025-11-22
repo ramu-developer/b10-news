@@ -57,7 +57,7 @@ export default function Frame02Screen() {
 
       <View style={styles.categoriesContainer}>
         <Pressable style={styles.homeButton}>
-          <Feather name="home" size={24} color="#000000" />
+          <Text style={styles.homeEmoji}>🏠</Text>
         </Pressable>
 
         <ScrollView
@@ -70,12 +70,12 @@ export default function Frame02Screen() {
             <Pressable
               key={category.id}
               onPress={() => setSelectedCategory(category.id)}
-              style={styles.categoryItem}
+              style={[
+                styles.categoryItem,
+                selectedCategory === category.id && styles.categoryItemSelected,
+              ]}
             >
               <Text style={styles.categoryText}>{category.label}</Text>
-              {selectedCategory === category.id && (
-                <View style={styles.categoryUnderline} />
-              )}
             </Pressable>
           ))}
         </ScrollView>
@@ -138,6 +138,9 @@ const styles = StyleSheet.create({
     padding: Spacing.sm,
     marginRight: Spacing.sm,
   },
+  homeEmoji: {
+    fontSize: 24,
+  },
   categoriesScroll: {
     flex: 1,
   },
@@ -149,18 +152,16 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     marginRight: 12,
     alignItems: "center",
+    justifyContent: "center",
+  },
+  categoryItemSelected: {
+    backgroundColor: "#2196F3",
+    borderRadius: 0.2,
   },
   categoryText: {
     fontSize: 14,
     fontWeight: "500",
     color: "#000000",
-  },
-  categoryUnderline: {
-    width: "100%",
-    height: 3,
-    backgroundColor: "#2196F3",
-    marginTop: 4,
-    borderRadius: 0.2,
   },
   content: {
     flex: 1,
