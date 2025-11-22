@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import { Spacing } from "@/constants/theme";
 
-const videoSource = require("@/attached_assets/b10news_intro_cc_1763810281163.mp4");
+const videoSource = require("@/intro/b10news_splash.mp4");
 
 export default function VideoIntroScreen() {
   const insets = useSafeAreaInsets();
