@@ -120,17 +120,16 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   videoContainer: {
-    position: "absolute",
-    left: "-25%",
-    right: "-25%",
-    top: "-25%",
-    bottom: "-25%",
+    width: "100%",
+    flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    position: "relative",
   },
   video: {
     width: "100%",
     height: "100%",
+    transform: [{ scale: 2 }],
   },
   loadingOverlay: {
     ...StyleSheet.absoluteFillObject,
