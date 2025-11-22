@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, ActivityIndicator, Pressable } from "react-native";
 import { VideoView, useVideoPlayer } from "expo-video";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -17,14 +17,20 @@ export default function VideoIntroScreen() {
     player.play();
   });
 
-  player.addListener("statusChange", (status) => {
-    if (status.status === "readyToPlay") {
-      setIsLoading(false);
-    }
-    if (status.status === "idle" && status.oldStatus === "readyToPlay") {
-      setHasEnded(true);
-    }
-  });
+  useEffect(() => {
+    const subscription = player.addListener("statusChange", (status) => {
+      if (status.status === "readyToPlay") {
+        setIsLoading(false);
+      }
+      if (status.status === "idle" && status.oldStatus === "readyToPlay") {
+        setHasEnded(true);
+      }
+    });
+
+    return () => {
+      subscription.remove();
+    };
+  }, [player]);
 
   const handleReplay = () => {
     player.replay();
@@ -37,6 +43,11 @@ export default function VideoIntroScreen() {
     } else {
       player.play();
     }
+  };
+
+  const handleSkip = () => {
+    player.pause();
+    setHasEnded(true);
   };
 
   return (
@@ -72,18 +83,28 @@ export default function VideoIntroScreen() {
         ) : null}
 
         {!isLoading && !hasEnded ? (
-          <Pressable
-            style={styles.playPauseOverlay}
-            onPress={handleTogglePlayPause}
-          >
-            <View style={styles.playPauseButton}>
-              <Feather
-                name={player.playing ? "pause" : "play"}
-                size={32}
-                color="#FFFFFF"
-              />
-            </View>
-          </Pressable>
+          <>
+            <Pressable
+              style={styles.playPauseOverlay}
+              onPress={handleTogglePlayPause}
+            >
+              <View style={styles.playPauseButton}>
+                <Feather
+                  name={player.playing ? "pause" : "play"}
+                  size={32}
+                  color="#FFFFFF"
+                />
+              </View>
+            </Pressable>
+            <Pressable
+              style={[styles.skipButton, { top: insets.top + Spacing.md }]}
+              onPress={handleSkip}
+            >
+              <View style={styles.skipButtonInner}>
+                <Feather name="skip-forward" size={20} color="#FFFFFF" />
+              </View>
+            </Pressable>
+          </>
         ) : null}
       </View>
     </View>
@@ -139,5 +160,19 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.6)",
     justifyContent: "center",
     alignItems: "center",
+  },
+  skipButton: {
+    position: "absolute",
+    right: 16,
+    zIndex: 10,
+  },
+  skipButtonInner: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
