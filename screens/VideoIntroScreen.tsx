@@ -77,7 +77,7 @@ export default function VideoIntroScreen() {
         {hasEnded ? (
           <Pressable style={styles.replayButton} onPress={handleReplay}>
             <View style={styles.replayButtonInner}>
-              <Feather name="rotate-cw" size={256} color="#FFFFFF" />
+              <Feather name="rotate-cw" size={1280} color="#FFFFFF" />
             </View>
           </Pressable>
         ) : null}
@@ -91,7 +91,7 @@ export default function VideoIntroScreen() {
               <View style={styles.playPauseButton}>
                 <Feather
                   name={player.playing ? "pause" : "play"}
-                  size={256}
+                  size={1280}
                   color="#FFFFFF"
                 />
               </View>
