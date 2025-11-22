@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   },
   banner: {
     width: "100%",
-    height: 160,
+    height: 80,
     borderRadius: 8,
   },
   content: {
