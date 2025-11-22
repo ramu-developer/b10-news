@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   },
   categoryItemSelected: {
     backgroundColor: "#2196F3",
-    borderRadius: 0.2,
+    borderRadius: 4,
   },
   categoryText: {
     fontSize: 14,
