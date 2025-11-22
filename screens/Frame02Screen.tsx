@@ -5,7 +5,7 @@ import { Image } from "expo-image";
 import { Spacing } from "@/constants/theme";
 
 const logoSource = require("@/assets/images/b10news_logo.png");
-const bannerSource = require("@/assets/images/b10news_channel_banner.png");
+const bannerSource = require("@/assets/images/banner design.png");
 
 const categories = [
   { id: "national", label: "జాతీయం" },
