@@ -86,22 +86,6 @@ export default function VideoIntroScreen() {
         ) : null}
 
 
-        {!isLoading && !hasEnded ? (
-          <>
-            <Pressable
-              style={styles.playPauseOverlay}
-              onPress={handleTogglePlayPause}
-            >
-              <View style={styles.playPauseButton}>
-                <Feather
-                  name={player.playing ? "pause" : "play"}
-                  size={64}
-                  color="#FFFFFF"
-                />
-              </View>
-            </Pressable>
-          </>
-        ) : null}
       </View>
     </View>
   );
