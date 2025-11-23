@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Pressable, Text, ScrollView } from "react-native";
+import { View, StyleSheet, Pressable, Text, ScrollView, Share } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import * as Linking from "expo-linking";
 import { Spacing } from "@/constants/theme";
@@ -26,7 +26,10 @@ export default function Frame03Screen() {
   const handleSharePress = async () => {
     try {
       const shareUrl = "https://www.b10vartha.in/";
-      await Linking.openURL(shareUrl);
+      await Share.share({
+        message: shareUrl,
+        url: shareUrl,
+      });
     } catch (error) {
       console.error("Error sharing:", error);
     }
