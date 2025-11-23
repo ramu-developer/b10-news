@@ -35,7 +35,13 @@
         }
       ],
       "expo-web-browser",
-      "expo-video"
+      "expo-video",
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/Mandali-Regular.ttf"]
+        }
+      ]
     ],
     "experiments": {
       "reactCompiler": true

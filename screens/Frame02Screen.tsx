@@ -3,6 +3,7 @@ import { View, StyleSheet, Pressable, Text, ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Image } from "expo-image";
 import { Spacing } from "@/constants/theme";
+import VideosSection from "@/components/VideosSection";
 
 const logoSource = require("@/assets/images/b10news_logo.png");
 
@@ -88,7 +89,7 @@ export default function Frame02Screen() {
       </View>
 
       <View style={styles.content}>
-        {/* Content will be added here */}
+        <VideosSection />
       </View>
     </View>
   );

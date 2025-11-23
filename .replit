@@ -17,10 +17,6 @@ localPort = 38943
 externalPort = 3001
 
 [[ports]]
-localPort = 38983
-externalPort = 3003
-
-[[ports]]
 localPort = 43785
 externalPort = 3002
 
@@ -96,3 +92,11 @@ value = "1"
 path = "/*"
 name = "expo-sfv-version"
 value = "0"
+
+[userenv]
+
+[userenv.shared]
+YOUTUBE_API_KEY = "AIzaSyBYibXOgiSMmidWSECa4plIDj1ZWXxOw-E"
+YOUTUBE_CHANNEL_ID = "UCff6g5U72C10-bqm_M1a-lw"
+EXPO_PUBLIC_YOUTUBE_API_KEY = "AIzaSyBYibXOgiSMmidWSECa4plIDj1ZWXxOw-E"
+EXPO_PUBLIC_YOUTUBE_CHANNEL_ID = "UCff6g5U72C10-bqm_M1a-lw"
