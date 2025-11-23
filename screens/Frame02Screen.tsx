@@ -144,14 +144,15 @@ const styles = StyleSheet.create({
   categoriesContainer: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: Spacing.lg,
+    paddingLeft: 4,
+    paddingRight: Spacing.lg,
     paddingTop: 8,
     paddingBottom: 0,
     borderBottomWidth: 1,
     borderBottomColor: "#E0E0E0",
   },
   homeButton: {
-    padding: Spacing.sm,
+    padding: 0,
     marginRight: Spacing.sm,
   },
   homeEmoji: {
