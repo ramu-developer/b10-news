@@ -14,7 +14,7 @@ export default function VideosSection() {
   useEffect(() => {
     const loadVideos = async () => {
       setLoading(true);
-      const videosData = await fetchYouTubeVideos(100);
+      const videosData = await fetchYouTubeVideos(200);
       setVideos(videosData);
       setLoading(false);
     };

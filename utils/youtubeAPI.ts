@@ -8,23 +8,55 @@ export interface YouTubeVideo {
   channelTitle: string;
 }
 
-export const fetchYouTubeVideos = async (maxResults: number = 10): Promise<YouTubeVideo[]> => {
+export const fetchYouTubeVideos = async (maxResults: number = 200): Promise<YouTubeVideo[]> => {
   try {
-    const searchUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${YOUTUBE_CHANNEL_ID}&maxResults=${maxResults}&order=date&type=video&key=${YOUTUBE_API_KEY}`;
-    
-    const response = await fetch(searchUrl);
-    const data = await response.json();
+    const allVideos: YouTubeVideo[] = [];
+    let pageToken: string | undefined = undefined;
+    const videosPerPage = 50; // YouTube API max is 50 per request
+    const pagesToFetch = Math.ceil(maxResults / videosPerPage);
 
-    if (!data.items) {
-      return [];
+    for (let page = 0; page < pagesToFetch; page++) {
+      const searchUrl = new URL("https://www.googleapis.com/youtube/v3/search");
+      searchUrl.searchParams.append("part", "snippet");
+      searchUrl.searchParams.append("channelId", YOUTUBE_CHANNEL_ID);
+      searchUrl.searchParams.append("maxResults", String(videosPerPage));
+      searchUrl.searchParams.append("order", "date");
+      searchUrl.searchParams.append("type", "video");
+      searchUrl.searchParams.append("key", YOUTUBE_API_KEY);
+      
+      if (pageToken) {
+        searchUrl.searchParams.append("pageToken", pageToken);
+      }
+
+      const response = await fetch(searchUrl.toString());
+      const data = await response.json();
+
+      if (!data.items || data.items.length === 0) {
+        break;
+      }
+
+      const pageVideos = data.items.map((item: any) => ({
+        id: item.id.videoId,
+        title: item.snippet.title,
+        thumbnail: item.snippet.thumbnails.medium.url,
+        channelTitle: item.snippet.channelTitle,
+      }));
+
+      allVideos.push(...pageVideos);
+
+      // Stop if we've fetched enough videos
+      if (allVideos.length >= maxResults) {
+        break;
+      }
+
+      // Get next page token
+      pageToken = data.nextPageToken;
+      if (!pageToken) {
+        break; // No more pages available
+      }
     }
 
-    return data.items.map((item: any) => ({
-      id: item.id.videoId,
-      title: item.snippet.title,
-      thumbnail: item.snippet.thumbnails.medium.url,
-      channelTitle: item.snippet.channelTitle,
-    }));
+    return allVideos.slice(0, maxResults);
   } catch (error) {
     console.error("Error fetching YouTube videos:", error);
     return [];
