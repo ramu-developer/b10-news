@@ -57,7 +57,7 @@ export default function Frame03Screen() {
     if (categoryId === "home") {
       navigation.goBack();
     } else {
-      setSelectedCategory(categoryId);
+      navigation.navigate("Frame04");
     }
   };
 
