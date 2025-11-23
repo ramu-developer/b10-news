@@ -6,6 +6,9 @@ import * as Linking from "expo-linking";
 import { Spacing } from "@/constants/theme";
 import { fetchYouTubeVideos, YouTubeVideo } from "@/utils/youtubeAPI";
 import VideosSection from "@/components/VideosSection";
+import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import type { RootStackParamList } from "@/navigation/RootNavigator";
 
 const logoSource = require("@/assets/images/b10news_logo.png");
 
@@ -20,6 +23,7 @@ const categories = [
 
 export default function Frame02Screen() {
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const [selectedCategory, setSelectedCategory] = useState("national");
   const [allVideos, setAllVideos] = useState<YouTubeVideo[]>([]);
   const [filteredVideos, setFilteredVideos] = useState<YouTubeVideo[]>([]);
@@ -56,7 +60,7 @@ export default function Frame02Screen() {
   };
 
   const handleMenuPress = () => {
-    // Menu action will be added later
+    navigation.navigate("Frame03");
   };
 
   const handleLogoPress = async () => {
