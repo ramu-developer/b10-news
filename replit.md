@@ -1,149 +1,108 @@
-# B10 News - React Native Video Intro App
+# B10 News - Android App Project
 
-## Overview
+## Project Overview
+Multi-frame Expo mobile application for B10 News (Telugu news app) targeting Android Play Store submission with Firebase integration, YouTube videos, and category-based news browsing.
 
-B10 News is a single-screen React Native mobile application built with Expo that displays a 3-second intro video on a branded blue background. The app is designed as a simple, immersive video viewing experience with no navigation, authentication, or backend integration required. It supports iOS, Android, and web platforms using React Native's cross-platform capabilities.
+**Current Status:** Production-Ready for Play Store Submission ✅
+
+## Architecture & Components
+
+### Screens (Frames)
+1. **VideoIntroScreen** - Intro video with auto-transition to Frame 02
+2. **Frame02Screen** - Main news interface with YouTube videos in 2-column grid
+3. **Frame03Screen** - Slide-in menu with categories and options
+4. **Frame04Screen** - In-app browser for B10 Vartha website
+5. **PrivacyPolicyScreen** - Privacy Policy display (accessible from menu)
+
+### Key Features
+- Telugu categories with navigation
+- YouTube API integration (200 videos)
+- Firebase integration (Crashlytics + Analytics)
+- In-app Privacy Policy
+- Share functionality
+- Category-based navigation
+
+## Technical Configuration
+
+### SDK & Version
+- **Target SDK:** 35 (Android 15) - Google Play Store requirement
+- **Min SDK:** 21 (Android 5.0)
+- **Expo:** Latest version with React Native
+- **React Compiler:** Enabled
+
+### Security & Secrets
+All API keys stored in Replit Secrets:
+- `EXPO_PUBLIC_FIREBASE_API_KEY`
+- `EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN`
+- `EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID`
+- `EXPO_PUBLIC_FIREBASE_PROJECT_ID`
+- `EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET`
+- `EXPO_PUBLIC_YOUTUBE_API_KEY`
+- `SESSION_SECRET`
+
+### Firebase Configuration
+- `android/app/google-services.json` - Downloaded and placed
+- Firebase Web SDK configured
+- Crashlytics for crash reporting
+- Analytics for user tracking
+
+## Privacy Policy
+- **In-App:** Accessible from menu (Frame03)
+- **Website:** https://www.b10vartha.in/privacy (Published in Blogger)
+- **Contact Email:** sekharbyiram@gmail.com
+- **Last Updated:** November 23, 2025
+
+## Build Configuration
+- `eas.json` - Expo build service configuration
+- `app.json` - App metadata and plugins
 
 ## User Preferences
+- Contact Email: sekharbyiram@gmail.com
+- App Name: B10 News
+- Bundle ID: com.b10news.app
+- Package Name: com.b10news.app
 
-Preferred communication style: Simple, everyday language.
+## Files Structure
+```
+/src
+  /screens
+    - VideoIntroScreen.tsx
+    - Frame02Screen.tsx
+    - Frame03Screen.tsx
+    - Frame04Screen.tsx
+    - PrivacyPolicyScreen.tsx
+  /navigation
+    - RootNavigator.tsx
+  /constants
+    - theme.ts
+  /utils
+    - youtubeAPI.ts
+  /components
+    - ErrorBoundary.tsx
+/android
+  /app
+    - google-services.json
+/assets
+  - icon.png
+  - splash-icon.png
+  - Mandali-Regular.ttf
+/app.json
+/eas.json
+/PRIVACY_POLICY_TEMPLATE.md
+/FIREBASE_ANDROID_BUILD_SETUP.md
+```
 
-## System Architecture
+## Completed Tasks
+✅ Security audit - API keys stored in Replit Secrets
+✅ SDK 35 configuration - Android 15 for Play Store compliance
+✅ Firebase integration - Crashlytics + Analytics
+✅ google-services.json - Downloaded and placed in android/app/
+✅ Privacy Policy - Created in-app screen + website link
+✅ Build configuration - eas.json ready
+✅ App running - All screens working, YouTube videos fetching
 
-### Frontend Architecture
-
-**Framework Stack**
-- **React Native (0.81.5)**: Core mobile framework for cross-platform development
-- **Expo (v54)**: Development platform and tooling ecosystem
-- **React 19.1.0**: Latest React version with React Compiler enabled for performance optimization
-- **TypeScript**: Type-safe development with strict mode enabled
-
-**Navigation**
-- **React Navigation v7**: Navigation library using native stack navigator
-- Single-screen architecture with no complex routing
-- Native stack navigator configured with `headerShown: false` for full-screen experience
-- Root navigator manages a single route: `VideoIntro`
-
-**UI Components & Styling**
-- Custom theming system with light/dark mode support via `useTheme` hook
-- Design system based on Material Blue (#2196F3) as primary color
-- Reusable component library including:
-  - `ThemedView` and `ThemedText` for consistent theming
-  - Animated `Button` and `Card` components using Reanimated
-  - Screen-level layout components (`ScreenScrollView`, `ScreenFlatList`, etc.)
-- Spacing, typography, and border radius constants defined in centralized theme file
-- Safe area handling with `react-native-safe-area-context`
-
-**Animation & Gestures**
-- **React Native Reanimated (v4.1.1)**: High-performance animations using worklets
-- **React Native Gesture Handler (v2.28.0)**: Native gesture handling
-- Spring animations with custom configuration for micro-interactions
-- Shared values and animated styles for smooth UI transitions
-
-**Video Playback**
-- **expo-video (v3.0.14)**: Native video player component
-- Autoplay functionality on screen load
-- Status change listeners for loading states and playback events
-- Non-looping configuration with replay capability
-- Tap-to-play/pause interaction
-
-**State Management**
-- Local component state using React hooks (`useState`, `useRef`)
-- No global state management library (Redux, MobX, etc.) - not needed for single-screen app
-- Video player state managed through expo-video's `useVideoPlayer` hook
-
-**Error Handling**
-- Custom `ErrorBoundary` class component wrapping the entire app
-- `ErrorFallback` component with developer-friendly error display
-- Error details modal in development mode
-- App restart capability using `expo.reloadAppAsync()`
-
-### Platform-Specific Adaptations
-
-**iOS**
-- Bundle identifier: `com.b10news.app`
-- Tablet support enabled
-- Standard iOS safe area handling
-
-**Android**
-- Package name: `com.b10news.app`
-- Edge-to-edge display enabled
-- Predictive back gesture disabled
-
-**Web**
-- Single-page application output
-- Fallback logic for `KeyboardAwareScrollView` (uses `ScreenScrollView` on web)
-- Client-side color scheme hydration for static rendering support
-
-### Build & Development
-
-**Development Environment**
-- Babel configuration with module resolver for `@/` path alias
-- ESLint with Expo config and Prettier integration
-- TypeScript with strict mode and path mapping
-- Expo New Architecture enabled (`newArchEnabled: true`)
-- React Compiler experimental feature enabled
-
-**Build Scripts**
-- Custom Replit deployment script (`scripts/build.js`)
-- Environment-aware Metro bundler configuration
-- Support for `REPLIT_DEV_DOMAIN` and `REPLIT_INTERNAL_APP_DOMAIN`
-
-**Asset Management**
-- Local video asset stored in `attached_assets/` directory
-- Splash screen configuration with Material Blue background
-- App icons and favicons configured through `app.json`
-
-### Performance Optimizations
-
-- React Compiler for automatic performance optimization
-- Reanimated worklets for 60fps animations running on UI thread
-- Lazy loading patterns where applicable
-- Optimized spring configurations to prevent jank
-
-## External Dependencies
-
-### Core Expo Modules
-- **expo-splash-screen**: Custom branded splash screen with Material Blue background
-- **expo-status-bar**: Status bar styling (light mode)
-- **expo-video**: Native video playback functionality
-- **expo-web-browser**: Web browser integration capabilities
-- **expo-linking**: Deep linking support (scheme: `b10news`)
-- **expo-font**: Custom font loading
-- **expo-constants**: Access to app manifest constants
-- **expo-image**: Optimized image component
-- **expo-haptics**: Haptic feedback support
-- **expo-blur**: Blur effects
-- **expo-glass-effect**: Glass morphism effects
-- **expo-symbols**: SF Symbols (iOS) integration
-- **expo-system-ui**: System UI configuration
-
-### Navigation & UI Libraries
-- **@react-navigation/native**: Core navigation library
-- **@react-navigation/native-stack**: Native stack navigator implementation
-- **@react-navigation/bottom-tabs**: Tab navigation (available but not currently used)
-- **@react-navigation/elements**: Shared navigation UI components
-- **react-native-safe-area-context**: Safe area inset handling
-- **react-native-screens**: Native screen optimization
-
-### Animation & Interaction
-- **react-native-reanimated**: Worklet-based animations
-- **react-native-gesture-handler**: Native gesture recognition
-- **react-native-keyboard-controller**: Keyboard behavior management
-- **react-native-worklets**: Worklets runtime for animations
-
-### Icons & UI
-- **@expo/vector-icons**: Icon library (Feather icons used for UI)
-
-### Development Tools
-- **babel-plugin-module-resolver**: Path alias resolution
-- **eslint** with **eslint-config-expo**: Code linting
-- **prettier**: Code formatting
-- **TypeScript**: Static type checking
-
-### Runtime Considerations
-- No database integration (purely client-side app)
-- No authentication service
-- No backend API calls
-- Local video asset requires bundling with the app
-- Replit-specific environment variable handling for deployment URLs
+## Next Steps for Play Store Submission
+1. Build for Android: `eas build --platform android --release`
+2. Submit APK/AAB to Google Play Console
+3. Fill Data Safety form (Firebase + YouTube)
+4. App review by Google
