@@ -185,6 +185,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingHorizontal: Spacing.lg,
+    paddingHorizontal: 0,
   },
 });
