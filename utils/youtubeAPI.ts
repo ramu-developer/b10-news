@@ -34,6 +34,14 @@ export const fetchYouTubeVideos = async (maxResults: number = 200): Promise<YouT
       const response = await fetch(searchUrl.toString());
       const data = await response.json();
 
+      if (data.error) {
+        console.error("YouTube API Error:", JSON.stringify(data.error));
+        if (data.error.code === 403 && data.error.errors?.[0]?.reason === "quotaExceeded") {
+          console.error("⚠️ QUOTA EXCEEDED: Your YouTube API key has reached its daily limit. Please update with a new API key in environment variables: EXPO_PUBLIC_YOUTUBE_API_KEY");
+        }
+        break;
+      }
+
       if (!data.items || data.items.length === 0) {
         break;
       }
