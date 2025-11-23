@@ -6,6 +6,7 @@ import { Spacing } from "@/constants/theme";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "@/navigation/RootNavigator";
+import { Feather } from "@expo/vector-icons";
 
 const categories = [
   { id: "home", label: "Home" },
@@ -68,7 +69,7 @@ export default function Frame03Screen() {
       >
         <Text style={styles.greetingText}>Hi Bro,</Text>
         <Pressable onPress={handleSharePress} style={styles.shareButton}>
-          <Text style={styles.shareIcon}>📤</Text>
+          <Feather name="share-2" size={24} color="#000000" />
         </Pressable>
       </View>
 
@@ -116,9 +117,6 @@ const styles = StyleSheet.create({
   },
   shareButton: {
     padding: Spacing.sm,
-  },
-  shareIcon: {
-    fontSize: 24,
   },
   iconsContainer: {
     flexDirection: "row",
