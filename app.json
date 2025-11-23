@@ -15,7 +15,9 @@
     "android": {
       "package": "com.b10news.app",
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "targetSdkVersion": 34,
+      "minSdkVersion": 21
     },
     "web": {
       "output": "single",
