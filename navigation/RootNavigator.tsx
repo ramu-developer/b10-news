@@ -9,7 +9,7 @@ export type RootStackParamList = {
   VideoIntro: undefined;
   Frame02: undefined;
   Frame03: undefined;
-  Frame04: { category?: string };
+  Frame04: { url?: string };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

@@ -10,14 +10,11 @@ type Frame04RouteProp = RouteProp<RootStackParamList, "Frame04">;
 export default function Frame04Screen() {
   const navigation = useNavigation();
   const route = useRoute<Frame04RouteProp>();
-  const category = route.params?.category;
+  const url = route.params?.url || "https://www.b10vartha.in/";
 
   useEffect(() => {
     const openWebsite = async () => {
       try {
-        const url = category
-          ? `https://www.b10vartha.in/${category}`
-          : "https://www.b10vartha.in/";
         await WebBrowser.openBrowserAsync(url);
       } catch (error) {
         console.error("Error opening website:", error);
@@ -26,7 +23,7 @@ export default function Frame04Screen() {
     };
 
     openWebsite();
-  }, [navigation, category]);
+  }, [navigation, url]);
 
   return <View style={styles.container} />;
 }

@@ -9,13 +9,13 @@ import type { RootStackParamList } from "@/navigation/RootNavigator";
 import { Feather } from "@expo/vector-icons";
 
 const categories = [
-  { id: "home", label: "Home", emoji: "🏠" },
-  { id: "national", label: "జాతీయం", emoji: "🏛️" },
-  { id: "international", label: "అంతర్జాతీయం", emoji: "🌍" },
-  { id: "politics", label: "రాజకీయాలు", emoji: "⚡" },
-  { id: "health", label: "ఆరోగ్యం", emoji: "⚕️" },
-  { id: "sports", label: "ఆటలు", emoji: "⚽" },
-  { id: "environment", label: "వాతావరణం", emoji: "🌱" },
+  { id: "home", label: "Home", emoji: "🏠", url: "" },
+  { id: "national", label: "జాతీయం", emoji: "🏛️", url: "https://www.b10vartha.in/search/label/%E0%B0%9C%E0%B0%BE%E0%B0%A4%E0%B1%80%E0%B0%AF%E0%B0%82" },
+  { id: "international", label: "అంతర్జాతీయం", emoji: "🌍", url: "https://www.b10vartha.in/search/label/%E0%B0%85%E0%B0%82%E0%B0%A4%E0%B0%B0%E0%B1%8D%E0%B0%9C%E0%B0%BE%E0%B0%A4%E0%B1%80%E0%B0%AF%E0%B0%82" },
+  { id: "politics", label: "రాజకీయాలు", emoji: "⚡", url: "https://www.b10vartha.in/search/label/%E0%B0%B0%E0%B0%BE%E0%B0%9C%E0%B0%95%E0%B1%80%E0%B0%AF%E0%B0%BE%E0%B0%B2%E0%B1%81" },
+  { id: "health", label: "ఆరోగ్యం", emoji: "⚕️", url: "https://www.b10vartha.in/search/label/%E0%B0%86%E0%B0%B0%E0%B1%8B%E0%B0%97%E0%B1%8D%E0%B0%AF%E0%B0%82" },
+  { id: "sports", label: "ఆటలు", emoji: "⚽", url: "https://www.b10vartha.in/search/label/%E0%B0%86%E0%B0%9F%E0%B0%B2%E0%B1%81" },
+  { id: "environment", label: "వాతావరణం", emoji: "🌱", url: "https://www.b10vartha.in/search/label/%E0%B0%B5%E0%B0%BE%E0%B0%A4%E0%B0%BE%E0%B0%B5%E0%B0%B0%E0%B0%A3%E0%B0%82" },
 ];
 
 export default function Frame03Screen() {
@@ -57,8 +57,8 @@ export default function Frame03Screen() {
     const category = categories.find(c => c.id === categoryId);
     if (categoryId === "home") {
       navigation.goBack();
-    } else if (category) {
-      navigation.navigate("Frame04", { category: category.label });
+    } else if (category && category.url) {
+      navigation.navigate("Frame04", { url: category.url });
     }
   };
 
