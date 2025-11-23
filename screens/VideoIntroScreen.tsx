@@ -122,10 +122,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     position: "relative",
     overflow: "hidden",
+    borderWidth: 0,
   },
   video: {
     width: "100%",
     height: "100%",
+    borderWidth: 0,
   },
   loadingOverlay: {
     ...StyleSheet.absoluteFillObject,
