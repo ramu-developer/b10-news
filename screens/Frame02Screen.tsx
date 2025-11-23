@@ -147,7 +147,7 @@ export default function Frame02Screen() {
 
       <Modal
         visible={searchVisible}
-        transparent={true}
+        transparent={false}
         animationType="fade"
         onRequestClose={() => {
           setSearchVisible(false);
@@ -175,6 +175,9 @@ export default function Frame02Screen() {
             >
               <Text style={styles.closeButtonText}>✕</Text>
             </Pressable>
+          </View>
+          <View style={styles.modalContent}>
+            <VideosSection videos={filteredVideos} loading={loading} />
           </View>
         </View>
       </Modal>
@@ -278,7 +281,7 @@ const styles = StyleSheet.create({
   },
   searchOverlay: {
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: "#FFFFFF",
     justifyContent: "flex-start",
   },
   searchContainer: {
@@ -308,5 +311,9 @@ const styles = StyleSheet.create({
   closeButtonText: {
     fontSize: 24,
     color: "#000000",
+  },
+  modalContent: {
+    flex: 1,
+    paddingHorizontal: 0,
   },
 });
