@@ -1,36 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, StyleSheet } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { WebView } from "react-native-webview";
+import * as WebBrowser from "expo-web-browser";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Frame04Screen() {
-  const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
 
-  return (
-    <View
-      style={[
-        styles.container,
-        {
-          paddingTop: insets.top,
-        },
-      ]}
-    >
-      <WebView
-        source={{ uri: "https://www.b10vartha.in/" }}
-        style={styles.webview}
-        startInLoadingState={true}
-        scalesPageToFit={true}
-      />
-    </View>
-  );
+  useEffect(() => {
+    const openWebsite = async () => {
+      try {
+        await WebBrowser.openBrowserAsync("https://www.b10vartha.in/");
+      } catch (error) {
+        console.error("Error opening website:", error);
+      }
+      navigation.goBack();
+    };
+
+    openWebsite();
+  }, [navigation]);
+
+  return <View style={styles.container} />;
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FFFFFF",
-  },
-  webview: {
-    flex: 1,
   },
 });
