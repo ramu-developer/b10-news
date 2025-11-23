@@ -44,13 +44,8 @@ export default function Frame03Screen() {
     }
   };
 
-  const handleWebsitePress = async () => {
-    try {
-      const websiteUrl = "https://www.b10news.in";
-      await Linking.openURL(websiteUrl);
-    } catch (error) {
-      console.error("Error opening website:", error);
-    }
+  const handleWebsitePress = () => {
+    navigation.navigate("Frame04", { url: "https://www.b10vartha.in/" });
   };
 
   const handleCategoryPress = (categoryId: string) => {
