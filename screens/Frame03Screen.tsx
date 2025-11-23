@@ -123,6 +123,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingBottom: Spacing.lg,
+    minHeight: 40,
   },
   greetingText: {
     fontSize: 20,
@@ -181,6 +182,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#2196F3",
     borderRadius: 2,
     marginHorizontal: 0,
+    alignSelf: "flex-start",
+    width: "auto",
   },
   categoryEmoji: {
     fontSize: 24,
