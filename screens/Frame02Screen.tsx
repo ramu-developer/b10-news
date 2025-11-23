@@ -273,6 +273,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: 0,
+    paddingTop: Spacing.lg,
   },
   searchOverlay: {
     flex: 1,
