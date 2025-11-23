@@ -9,13 +9,13 @@ import type { RootStackParamList } from "@/navigation/RootNavigator";
 import { Feather } from "@expo/vector-icons";
 
 const categories = [
-  { id: "home", label: "Home", icon: "home", color: "#FF6B6B" },
-  { id: "national", label: "జాతీయం", icon: "flag", color: "#FFA500" },
-  { id: "international", label: "అంతర్జాతీయం", icon: "globe", color: "#4ECDC4" },
-  { id: "politics", label: "రాజకీయాలు", icon: "award", color: "#FFD700" },
-  { id: "health", label: "ఆరోగ్యం", icon: "heart", color: "#FF69B4" },
-  { id: "sports", label: "ఆటలు", icon: "circle", color: "#00D4FF" },
-  { id: "environment", label: "వాతావరణం", icon: "cloud", color: "#90EE90" },
+  { id: "home", label: "Home", emoji: "🏠" },
+  { id: "national", label: "జాతీయం", emoji: "🏛️" },
+  { id: "international", label: "అంతర్జాతీయం", emoji: "🌍" },
+  { id: "politics", label: "రాజకీయాలు", emoji: "🎭" },
+  { id: "health", label: "ఆరోగ్యం", emoji: "⚕️" },
+  { id: "sports", label: "ఆటలు", emoji: "⚽" },
+  { id: "environment", label: "వాతావరణం", emoji: "🌱" },
 ];
 
 export default function Frame03Screen() {
@@ -97,11 +97,7 @@ export default function Frame03Screen() {
               selectedCategory === category.id && styles.categoryItemSelected,
             ]}
           >
-            <Feather
-              name={category.icon as any}
-              size={20}
-              color={selectedCategory === category.id ? "#FFFFFF" : category.color}
-            />
+            <Text style={styles.categoryEmoji}>{category.emoji}</Text>
             <Text
               style={[
                 styles.categoryText,
@@ -185,6 +181,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#2196F3",
     borderRadius: 2,
     marginHorizontal: 0,
+  },
+  categoryEmoji: {
+    fontSize: 24,
   },
   categoryText: {
     fontSize: 16,
