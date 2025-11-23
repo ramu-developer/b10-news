@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Text, ScrollView, ActivityIndicator, Dimensions } from "react-native";
+import { View, StyleSheet, Text, FlatList, ActivityIndicator, Dimensions } from "react-native";
 import { Image } from "expo-image";
 import { fetchYouTubeVideos, YouTubeVideo } from "@/utils/youtubeAPI";
 import { Spacing } from "@/constants/theme";
 
 const screenWidth = Dimensions.get("window").width;
+const itemWidth = (screenWidth - 20) / 2; // 2 columns with 8px padding each side and 4px gap
 
 export default function VideosSection() {
   const [videos, setVideos] = useState<YouTubeVideo[]>([]);
@@ -37,37 +38,49 @@ export default function VideosSection() {
     );
   }
 
+  const renderVideoItem = ({ item }: { item: YouTubeVideo }) => (
+    <View style={styles.videoItem}>
+      <Image
+        source={{ uri: item.thumbnail }}
+        style={styles.thumbnail}
+        contentFit="cover"
+      />
+      <Text style={styles.title} numberOfLines={2}>
+        {item.title}
+      </Text>
+    </View>
+  );
+
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      {videos.map((video) => (
-        <View key={video.id} style={styles.videoItem}>
-          <Image
-            source={{ uri: video.thumbnail }}
-            style={styles.thumbnail}
-            contentFit="cover"
-          />
-          <Text style={styles.title} numberOfLines={2}>
-            {video.title}
-          </Text>
-        </View>
-      ))}
-    </ScrollView>
+    <FlatList
+      data={videos}
+      renderItem={renderVideoItem}
+      keyExtractor={(item) => item.id}
+      numColumns={2}
+      columnWrapperStyle={styles.row}
+      showsVerticalScrollIndicator={false}
+      scrollEnabled={true}
+      contentContainerStyle={styles.listContent}
+    />
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 0,
+  listContent: {
+    paddingHorizontal: 8,
+    paddingTop: Spacing.sm,
+  },
+  row: {
+    gap: 4,
+    justifyContent: "space-between",
   },
   videoItem: {
+    width: itemWidth,
     marginBottom: Spacing.lg,
-    paddingLeft: 8,
-    paddingRight: 8,
   },
   thumbnail: {
-    width: screenWidth - 16,
-    height: (screenWidth - 16) * (9 / 16),
+    width: itemWidth,
+    height: itemWidth * (9 / 16),
     borderRadius: 4,
     marginBottom: Spacing.sm,
   },
@@ -76,6 +89,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     color: "#000000",
     fontFamily: "Mandali-Regular",
+    paddingHorizontal: 2,
   },
   loadingContainer: {
     flex: 1,
