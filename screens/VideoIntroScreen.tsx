@@ -122,11 +122,12 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    position: "absolute",
+    position: "relative",
     overflow: "hidden",
     padding: 0,
     margin: 0,
     borderWidth: 0,
+    backgroundColor: "#2196F3",
   },
   video: {
     width: "100%",
@@ -134,6 +135,7 @@ const styles = StyleSheet.create({
     padding: 0,
     margin: 0,
     borderWidth: 0,
+    backgroundColor: "#2196F3",
   },
   loadingOverlay: {
     ...StyleSheet.absoluteFillObject,
