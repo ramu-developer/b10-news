@@ -54,10 +54,11 @@ export default function Frame03Screen() {
   };
 
   const handleCategoryPress = (categoryId: string) => {
+    const category = categories.find(c => c.id === categoryId);
     if (categoryId === "home") {
       navigation.goBack();
-    } else {
-      navigation.navigate("Frame04");
+    } else if (category) {
+      navigation.navigate("Frame04", { category: category.label });
     }
   };
 
