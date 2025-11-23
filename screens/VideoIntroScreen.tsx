@@ -75,7 +75,7 @@ export default function VideoIntroScreen() {
         <VideoView
           player={player}
           style={styles.video}
-          contentFit="cover"
+          contentFit="fill"
           nativeControls={false}
         />
 
