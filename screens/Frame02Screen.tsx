@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { View, StyleSheet, Pressable, Text, ScrollView } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet, Pressable, Text, ScrollView, TextInput, Modal, ActivityIndicator } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Image } from "expo-image";
 import * as Linking from "expo-linking";
 import { Spacing } from "@/constants/theme";
+import { fetchYouTubeVideos, YouTubeVideo } from "@/utils/youtubeAPI";
 import VideosSection from "@/components/VideosSection";
 
 const logoSource = require("@/assets/images/b10news_logo.png");
@@ -20,18 +21,42 @@ const categories = [
 export default function Frame02Screen() {
   const insets = useSafeAreaInsets();
   const [selectedCategory, setSelectedCategory] = useState("national");
+  const [allVideos, setAllVideos] = useState<YouTubeVideo[]>([]);
+  const [filteredVideos, setFilteredVideos] = useState<YouTubeVideo[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [searchVisible, setSearchVisible] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const loadVideos = async () => {
+      setLoading(true);
+      const videosData = await fetchYouTubeVideos(200);
+      setAllVideos(videosData);
+      setFilteredVideos(videosData);
+      setLoading(false);
+    };
+
+    loadVideos();
+  }, []);
+
+  const handleSearchSubmit = (query: string) => {
+    setSearchQuery(query);
+    if (query.trim()) {
+      const filtered = allVideos.filter((video) =>
+        video.title.toLowerCase().includes(query.toLowerCase())
+      );
+      setFilteredVideos(filtered);
+    } else {
+      setFilteredVideos(allVideos);
+    }
+  };
+
+  const handleSearchPress = () => {
+    setSearchVisible(true);
+  };
 
   const handleMenuPress = () => {
     // Menu action will be added later
-  };
-
-  const handleSearchPress = async () => {
-    try {
-      const searchUrl = "https://www.youtube.com/@B10newsAp/videos";
-      await Linking.openURL(searchUrl);
-    } catch (error) {
-      console.error("Error opening search:", error);
-    }
   };
 
   const handleLogoPress = async () => {
@@ -117,8 +142,42 @@ export default function Frame02Screen() {
       </View>
 
       <View style={styles.content}>
-        <VideosSection />
+        <VideosSection videos={filteredVideos} loading={loading} />
       </View>
+
+      <Modal
+        visible={searchVisible}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => {
+          setSearchVisible(false);
+          setSearchQuery("");
+          setFilteredVideos(allVideos);
+        }}
+      >
+        <View style={styles.searchOverlay}>
+          <View style={styles.searchContainer}>
+            <TextInput
+              style={styles.searchInput}
+              placeholder="Search videos..."
+              placeholderTextColor="#999999"
+              value={searchQuery}
+              onChangeText={handleSearchSubmit}
+              autoFocus={true}
+            />
+            <Pressable
+              style={styles.closeButton}
+              onPress={() => {
+                setSearchVisible(false);
+                setSearchQuery("");
+                setFilteredVideos(allVideos);
+              }}
+            >
+              <Text style={styles.closeButtonText}>✕</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -214,5 +273,38 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: 0,
+  },
+  searchOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    justifyContent: "flex-start",
+  },
+  searchContainer: {
+    backgroundColor: "#FFFFFF",
+    paddingHorizontal: Spacing.lg,
+    paddingVertical: Spacing.lg,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: Spacing.md,
+  },
+  searchInput: {
+    flex: 1,
+    height: 40,
+    borderWidth: 1,
+    borderColor: "#2196F3",
+    borderRadius: 8,
+    paddingHorizontal: Spacing.md,
+    fontSize: 16,
+    color: "#000000",
+  },
+  closeButton: {
+    width: 40,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  closeButtonText: {
+    fontSize: 24,
+    color: "#000000",
   },
 });

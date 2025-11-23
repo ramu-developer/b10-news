@@ -1,28 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { View, StyleSheet, Text, FlatList, ActivityIndicator, Dimensions, Pressable } from "react-native";
 import { Image } from "expo-image";
 import * as Linking from "expo-linking";
-import { fetchYouTubeVideos, YouTubeVideo } from "@/utils/youtubeAPI";
+import { YouTubeVideo } from "@/utils/youtubeAPI";
 import { Spacing } from "@/constants/theme";
 
 const screenWidth = Dimensions.get("window").width;
 const itemWidth = (screenWidth - 20) / 2; // 2 columns with 8px padding each side and 4px gap
 
-export default function VideosSection() {
-  const [videos, setVideos] = useState<YouTubeVideo[]>([]);
-  const [loading, setLoading] = useState(true);
+interface VideosSectionProps {
+  videos: YouTubeVideo[];
+  loading: boolean;
+}
 
-  useEffect(() => {
-    const loadVideos = async () => {
-      setLoading(true);
-      const videosData = await fetchYouTubeVideos(200);
-      setVideos(videosData);
-      setLoading(false);
-    };
-
-    loadVideos();
-  }, []);
-
+export default function VideosSection({ videos, loading }: VideosSectionProps) {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
