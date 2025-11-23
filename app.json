@@ -43,8 +43,7 @@
         {
           "fonts": ["./assets/Mandali-Regular.ttf"]
         }
-      ],
-      "sentry-expo/init"
+      ]
     ],
     "experiments": {
       "reactCompiler": true
