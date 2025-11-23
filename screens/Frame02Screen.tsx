@@ -35,7 +35,7 @@ export default function Frame02Screen() {
           styles.header,
           {
             paddingTop: insets.top + 4,
-            paddingLeft: Spacing.lg,
+            paddingLeft: 4,
             paddingRight: Spacing.lg,
           },
         ]}
