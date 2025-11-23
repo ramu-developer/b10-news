@@ -77,6 +77,15 @@ export default function Frame02Screen() {
     }
   };
 
+  const handleBellPress = async () => {
+    try {
+      const channelUrl = "https://www.youtube.com/@B10newsAp/videos";
+      await Linking.openURL(channelUrl);
+    } catch (error) {
+      console.error("Error opening channel:", error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View
@@ -99,6 +108,9 @@ export default function Frame02Screen() {
         </View>
 
         <View style={styles.rightSection}>
+          <Pressable onPress={handleBellPress} style={styles.bellButton}>
+            <Text style={styles.bellIcon}>🔔</Text>
+          </Pressable>
           <Pressable onPress={handleSearchPress} style={styles.searchButton}>
             <Text style={styles.searchIcon}>🔍</Text>
           </Pressable>
@@ -217,6 +229,14 @@ const styles = StyleSheet.create({
   rightSection: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  bellButton: {
+    padding: Spacing.sm,
+    marginRight: Spacing.sm,
+  },
+  bellIcon: {
+    fontSize: 24,
+    color: "#FF0000",
   },
   searchButton: {
     padding: Spacing.sm,
