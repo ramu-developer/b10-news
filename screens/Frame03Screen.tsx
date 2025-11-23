@@ -73,8 +73,10 @@ export default function Frame03Screen() {
       </View>
 
       <View style={styles.iconsContainer}>
-        <Pressable onPress={handleYouTubePress} style={styles.iconButton}>
-          <Text style={styles.youtubeIcon}>▶️</Text>
+        <Pressable onPress={handleYouTubePress} style={styles.youtubeButton}>
+          <View style={styles.youtubeIconContainer}>
+            <Text style={styles.youtubePlayIcon}>▶</Text>
+          </View>
         </Pressable>
         <Pressable onPress={handleWebsitePress} style={styles.iconButton}>
           <Text style={styles.websiteIcon}>🌐</Text>
@@ -125,11 +127,24 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.md,
     gap: Spacing.lg,
   },
+  youtubeButton: {
+    padding: 0,
+  },
+  youtubeIconContainer: {
+    backgroundColor: "#FF0000",
+    borderRadius: 2,
+    width: 40,
+    height: 28,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  youtubePlayIcon: {
+    fontSize: 14,
+    color: "#FFFFFF",
+    marginLeft: 2,
+  },
   iconButton: {
     padding: Spacing.sm,
-  },
-  youtubeIcon: {
-    fontSize: 32,
   },
   websiteIcon: {
     fontSize: 32,
