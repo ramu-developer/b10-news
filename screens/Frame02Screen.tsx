@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, Pressable, Text, ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Image } from "expo-image";
+import * as Linking from "expo-linking";
 import { Spacing } from "@/constants/theme";
 import VideosSection from "@/components/VideosSection";
 
@@ -24,8 +25,31 @@ export default function Frame02Screen() {
     // Menu action will be added later
   };
 
-  const handleSearchPress = () => {
-    // Search action will be added later
+  const handleSearchPress = async () => {
+    try {
+      const searchUrl = "https://www.youtube.com/@B10newsAp/videos";
+      await Linking.openURL(searchUrl);
+    } catch (error) {
+      console.error("Error opening search:", error);
+    }
+  };
+
+  const handleLogoPress = async () => {
+    try {
+      const channelUrl = "https://www.youtube.com/@B10newsAp/videos";
+      await Linking.openURL(channelUrl);
+    } catch (error) {
+      console.error("Error opening channel:", error);
+    }
+  };
+
+  const handleLivePress = async () => {
+    try {
+      const streamsUrl = "https://www.youtube.com/@B10newsAp/streams";
+      await Linking.openURL(streamsUrl);
+    } catch (error) {
+      console.error("Error opening streams:", error);
+    }
   };
 
   return (
@@ -44,14 +68,18 @@ export default function Frame02Screen() {
           <Pressable onPress={handleMenuPress} style={styles.menuButton}>
             <Text style={styles.menuIcon}>☰</Text>
           </Pressable>
-          <Image source={logoSource} style={styles.logo} contentFit="contain" />
+          <Pressable onPress={handleLogoPress}>
+            <Image source={logoSource} style={styles.logo} contentFit="contain" />
+          </Pressable>
         </View>
 
         <View style={styles.rightSection}>
           <Pressable onPress={handleSearchPress} style={styles.searchButton}>
             <Text style={styles.searchIcon}>🔍</Text>
           </Pressable>
-          <Text style={styles.liveText}>Live</Text>
+          <Pressable onPress={handleLivePress}>
+            <Text style={styles.liveText}>Live</Text>
+          </Pressable>
         </View>
       </View>
 
