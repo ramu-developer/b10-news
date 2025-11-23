@@ -1,6 +1,9 @@
 const YOUTUBE_API_KEY = process.env.EXPO_PUBLIC_YOUTUBE_API_KEY || "AIzaSyBYibXOgiSMmidWSECa4plIDj1ZWXxOw-E";
 const YOUTUBE_CHANNEL_ID = process.env.EXPO_PUBLIC_YOUTUBE_CHANNEL_ID || "UCff6g5U72C10-bqm_M1a-lw";
 
+// Fallback to new key if needed
+const FALLBACK_API_KEY = "AIzaSyBYibXOgiSMmidWSECa4plIDj1ZWXxOw-E";
+
 export interface YouTubeVideo {
   id: string;
   title: string;
