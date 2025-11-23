@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
     margin: 0,
   },
   videoContainer: {
-    width: "100%",
-    flex: 1,
+    width: "80%",
+    height: "70%",
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
