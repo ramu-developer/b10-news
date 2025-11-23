@@ -21,6 +21,7 @@ const categories = [
 export default function Frame03Screen() {
   const insets = useSafeAreaInsets();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null);
 
   const handleSharePress = async () => {
     try {
@@ -52,6 +53,8 @@ export default function Frame03Screen() {
   const handleCategoryPress = (categoryId: string) => {
     if (categoryId === "home") {
       navigation.navigate("Frame02");
+    } else {
+      setSelectedCategory(categoryId);
     }
   };
 
@@ -89,10 +92,24 @@ export default function Frame03Screen() {
           <Pressable
             key={category.id}
             onPress={() => handleCategoryPress(category.id)}
-            style={styles.categoryItem}
+            style={[
+              styles.categoryItem,
+              selectedCategory === category.id && styles.categoryItemSelected,
+            ]}
           >
-            <Feather name={category.icon as any} size={20} color="#000000" />
-            <Text style={styles.categoryText}>{category.label}</Text>
+            <Feather
+              name={category.icon as any}
+              size={20}
+              color={selectedCategory === category.id ? "#FFFFFF" : "#000000"}
+            />
+            <Text
+              style={[
+                styles.categoryText,
+                selectedCategory === category.id && styles.categoryTextSelected,
+              ]}
+            >
+              {category.label}
+            </Text>
           </Pressable>
         ))}
       </ScrollView>
@@ -164,9 +181,17 @@ const styles = StyleSheet.create({
     borderBottomColor: "#F0F0F0",
     gap: Spacing.md,
   },
+  categoryItemSelected: {
+    backgroundColor: "#2196F3",
+    borderRadius: 2,
+    marginHorizontal: 0,
+  },
   categoryText: {
     fontSize: 16,
     fontWeight: "500",
     color: "#000000",
+  },
+  categoryTextSelected: {
+    color: "#FFFFFF",
   },
 });
