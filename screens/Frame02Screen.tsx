@@ -13,12 +13,12 @@ import type { RootStackParamList } from "@/navigation/RootNavigator";
 const logoSource = require("@/assets/images/b10news_logo.png");
 
 const categories = [
-  { id: "national", label: "జాతీయం" },
-  { id: "international", label: "అంతర్జాతీయం" },
-  { id: "politics", label: "రాజకీయాలు" },
-  { id: "health", label: "ఆరోగ్యం" },
-  { id: "sports", label: "ఆటలు" },
-  { id: "environment", label: "వాతావరణం" },
+  { id: "national", label: "జాతీయం", url: "https://www.b10vartha.in/search/label/%E0%B0%9C%E0%B0%BE%E0%B0%A4%E0%B1%80%E0%B0%AF%E0%B0%82" },
+  { id: "international", label: "అంతర్జాతీయం", url: "https://www.b10vartha.in/search/label/%E0%B0%85%E0%B0%82%E0%B0%A4%E0%B0%B0%E0%B1%8D%E0%B0%9C%E0%B0%BE%E0%B0%A4%E0%B1%80%E0%B0%AF%E0%B0%82" },
+  { id: "politics", label: "రాజకీయాలు", url: "https://www.b10vartha.in/search/label/%E0%B0%B0%E0%B0%BE%E0%B0%9C%E0%B0%95%E0%B1%80%E0%B0%AF%E0%B0%BE%E0%B0%B2%E0%B1%81" },
+  { id: "health", label: "ఆరోగ్యం", url: "https://www.b10vartha.in/search/label/%E0%B0%86%E0%B0%B0%E0%B1%8B%E0%B0%97%E0%B1%8D%E0%B0%AF%E0%B0%82" },
+  { id: "sports", label: "ఆటలు", url: "https://www.b10vartha.in/search/label/%E0%B0%86%E0%B0%9F%E0%B0%B2%E0%B1%81" },
+  { id: "environment", label: "వాతావరణం", url: "https://www.b10vartha.in/search/label/%E0%B0%B5%E0%B0%BE%E0%B0%A4%E0%B0%BE%E0%B0%B5%E0%B0%B0%E0%B0%A3%E0%B0%82" },
 ];
 
 export default function Frame02Screen() {
@@ -90,6 +90,15 @@ export default function Frame02Screen() {
     }
   };
 
+  const handleCategoryPress = (categoryId: string) => {
+    const category = categories.find(c => c.id === categoryId);
+    setSelectedCategory(categoryId);
+    
+    if (category && category.url) {
+      navigation.navigate("Frame04", { url: category.url });
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View
@@ -138,7 +147,7 @@ export default function Frame02Screen() {
           {categories.map((category) => (
             <Pressable
               key={category.id}
-              onPress={() => setSelectedCategory(category.id)}
+              onPress={() => handleCategoryPress(category.id)}
               style={[
                 styles.categoryItem,
                 selectedCategory === category.id && styles.categoryItemSelected,
