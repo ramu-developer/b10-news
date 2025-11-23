@@ -8,7 +8,6 @@ import { StatusBar } from "expo-status-bar";
 
 import RootNavigator from "@/navigation/RootNavigator";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
-import "@/config/firebaseConfig"; // Initialize Firebase on app start
 
 export default function App() {
   return (
