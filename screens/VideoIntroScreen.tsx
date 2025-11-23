@@ -62,47 +62,34 @@ export default function VideoIntroScreen() {
 
 
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-      ]}
-    >
-      <View style={styles.videoContainer}>
-        <VideoView
-          player={player}
-          style={styles.video}
-          contentFit="fill"
-          nativeControls={false}
-        />
+    <View style={styles.container}>
+      <VideoView
+        player={player}
+        style={styles.video}
+        contentFit="fill"
+        nativeControls={false}
+      />
 
-        {isLoading ? (
-          <View style={styles.loadingOverlay}>
-            <ActivityIndicator size="large" color="#FFFFFF" />
+      {isLoading ? (
+        <View style={styles.loadingOverlay}>
+          <ActivityIndicator size="large" color="#FFFFFF" />
+        </View>
+      ) : null}
+
+      {!isLoading && !hasEnded ? (
+        <Pressable
+          style={styles.playPauseOverlay}
+          onPress={handleTogglePlayPause}
+        >
+          <View style={styles.playPauseButton}>
+            <Feather
+              name={player.playing ? "pause" : "play"}
+              size={64}
+              color="#FFFFFF"
+            />
           </View>
-        ) : null}
-
-
-        {!isLoading && !hasEnded ? (
-          <>
-            <Pressable
-              style={styles.playPauseOverlay}
-              onPress={handleTogglePlayPause}
-            >
-              <View style={styles.playPauseButton}>
-                <Feather
-                  name={player.playing ? "pause" : "play"}
-                  size={64}
-                  color="#FFFFFF"
-                />
-              </View>
-            </Pressable>
-          </>
-        ) : null}
-      </View>
+        </Pressable>
+      ) : null}
     </View>
   );
 }
@@ -111,31 +98,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#2196F3",
-    justifyContent: "center",
-    alignItems: "center",
     overflow: "hidden",
-    padding: 0,
-    margin: 0,
-  },
-  videoContainer: {
-    width: "100%",
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "relative",
-    overflow: "hidden",
-    padding: 0,
-    margin: 0,
-    borderWidth: 0,
-    backgroundColor: "#2196F3",
   },
   video: {
-    width: "100%",
-    height: "100%",
-    padding: 0,
-    margin: 0,
-    borderWidth: 0,
-    backgroundColor: "#2196F3",
+    flex: 1,
   },
   loadingOverlay: {
     ...StyleSheet.absoluteFillObject,
