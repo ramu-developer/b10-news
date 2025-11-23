@@ -117,6 +117,10 @@ export default function Frame03Screen() {
           </Pressable>
         ))}
       </ScrollView>
+
+      <View style={[styles.footer, { paddingBottom: insets.bottom + Spacing.md }]}>
+        <Text style={styles.copyrightText}>©b10vartha.in</Text>
+      </View>
     </View>
   );
 }
@@ -227,5 +231,18 @@ const styles = StyleSheet.create({
   },
   categoryTextSelected: {
     color: "#FFFFFF",
+  },
+  footer: {
+    paddingHorizontal: Spacing.lg,
+    paddingTop: Spacing.md,
+    alignItems: "center",
+    justifyContent: "center",
+    borderTopWidth: 1,
+    borderTopColor: "#F0F0F0",
+  },
+  copyrightText: {
+    fontSize: 12,
+    fontWeight: "400",
+    color: "#999999",
   },
 });
