@@ -66,8 +66,8 @@ export default function VideoIntroScreen() {
       style={[
         styles.container,
         {
-          paddingTop: insets.top + Spacing.xl,
-          paddingBottom: insets.bottom + Spacing.xl,
+          paddingTop: 0,
+          paddingBottom: 0,
         },
       ]}
     >
@@ -75,7 +75,7 @@ export default function VideoIntroScreen() {
         <VideoView
           player={player}
           style={styles.video}
-          contentFit="contain"
+          contentFit="cover"
           nativeControls={false}
         />
 
@@ -114,19 +114,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     overflow: "hidden",
+    padding: 0,
+    margin: 0,
   },
   videoContainer: {
     width: "100%",
-    flex: 1,
+    height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    position: "relative",
+    position: "absolute",
     overflow: "hidden",
+    padding: 0,
+    margin: 0,
     borderWidth: 0,
   },
   video: {
     width: "100%",
     height: "100%",
+    padding: 0,
+    margin: 0,
     borderWidth: 0,
   },
   loadingOverlay: {
