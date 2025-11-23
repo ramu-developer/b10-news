@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "522579258183",
+    "project_id": "b10-news",
+    "storage_bucket": "b10-news.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522579258183:android:d4b007aeba9b493ef6ba62",
+        "android_client_info": {
+          "package_name": "com.b10.news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522579258183-0h7cj9fk8vagmeob378n3adnb3qpj1rb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4hDLlWuUn4m22hKIb82JFNxI0RuTaMJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522579258183-0h7cj9fk8vagmeob378n3adnb3qpj1rb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522579258183:android:0aa3296b9da8f4c6f6ba62",
+        "android_client_info": {
+          "package_name": "com.b10news.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522579258183-sgjqibh7sf2e2af3ia3shr7679g3i0vd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.b10news.app",
+            "certificate_hash": "a850c6c300d872940078e9c19f9f32bf4ceb055a"
+          }
+        },
+        {
+          "client_id": "522579258183-0h7cj9fk8vagmeob378n3adnb3qpj1rb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4hDLlWuUn4m22hKIb82JFNxI0RuTaMJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522579258183-0h7cj9fk8vagmeob378n3adnb3qpj1rb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
