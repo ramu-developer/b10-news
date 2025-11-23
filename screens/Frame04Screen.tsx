@@ -1,7 +1,7 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Spacing } from "@/constants/theme";
+import { WebView } from "react-native-webview";
 
 export default function Frame04Screen() {
   const insets = useSafeAreaInsets();
@@ -11,13 +11,16 @@ export default function Frame04Screen() {
       style={[
         styles.container,
         {
-          paddingTop: insets.top + Spacing.lg,
-          paddingBottom: insets.bottom + Spacing.lg,
-          paddingHorizontal: Spacing.lg,
+          paddingTop: insets.top,
         },
       ]}
     >
-      <Text style={styles.text}>Frame 04</Text>
+      <WebView
+        source={{ uri: "https://www.b10vartha.in/" }}
+        style={styles.webview}
+        startInLoadingState={true}
+        scalesPageToFit={true}
+      />
     </View>
   );
 }
@@ -26,12 +29,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FFFFFF",
-    justifyContent: "center",
-    alignItems: "center",
   },
-  text: {
-    fontSize: 24,
-    fontWeight: "600",
-    color: "#000000",
+  webview: {
+    flex: 1,
   },
 });
