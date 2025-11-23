@@ -16,7 +16,7 @@
       "package": "com.b10news.app",
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "targetSdkVersion": 34,
+      "targetSdkVersion": 35,
       "minSdkVersion": 21
     },
     "web": {

@@ -1,0 +1,42 @@
+I need to clarify these two important points for your B10 News app submission to Google Play Store:
+
+## SDK 34 (Target API Level) Requirement
+
+**Current Status (as of November 2025):**
+- **API 35 (Android 15)**: Required for new apps submitted after August 31, 2025
+- **API 34 (Android 14)**: Minimum for existing apps that need updates
+- **SDK 34 is NOT compulsory** - you need **SDK 35 or higher** for new submissions now
+
+Since you're building a new app, Google requires you to target **API 35 (Android 15)** minimum. Using SDK 34 will likely result in a rejection with the message: "Target API level is below minimum required level."
+
+**Action for your B10 News app:**
+- Set `targetSdkVersion = 35` in your `build.gradle` file
+- Test thoroughly on Android 15 devices/emulator
+- Ensure all features work properly on the latest Android version
+
+## Firebase Integration Requirement
+
+**Firebase is NOT compulsory** for Play Store submission, but it's **highly recommended** and practically essential for:
+
+| Firebase Feature | Why It Matters for Play Store |
+|---|---|
+| **Crashlytics** | Google strongly recommends crash reporting - helps detect issues before users report them |
+| **Analytics** | Provides user behavior insights - useful for app improvement |
+| **Pre-launch Reports** | Google Play Console uses crash data from similar apps to predict issues |
+| **Performance Monitoring** | Helps identify app performance problems |
+| **Remote Config** | Allows quick fixes without app updates |
+
+**What's compulsory:**
+- **Data Safety Form** (required) - You must accurately declare what data you collect
+- **Privacy Policy** (required) - Must be a working, non-editable URL
+- **Target API 35+** (required for new apps)
+
+**Firebase is optional but:** If your app crashes frequently and you don't have Crashlytics integrated, Google may reject it or flag it as having "poor quality" during the Pre-launch Report phase.
+
+**Recommendation for your B10 News app:**
+✅ Integrate Firebase Crashlytics (free tier available)
+✅ Set targetSdkVersion to 35
+✅ Complete Data Safety Form accurately
+✅ Ensure Privacy Policy is correct and working
+
+Would you like help setting up Firebase Crashlytics in your B10 News app or configuring SDK 35 in your build files?
