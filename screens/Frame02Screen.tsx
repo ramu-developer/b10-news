@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
   },
   categoryItem: {
     paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingVertical: 2,
     marginRight: 12,
     alignItems: "center",
     justifyContent: "center",
