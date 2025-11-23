@@ -25,8 +25,8 @@ export default function Frame03Screen() {
 
   const handleSharePress = async () => {
     try {
-      const channelUrl = "https://www.youtube.com/@B10newsAp/videos";
-      await Linking.openURL(channelUrl);
+      const shareUrl = "https://www.b10vartha.in/";
+      await Linking.openURL(shareUrl);
     } catch (error) {
       console.error("Error sharing:", error);
     }
