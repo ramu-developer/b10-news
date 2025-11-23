@@ -3,11 +3,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import VideoIntroScreen from "@/screens/VideoIntroScreen";
 import Frame02Screen from "@/screens/Frame02Screen";
 import Frame03Screen from "@/screens/Frame03Screen";
+import Frame04Screen from "@/screens/Frame04Screen";
 
 export type RootStackParamList = {
   VideoIntro: undefined;
   Frame02: undefined;
   Frame03: undefined;
+  Frame04: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -29,6 +31,7 @@ export default function RootNavigator() {
           animation: "slide_from_left",
         }}
       />
+      <Stack.Screen name="Frame04" component={Frame04Screen} />
     </Stack.Navigator>
   );
 }
