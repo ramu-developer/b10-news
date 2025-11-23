@@ -12,9 +12,9 @@ const categories = [
   { id: "home", label: "Home", icon: "home" },
   { id: "national", label: "జాతీయం", icon: "flag" },
   { id: "international", label: "అంతర్జాతీయం", icon: "globe" },
-  { id: "politics", label: "రాజకీయాలు", icon: "briefcase" },
+  { id: "politics", label: "రాజకీయాలు", icon: "award" },
   { id: "health", label: "ఆరోగ్యం", icon: "heart" },
-  { id: "sports", label: "ఆటలు", icon: "activity" },
+  { id: "sports", label: "ఆటలు", icon: "zap" },
   { id: "environment", label: "వాతావరణం", icon: "cloud" },
 ];
 
