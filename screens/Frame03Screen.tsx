@@ -131,14 +131,17 @@ const styles = StyleSheet.create({
     color: "#000000",
   },
   shareButton: {
-    padding: Spacing.sm,
+    backgroundColor: "#52033A",
+    paddingHorizontal: Spacing.md,
+    paddingVertical: Spacing.sm,
+    borderRadius: 2,
     justifyContent: "center",
     alignItems: "center",
   },
   shareText: {
     fontSize: 14,
     fontWeight: "600",
-    color: "#043915",
+    color: "#FFFFFF",
   },
   iconsContainer: {
     flexDirection: "row",
