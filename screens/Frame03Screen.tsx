@@ -188,6 +188,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
     alignSelf: "flex-start",
     width: "auto",
+    paddingVertical: 2,
   },
   categoryEmoji: {
     fontSize: 24,
