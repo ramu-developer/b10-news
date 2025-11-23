@@ -69,7 +69,7 @@ You have the right to:
 - Request deletion of your data
 - Opt out of analytics collection
 
-**To exercise these rights or for data deletion requests**, contact: [YOUR EMAIL]
+**To exercise these rights or for data deletion requests**, contact: sekharbyiram@gmail.com
 
 ## 8. Children's Privacy
 

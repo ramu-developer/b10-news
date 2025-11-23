@@ -4,12 +4,14 @@ import VideoIntroScreen from "@/screens/VideoIntroScreen";
 import Frame02Screen from "@/screens/Frame02Screen";
 import Frame03Screen from "@/screens/Frame03Screen";
 import Frame04Screen from "@/screens/Frame04Screen";
+import PrivacyPolicyScreen from "@/screens/PrivacyPolicyScreen";
 
 export type RootStackParamList = {
   VideoIntro: undefined;
   Frame02: undefined;
   Frame03: undefined;
   Frame04: { url?: string };
+  PrivacyPolicy: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -32,6 +34,13 @@ export default function RootNavigator() {
         }}
       />
       <Stack.Screen name="Frame04" component={Frame04Screen} />
+      <Stack.Screen 
+        name="PrivacyPolicy" 
+        component={PrivacyPolicyScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 }

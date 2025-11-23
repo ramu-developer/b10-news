@@ -43,19 +43,6 @@
         {
           "fonts": ["./assets/Mandali-Regular.ttf"]
         }
-      ],
-      [
-        "expo-build-properties",
-        {
-          "android": {
-            "compileSdkVersion": 35,
-            "targetSdkVersion": 35,
-            "minSdkVersion": 21
-          },
-          "ios": {
-            "deploymentTarget": "13.0"
-          }
-        }
       ]
     ],
     "experiments": {

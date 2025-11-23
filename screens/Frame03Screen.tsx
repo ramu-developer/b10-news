@@ -61,6 +61,10 @@ export default function Frame03Screen() {
     navigation.goBack();
   };
 
+  const handlePrivacyPolicyPress = () => {
+    navigation.navigate("PrivacyPolicy");
+  };
+
   return (
     <View style={styles.container}>
       <View
@@ -119,6 +123,9 @@ export default function Frame03Screen() {
       </ScrollView>
 
       <View style={[styles.footer, { paddingBottom: insets.bottom + Spacing.md }]}>
+        <Pressable onPress={handlePrivacyPolicyPress} style={{ marginBottom: Spacing.sm }}>
+          <Text style={styles.privacyLink}>Privacy Policy</Text>
+        </Pressable>
         <Text style={styles.copyrightText}>©b10vartha.in</Text>
       </View>
     </View>
@@ -244,5 +251,10 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "400",
     color: "#999999",
+  },
+  privacyLink: {
+    fontSize: 12,
+    fontWeight: "500",
+    color: "#5e17eb",
   },
 });
