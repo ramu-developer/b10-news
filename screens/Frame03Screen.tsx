@@ -72,7 +72,7 @@ export default function Frame03Screen() {
       >
         <Text style={styles.greetingText}>Hi Bro,</Text>
         <Pressable onPress={handleSharePress} style={styles.shareButton}>
-          <Feather name="share-2" size={24} color="#000000" />
+          <Text style={styles.shareIcon}>↗️</Text>
         </Pressable>
       </View>
 
@@ -132,6 +132,13 @@ const styles = StyleSheet.create({
   },
   shareButton: {
     padding: Spacing.sm,
+    minWidth: 40,
+    minHeight: 40,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  shareIcon: {
+    fontSize: 24,
   },
   iconsContainer: {
     flexDirection: "row",
