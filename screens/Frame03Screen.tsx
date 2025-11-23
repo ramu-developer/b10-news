@@ -9,13 +9,13 @@ import type { RootStackParamList } from "@/navigation/RootNavigator";
 import { Feather } from "@expo/vector-icons";
 
 const categories = [
-  { id: "home", label: "Home" },
-  { id: "national", label: "జాతీయం" },
-  { id: "international", label: "అంతర్జాతీయం" },
-  { id: "politics", label: "రాజకీయాలు" },
-  { id: "health", label: "ఆరోగ్యం" },
-  { id: "sports", label: "ఆటలు" },
-  { id: "environment", label: "వాతావరణం" },
+  { id: "home", label: "Home", icon: "home" },
+  { id: "national", label: "జాతీయం", icon: "flag" },
+  { id: "international", label: "అంతర్జాతీయం", icon: "globe" },
+  { id: "politics", label: "రాజకీయాలు", icon: "briefcase" },
+  { id: "health", label: "ఆరోగ్యం", icon: "heart" },
+  { id: "sports", label: "ఆటలు", icon: "activity" },
+  { id: "environment", label: "వాతావరణం", icon: "cloud" },
 ];
 
 export default function Frame03Screen() {
@@ -91,6 +91,7 @@ export default function Frame03Screen() {
             onPress={() => handleCategoryPress(category.id)}
             style={styles.categoryItem}
           >
+            <Feather name={category.icon as any} size={20} color="#000000" />
             <Text style={styles.categoryText}>{category.label}</Text>
           </Pressable>
         ))}
@@ -155,10 +156,13 @@ const styles = StyleSheet.create({
     paddingTop: Spacing.md,
   },
   categoryItem: {
+    flexDirection: "row",
+    alignItems: "center",
     paddingVertical: Spacing.md,
     paddingHorizontal: Spacing.sm,
     borderBottomWidth: 1,
     borderBottomColor: "#F0F0F0",
+    gap: Spacing.md,
   },
   categoryText: {
     fontSize: 16,
