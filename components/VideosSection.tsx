@@ -62,12 +62,12 @@ const styles = StyleSheet.create({
   },
   videoItem: {
     marginBottom: Spacing.lg,
-    paddingLeft: 0,
-    paddingRight: Spacing.lg,
+    paddingLeft: 2,
+    paddingRight: 2,
   },
   thumbnail: {
-    width: screenWidth - Spacing.lg,
-    height: (screenWidth - Spacing.lg) * (9 / 16),
+    width: screenWidth - 4,
+    height: (screenWidth - 4) * (9 / 16),
     borderRadius: 4,
     marginBottom: Spacing.sm,
   },
