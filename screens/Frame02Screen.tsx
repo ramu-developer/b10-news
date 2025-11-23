@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
     paddingLeft: 4,
     paddingRight: Spacing.lg,
     paddingTop: 8,
-    paddingBottom: 0,
+    paddingBottom: 2,
     borderBottomWidth: 1,
     borderBottomColor: "#E0E0E0",
   },
