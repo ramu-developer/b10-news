@@ -12,7 +12,7 @@ const categories = [
   { id: "home", label: "Home", emoji: "🏠" },
   { id: "national", label: "జాతీయం", emoji: "🏛️" },
   { id: "international", label: "అంతర్జాతీయం", emoji: "🌍" },
-  { id: "politics", label: "రాజకీయాలు", emoji: "🎭" },
+  { id: "politics", label: "రాజకీయాలు", emoji: "🥇" },
   { id: "health", label: "ఆరోగ్యం", emoji: "⚕️" },
   { id: "sports", label: "ఆటలు", emoji: "⚽" },
   { id: "environment", label: "వాతావరణం", emoji: "🌱" },
