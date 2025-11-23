@@ -247,6 +247,7 @@ const styles = StyleSheet.create({
   },
   categoriesScroll: {
     flex: 1,
+    marginBottom: 2,
   },
   categoriesContent: {
     alignItems: "center",
