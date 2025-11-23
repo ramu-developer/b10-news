@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { View, StyleSheet, Text, FlatList, ActivityIndicator, Dimensions } from "react-native";
+import { View, StyleSheet, Text, FlatList, ActivityIndicator, Dimensions, Pressable } from "react-native";
 import { Image } from "expo-image";
+import * as Linking from "expo-linking";
 import { fetchYouTubeVideos, YouTubeVideo } from "@/utils/youtubeAPI";
 import { Spacing } from "@/constants/theme";
 
@@ -38,8 +39,29 @@ export default function VideosSection() {
     );
   }
 
+  const handleVideoPress = async (videoId: string) => {
+    try {
+      // Try to open in YouTube app first
+      const youtubeAppUrl = `youtube://v/${videoId}`;
+      const canOpenYouTubeApp = await Linking.canOpenURL(youtubeAppUrl);
+      
+      if (canOpenYouTubeApp) {
+        await Linking.openURL(youtubeAppUrl);
+      } else {
+        // Fallback to web browser
+        const youtubeWebUrl = `https://www.youtube.com/watch?v=${videoId}`;
+        await Linking.openURL(youtubeWebUrl);
+      }
+    } catch (error) {
+      console.error("Error opening video:", error);
+    }
+  };
+
   const renderVideoItem = ({ item }: { item: YouTubeVideo }) => (
-    <View style={styles.videoItem}>
+    <Pressable 
+      style={styles.videoItem}
+      onPress={() => handleVideoPress(item.id)}
+    >
       <Image
         source={{ uri: item.thumbnail }}
         style={styles.thumbnail}
@@ -48,7 +70,7 @@ export default function VideosSection() {
       <Text style={styles.title} numberOfLines={2}>
         {item.title}
       </Text>
-    </View>
+    </Pressable>
   );
 
   return (
