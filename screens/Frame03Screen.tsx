@@ -55,10 +55,14 @@ export default function Frame03Screen() {
 
   const handleCategoryPress = (categoryId: string) => {
     if (categoryId === "home") {
-      navigation.navigate("Frame02");
+      navigation.goBack();
     } else {
       setSelectedCategory(categoryId);
     }
+  };
+
+  const handleClosePress = () => {
+    navigation.goBack();
   };
 
   return (
@@ -73,7 +77,12 @@ export default function Frame03Screen() {
           },
         ]}
       >
-        <Text style={styles.greetingText}>Hi Bro,</Text>
+        <View style={styles.headerLeft}>
+          <Pressable onPress={handleClosePress} style={styles.closeButton}>
+            <Text style={styles.closeIcon}>✕</Text>
+          </Pressable>
+          <Text style={styles.greetingText}>Hi Bro,</Text>
+        </View>
         <Pressable onPress={handleSharePress} style={styles.shareButton}>
           <Text style={styles.shareText}>Share</Text>
         </Pressable>
@@ -127,6 +136,19 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingBottom: Spacing.lg,
     minHeight: 40,
+  },
+  headerLeft: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: Spacing.sm,
+  },
+  closeButton: {
+    padding: Spacing.xs,
+  },
+  closeIcon: {
+    fontSize: 24,
+    fontWeight: "400",
+    color: "#000000",
   },
   greetingText: {
     fontSize: 20,

@@ -21,7 +21,14 @@ export default function RootNavigator() {
     >
       <Stack.Screen name="VideoIntro" component={VideoIntroScreen} />
       <Stack.Screen name="Frame02" component={Frame02Screen} />
-      <Stack.Screen name="Frame03" component={Frame03Screen} />
+      <Stack.Screen 
+        name="Frame03" 
+        component={Frame03Screen}
+        options={{
+          presentation: "transparentModal",
+          animation: "slide_from_left",
+        }}
+      />
     </Stack.Navigator>
   );
 }
