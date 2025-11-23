@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
   },
   shareIcon: {
     fontSize: 24,
+    color: "#4CAF50",
   },
   iconsContainer: {
     flexDirection: "row",
