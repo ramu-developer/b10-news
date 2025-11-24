@@ -41,12 +41,19 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/Mandali-Regular.ttf"]
+          "fonts": [
+            "./assets/Mandali-Regular.ttf"
+          ]
         }
       ]
     ],
     "experiments": {
       "reactCompiler": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "da9193a0-9f66-4f74-a545-bf4649c23bca"
+      }
     }
   }
 }
