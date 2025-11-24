@@ -24,15 +24,6 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/app-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#000000"
-        }
-      ],
       "expo-web-browser",
       "expo-video",
       [
