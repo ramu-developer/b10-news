@@ -180,7 +180,7 @@ export default function Frame02Screen() {
           setFilteredVideos(allVideos);
         }}
       >
-        <View style={styles.searchOverlay}>
+        <View style={[styles.searchOverlay, { paddingTop: Spacing.xl * 2 }]}>
           <View style={styles.searchContainer}>
             <TextInput
               style={styles.searchInput}
