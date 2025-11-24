@@ -15,6 +15,16 @@ export default function App() {
     SplashScreen.hideAsync().catch(() => {});
   }, []);
 
+  // Ensure splash is hidden immediately after first render
+  useEffect(() => {
+    const hideImmediately = async () => {
+      try {
+        await SplashScreen.hideAsync();
+      } catch {}
+    };
+    hideImmediately();
+  }, []);
+
   return (
   <ErrorBoundary>
     <SafeAreaProvider>
