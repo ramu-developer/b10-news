@@ -30,7 +30,11 @@
           "image": "./assets/app-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#FFFFFF"
+          "backgroundColor": "#FFFFFF",
+          "dark": {
+            "image": "./assets/app-icon.png",
+            "backgroundColor": "#FFFFFF"
+          }
         }
       ],
       "expo-web-browser",
