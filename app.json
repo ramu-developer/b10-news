@@ -24,6 +24,16 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#000000",
+          "resizeMode": "contain",
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ],
       "expo-web-browser",
       "expo-video",
       [
