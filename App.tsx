@@ -12,17 +12,10 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 export default function App() {
   useEffect(() => {
-    SplashScreen.hideAsync().catch(() => {});
-  }, []);
-
-  // Ensure splash is hidden immediately after first render
-  useEffect(() => {
-    const hideImmediately = async () => {
-      try {
-        await SplashScreen.hideAsync();
-      } catch {}
-    };
-    hideImmediately();
+    const timer = setTimeout(() => {
+      SplashScreen.hideAsync().catch(() => {});
+    }, 150);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
