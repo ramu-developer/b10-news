@@ -16,6 +16,7 @@ const categories = [
   { id: "health", label: "ఆరోగ్యం", emoji: "⚕️", url: "https://www.b10vartha.in/search/label/%E0%B0%86%E0%B0%B0%E0%B1%8B%E0%B0%97%E0%B1%8D%E0%B0%AF%E0%B0%82" },
   { id: "sports", label: "ఆటలు", emoji: "⚽", url: "https://www.b10vartha.in/search/label/%E0%B0%86%E0%B0%9F%E0%B0%B2%E0%B1%81" },
   { id: "environment", label: "వాతావరణం", emoji: "🌱", url: "https://www.b10vartha.in/search/label/%E0%B0%B5%E0%B0%BE%E0%B0%A4%E0%B0%BE%E0%B0%B5%E0%B0%B0%E0%B0%A3%E0%B0%82" },
+  { id: "privacy", label: "Privacy Policy", emoji: "🔒", url: "" },
 ];
 
 export default function Frame03Screen() {
@@ -52,6 +53,8 @@ export default function Frame03Screen() {
     const category = categories.find(c => c.id === categoryId);
     if (categoryId === "home") {
       navigation.goBack();
+    } else if (categoryId === "privacy") {
+      navigation.navigate("PrivacyPolicy");
     } else if (category && category.url) {
       navigation.navigate("Frame04", { url: category.url });
     }
@@ -123,9 +126,6 @@ export default function Frame03Screen() {
       </ScrollView>
 
       <View style={[styles.footer, { paddingBottom: insets.bottom + Spacing.md }]}>
-        <Pressable onPress={handlePrivacyPolicyPress} style={{ marginBottom: Spacing.sm }}>
-          <Text style={styles.privacyLink}>Privacy Policy</Text>
-        </Pressable>
         <Text style={styles.copyrightText}>©b10vartha.in</Text>
       </View>
     </View>
