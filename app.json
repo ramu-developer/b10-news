@@ -17,17 +17,22 @@
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
       "targetSdkVersion": 35,
-      "minSdkVersion": 21,
-      "splash": {
-        "resizeMode": "contain",
-        "backgroundColor": "#000000"
-      }
+      "minSdkVersion": 21
     },
     "web": {
       "output": "single",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/app-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#000000"
+        }
+      ],
       "expo-web-browser",
       "expo-video",
       [
