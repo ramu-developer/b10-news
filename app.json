@@ -46,6 +46,13 @@
             "./assets/Mandali-Regular.ttf"
           ]
         }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/app-icon.png",
+          "color": "#FFFFFF"
+        }
       ]
     ],
     "experiments": {
@@ -56,15 +63,6 @@
         "projectId": "da9193a0-9f66-4f74-a545-bf4649c23bca"
       },
       "projectId": "da9193a0-9f66-4f74-a545-bf4649c23bca"
-    },
-    "plugins": [
-      [
-        "expo-notifications",
-        {
-          "icon": "./assets/app-icon.png",
-          "color": "#FFFFFF"
-        }
-      ]
-    ]
+    }
   }
 }
