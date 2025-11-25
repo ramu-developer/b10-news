@@ -9,6 +9,10 @@ import * as SplashScreen from "expo-splash-screen";
 
 import RootNavigator from "@/navigation/RootNavigator";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import {
+  initializeNotifications,
+  setupNotificationListeners,
+} from "@/services/notificationService";
 
 export default function App() {
   useEffect(() => {
@@ -16,6 +20,12 @@ export default function App() {
       SplashScreen.hideAsync().catch(() => {});
     }, 150);
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    initializeNotifications();
+    const unsubscribe = setupNotificationListeners();
+    return unsubscribe;
   }, []);
 
   return (
