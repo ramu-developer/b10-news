@@ -7,6 +7,7 @@ import { Spacing } from "@/constants/theme";
 
 const screenWidth = Dimensions.get("window").width;
 const itemWidth = (screenWidth - 20) / 2; // 2 columns with 8px padding each side and 4px gap
+const featuredWidth = screenWidth; // Full width for featured video
 
 interface VideosSectionProps {
   videos: YouTubeVideo[];
@@ -64,9 +65,25 @@ export default function VideosSection({ videos, loading }: VideosSectionProps) {
     </Pressable>
   );
 
+  const renderFeaturedVideo = () => (
+    <Pressable 
+      style={styles.featuredContainer}
+      onPress={() => handleVideoPress(videos[0].id)}
+    >
+      <Image
+        source={{ uri: videos[0].thumbnail }}
+        style={styles.featuredThumbnail}
+        contentFit="cover"
+      />
+      <Text style={styles.featuredTitle} numberOfLines={3}>
+        {videos[0].title}
+      </Text>
+    </Pressable>
+  );
+
   return (
     <FlatList
-      data={videos}
+      data={videos.slice(1)}
       renderItem={renderVideoItem}
       keyExtractor={(item) => item.id}
       numColumns={2}
@@ -74,18 +91,20 @@ export default function VideosSection({ videos, loading }: VideosSectionProps) {
       showsVerticalScrollIndicator={false}
       scrollEnabled={true}
       contentContainerStyle={styles.listContent}
+      ListHeaderComponent={renderFeaturedVideo}
     />
   );
 }
 
 const styles = StyleSheet.create({
   listContent: {
-    paddingHorizontal: 8,
-    paddingTop: Spacing.sm,
+    paddingHorizontal: 0,
+    paddingTop: 0,
   },
   row: {
     gap: 4,
     justifyContent: "space-between",
+    paddingHorizontal: 8,
   },
   videoItem: {
     width: itemWidth,
@@ -103,6 +122,22 @@ const styles = StyleSheet.create({
     color: "#000000",
     fontFamily: "Mandali-Regular",
     paddingHorizontal: 2,
+  },
+  featuredContainer: {
+    width: screenWidth,
+    marginBottom: Spacing.lg,
+  },
+  featuredThumbnail: {
+    width: screenWidth,
+    height: screenWidth * (9 / 16),
+    marginBottom: Spacing.sm,
+  },
+  featuredTitle: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#000000",
+    fontFamily: "Mandali-Regular",
+    paddingHorizontal: Spacing.lg,
   },
   loadingContainer: {
     flex: 1,
