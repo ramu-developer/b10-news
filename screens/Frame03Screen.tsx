@@ -16,7 +16,6 @@ const categories = [
   { id: "health", label: "ఆరోగ్యం", emoji: "⚕️", url: "https://www.b10vartha.in/search/label/%E0%B0%86%E0%B0%B0%E0%B1%8B%E0%B0%97%E0%B1%8D%E0%B0%AF%E0%B0%82" },
   { id: "sports", label: "ఆటలు", emoji: "⚽", url: "https://www.b10vartha.in/search/label/%E0%B0%86%E0%B0%9F%E0%B0%B2%E0%B1%81" },
   { id: "environment", label: "వాతావరణం", emoji: "🌱", url: "https://www.b10vartha.in/search/label/%E0%B0%B5%E0%B0%BE%E0%B0%A4%E0%B0%BE%E0%B0%B5%E0%B0%B0%E0%B0%A3%E0%B0%82" },
-  { id: "privacy", label: "Privacy Policy", emoji: "🔒", url: "" },
 ];
 
 export default function Frame03Screen() {
