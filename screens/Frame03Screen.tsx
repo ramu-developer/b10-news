@@ -126,7 +126,9 @@ export default function Frame03Screen() {
       </ScrollView>
 
       <View style={[styles.footer, { paddingBottom: insets.bottom + Spacing.md }]}>
-        <Text style={styles.copyrightText}>©b10vartha.in</Text>
+        <Pressable onPress={handlePrivacyPolicyPress}>
+          <Text style={styles.privacyLink}>Privacy Policy</Text>
+        </Pressable>
       </View>
     </View>
   );
