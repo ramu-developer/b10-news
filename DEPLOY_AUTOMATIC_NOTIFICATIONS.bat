@@ -1,24 +1,41 @@
 @echo off
 REM ============================================================
 REM B10 News - Automatic Notifications Deployment Script (Windows)
-REM Simply run this file on Windows
+REM This script logs all output to a file for troubleshooting
 REM ============================================================
 
 setlocal enabledelayedexpansion
 
-echo.
+REM Create log file
+set LOG_FILE=deployment-log.txt
+echo. > %LOG_FILE%
+echo ========================================== >> %LOG_FILE%
+echo B10 News Deployment Log - %date% %time% >> %LOG_FILE%
+echo ========================================== >> %LOG_FILE%
+echo. >> %LOG_FILE%
+
 echo 🚀 Starting B10 News Automatic Notifications Setup...
+echo 🚀 Starting B10 News Automatic Notifications Setup... >> %LOG_FILE%
+echo.
+echo Logging output to: %LOG_FILE%
+echo All messages will be saved to this file
 echo.
 
 REM Get Firebase Project ID
 set /p PROJECT_ID="Enter your Firebase Project ID (from Firebase Console): "
+echo Firebase Project ID: %PROJECT_ID% >> %LOG_FILE%
 
 REM Get YouTube API Key
 set /p YOUTUBE_API_KEY="Enter your YouTube API Key: "
+echo YouTube API Key: [PROVIDED] >> %LOG_FILE%
 
 REM Get Channel ID
 set /p CHANNEL_ID="Enter your YouTube Channel ID (default: UCff6g5U72C10-bqm_M1a-lw): "
 if "!CHANNEL_ID!"=="" set CHANNEL_ID=UCff6g5U72C10-bqm_M1a-lw
+echo Channel ID: %CHANNEL_ID% >> %LOG_FILE%
+
+echo. >> %LOG_FILE%
+echo 📦 Setting up Firebase Functions... >> %LOG_FILE%
 
 echo.
 echo 📦 Setting up Firebase Functions...
@@ -26,10 +43,11 @@ echo.
 
 REM Check if functions directory exists
 if not exist "functions" (
+    echo Installing Firebase... >> %LOG_FILE%
     echo Installing Firebase...
-    npm install -g firebase-tools
-    call firebase login
-    call firebase init functions --project=!PROJECT_ID!
+    npm install -g firebase-tools >> %LOG_FILE% 2>&1
+    call firebase login >> %LOG_FILE% 2>&1
+    call firebase init functions --project=!PROJECT_ID! >> %LOG_FILE% 2>&1
 )
 
 REM Create functions directory if it doesn't exist
@@ -53,6 +71,7 @@ echo   }
 echo }
 ) > functions\package.json
 
+echo ✅ Created package.json >> %LOG_FILE%
 echo ✅ Created package.json
 
 REM Write the Cloud Function
@@ -186,37 +205,58 @@ echo   }
 echo }
 ) > functions\index.js
 
+echo ✅ Cloud Function created >> %LOG_FILE%
 echo ✅ Cloud Function created
 
 echo.
+echo 🔐 Setting environment variables... >> %LOG_FILE%
 echo 🔐 Setting environment variables...
 echo.
 
-call firebase functions:config:set youtube.api_key="!YOUTUBE_API_KEY!" youtube.channel_id="!CHANNEL_ID!" --project=!PROJECT_ID!
+call firebase functions:config:set youtube.api_key="!YOUTUBE_API_KEY!" youtube.channel_id="!CHANNEL_ID!" --project=!PROJECT_ID! >> %LOG_FILE% 2>&1
 
+echo ✅ Environment variables set >> %LOG_FILE%
 echo ✅ Environment variables set
 
 echo.
+echo 📤 Deploying functions... >> %LOG_FILE%
 echo 📤 Deploying functions...
+echo (This may take 1-2 minutes...)
 echo.
 
-call firebase deploy --only functions --project=!PROJECT_ID!
+call firebase deploy --only functions --project=!PROJECT_ID! >> %LOG_FILE% 2>&1
 
-echo.
+echo. >> %LOG_FILE%
+echo ✅ Functions deployed successfully! >> %LOG_FILE%
+echo. >> %LOG_FILE%
 echo ✅ Functions deployed successfully!
 echo.
+echo 🎯 Next Step: Set up Cloud Scheduler >> %LOG_FILE%
 echo 🎯 Next Step: Set up Cloud Scheduler
+echo 1. Go to: https://console.cloud.google.com >> %LOG_FILE%
 echo 1. Go to: https://console.cloud.google.com
+echo 2. Search for 'Cloud Scheduler' >> %LOG_FILE%
 echo 2. Search for 'Cloud Scheduler'
+echo 3. Create a new job: >> %LOG_FILE%
 echo 3. Create a new job:
+echo    - Name: check-new-videos >> %LOG_FILE%
 echo    - Name: check-new-videos
-echo    - Frequency: 0 * * * * (every hour^)
+echo    - Frequency: 0 * * * * ^(every hour^) >> %LOG_FILE%
+echo    - Frequency: 0 * * * * (every hour)
+echo    - HTTP method: POST >> %LOG_FILE%
 echo    - HTTP method: POST
-echo    - URL: Find it in Firebase Console ^> Functions ^> checkNewVideos
+echo    - URL: Find it in Firebase Console ^> Functions ^> checkNewVideos >> %LOG_FILE%
+echo    - URL: Find it in Firebase Console > Functions > checkNewVideos
+echo    - Add OIDC token with default service account >> %LOG_FILE%
 echo    - Add OIDC token with default service account
-echo.
+echo. >> %LOG_FILE%
+echo 4. Click Create >> %LOG_FILE%
 echo 4. Click Create
-echo.
+echo. >> %LOG_FILE%
+echo ✅ Done! Your automatic notifications are now LIVE! >> %LOG_FILE%
 echo ✅ Done! Your automatic notifications are now LIVE!
+echo.
+echo 📝 Deployment log saved to: %LOG_FILE% >> %LOG_FILE%
+echo 📝 Deployment log saved to: %LOG_FILE%
 echo.
 pause
