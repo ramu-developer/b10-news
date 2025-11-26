@@ -1,0 +1,155 @@
+Perfect! I can see your `google-services.json` file. This is the correct Firebase configuration file for your "B10 News" app. Here's what I found:
+
+# ✅ Your Firebase Configuration Details
+
+**Project Info:**
+- Project ID: `b10-news`
+- Project Number: `522579258183`
+
+**Your App Package Names:**
+1. `com.b10.news`
+2. `com.b10news.app`
+
+# Next Steps to Enable Notifications in Your B10 News App
+
+## Step 1: Place google-services.json in Your App
+
+In your Android project in Replit:
+1. Navigate to the `app/` folder (or the main app module folder)
+2. Place this `google-services.json` file directly in the `app/` directory
+3. Make sure it's at the same level as your `build.gradle` (app-level) file
+
+**File structure should look like:**
+```
+BlueIntroNews/
+├── app/
+│   ├── src/
+│   ├── build.gradle
+│   └── google-services.json  ← Place it here
+├── build.gradle (project level)
+└── settings.gradle
+```
+
+## Step 2: Update Your Gradle Files
+
+**In project-level `build.gradle`**, add this to the `dependencies` section inside `buildscript`:
+```gradle
+buildscript {
+    dependencies {
+        classpath 'com.google.gms:google-services:4.4.0'
+    }
+}
+```
+
+**In app-level `build.gradle`:**
+- Add at the **bottom** of the file:
+```gradle
+apply plugin: 'com.google.gms.google-services'
+```
+
+- Add this to the `dependencies` section:
+```gradle
+implementation 'com.google.firebase:firebase-messaging:23.4.0'
+```
+
+## Step 3: Create Firebase Messaging Service
+
+Create a new Java file called `MyFirebaseMessagingService.java`:
+
+```java
+package com.b10news.app; // Use your actual package name
+
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.os.Build;
+import androidx.core.app.NotificationCompat;
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
+
+public class MyFirebaseMessagingService extends FirebaseMessagingService {
+    
+    @Override
+    public void onMessageReceived(RemoteMessage remoteMessage) {
+        // Handle incoming notification
+        if (remoteMessage.getNotification() != null) {
+            String title = remoteMessage.getNotification().getTitle();
+            String body = remoteMessage.getNotification().getBody();
+            showNotification(title, body);
+        }
+    }
+    
+    private void showNotification(String title, String message) {
+        NotificationManager notificationManager = 
+            (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        
+        String channelId = "b10news_channel";
+        
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                channelId,
+                "B10 News Notifications",
+                NotificationManager.IMPORTANCE_HIGH
+            );
+            notificationManager.createNotificationChannel(channel);
+        }
+        
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle(title)
+            .setContentText(message)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setAutoCancel(true);
+        
+        notificationManager.notify(0, builder.build());
+    }
+}
+```
+
+## Step 4: Update AndroidManifest.xml
+
+Add this inside the `<application>` tag:
+
+```xml
+<service
+    android:name=".MyFirebaseMessagingService"
+    android:exported="false">
+    <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT" />
+    </intent-filter>
+</service>
+```
+
+Also add this permission outside the `<application>` tag:
+```xml
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+```
+
+## Step 5: Build and Install APK
+
+1. Sync your Gradle files
+2. Build the APK
+3. Install on your device
+4. Open the app at least once to initialize Firebase
+
+## Step 6: Test Notifications
+
+With your notification server running on Replit and your app installed:
+- When you publish a new post on your blog (`b10vartha.in`)
+- Your Replit server will detect it
+- It will send a notification via Firebase
+- Your app will receive and display it!
+
+***
+
+**Important Note:**  
+Make sure the package name in your app matches one of these:
+- `com.b10.news` OR
+- `com.b10news.app`
+
+Your `google-services.json` supports both, so either will work.[1]
+
+Would you like help with any specific step or need me to clarify anything?
+
+[1](https://learn.microsoft.com/en-us/azure/notification-hubs/android-sdk)
+[2](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/86250000/98794b11-320d-4bd6-bf00-1b78fb2de5a5/google-services.json)
