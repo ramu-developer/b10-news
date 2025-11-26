@@ -88,16 +88,46 @@ export function setupNotificationListeners() {
     if (typeof Notifications.addNotificationReceivedListener === "function") {
       notificationListener = Notifications.addNotificationReceivedListener(
         (notification) => {
-          console.log("✅ Notification received:", notification.request.content.title);
+          const { title, body, data } = notification.request.content;
+          console.log("✅ Notification received:", {
+            title,
+            body,
+            data,
+          });
+          
+          // Process notification data from Replit service
+          if (data) {
+            console.log("📰 Content detected:", {
+              type: data.type,
+              url: data.url,
+              source: data.source,
+            });
+          }
         }
       );
     }
 
-    // Handle notification tap
+    // Handle notification tap/response
     if (typeof Notifications.addNotificationResponseReceivedListener === "function") {
       responseListener = Notifications.addNotificationResponseReceivedListener(
         (response) => {
-          console.log("👆 Notification tapped!");
+          const { data, body } = response.notification.request.content;
+          console.log("👆 Notification tapped!", {
+            body,
+            data,
+          });
+          
+          // Handle action based on notification data from Replit service
+          if (data?.url) {
+            console.log("🔗 Opening URL:", data.url);
+            // Navigation will be handled by app routing
+          }
+          if (data?.type === "youtube") {
+            console.log("▶️ YouTube video detected");
+          }
+          if (data?.type === "blog") {
+            console.log("📝 Blog post detected");
+          }
         }
       );
     }
