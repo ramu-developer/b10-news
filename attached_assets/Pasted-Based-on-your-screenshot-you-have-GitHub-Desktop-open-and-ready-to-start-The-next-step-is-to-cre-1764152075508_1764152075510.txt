@@ -1,0 +1,34 @@
+Based on your screenshot, you have GitHub Desktop open and ready to start! The next step is to **create your GitHub repository online**, then clone it using GitHub Desktop for your B10 News project.
+
+***
+
+## Your Next Steps
+
+### 1. Create GitHub Repo Online
+- Go to [https://github.com/new](https://github.com/new) in your browser.
+- Fill in these fields:
+  - **Repository name:** b10-news
+  - **Description:** Telugu local news app
+  - **Select Public**
+  - Check “Add a README file”
+- Click **Create repository** (big green button).
+
+***
+
+### 2. Clone Repository in GitHub Desktop
+- Return to GitHub Desktop.
+- Click **Clone a repository from the Internet…**
+- Find/select your new `b10-news` repo and click **Clone**.
+
+***
+
+### 3. Copy Your Files
+- Once cloned, a folder for your repo will appear on your computer.
+- Copy all your Replit project files (app.json, package.json, source folders, etc.) into this folder.
+- Use GitHub Desktop to **commit** and **push** these changes to GitHub.
+
+***
+
+**Let me know when your repo is created and cloned, or if you need help with any of these steps!** Then I’ll walk you through the next steps (signing keys, secrets, workflow setup) for APK building.[1]
+
+[1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/images/86250000/a4f7cdd6-b5fd-4b5d-b859-0eec3d12e2d6/Screenshot-2025-11-26-143922.jpg?AWSAccessKeyId=ASIA2F3EMEYE5DGYPBID&Signature=4desdZ5LD9WzFeJWXaJ1PR12i5o%3D&x-amz-security-token=IQoJb3JpZ2luX2VjELn%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIC9DsiJ51VDouCPJnLuu%2FqPr2ExSaHh5gF1nSz0Gg%2BddAiEAwBSo49fQteZW4%2FmGqGevI3Ffvqm0aMt3GMMWZkMDtoEq%2FAQIgv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDMbJrJ%2BGSizf5Bd0lSrQBEaXl4i5IlVZjeByjEtdVYxBQgyjmCC71NnL7XG%2BWaPOh%2FjMTKhSoUDv%2BKwgf7AlS48Fp%2FY8KEJdMe46UdLOGhGObAaD9V7L9OzjA8ATlLTyJh1TLy2tlQlqRWbBO70QEJEjMffC66tOyee7%2FqaFka5Tt6xE3QYYS6rNMjCKNyezP2ZhpY25Wp5%2F7lu4Y3YpWQ29T%2Fz2HWcPYvbthm95d9xY0X4%2BHqulHV0%2BgfQ9fhpFOdIRC96HKj8kObuq9VJ1aCziWHHCCCuXJIAwIQ6hYUvzUCUnURgvBvsa3PraiWMdqaHCKLUhEstBfKO%2FYS8FcUBMYCeLfommLItDuIYqvdadZQkYVrB9gLYvMufuzAG8qNM0f4KVHYrLba5ncBEvc48TLxx9OGeUnsdh5faFNIU7bp0Mmb7U3PgmITk6cthvAhCAv%2BKIC5SltDojZJxunqlDkwjMwQ0eakTV6xdzXLGzrlrm6xLZCW809hkgCF11FPQHErPrs04%2BII%2B4j1%2BpI%2Bgltk4G1%2F6ifi9IjztC%2FwSUlYwg2zNkKrIoWb6v8o%2BIAv1F9FXR%2FsxlJVV2w5pN%2Bt9Y6HKRnJU3FYWyX2DD6jpRGT5kznLtYZqLaxfTHuqiDNh52I0zw3%2Fz0NTWwhegz%2BC%2F8ogIi2ciFIvEXjCjlu3Cq1vlQlx0cvGEfDUdigjJ1b5n%2FdNwUpSGu5XhfHj5F4Aw302rQWOkKJz4FTmlFmfeDwIGLP8QxjfgRPTsvogv3FD%2FTSudzHh8P23VGc%2BFXbDaK9H0a%2B04OuCSLj0GCrQwr%2F2ayQY6mAGzV2KRY4A4q2fduRheNr%2FN4ypSEvkZUY5zanOlmYK6DJNycb3bf1LSGyRuQxSRH1qQn7Rjlm1zVDkNb3T9R%2BwnfoOqwOsrATO9zIyEhbcZwuqte5Exh4NntOdXlSaLen4iLiuZLK5HHiZC8kaw%2B%2FuTW4gfmzSNdWkq5BjLvkmaWswi8AoZvWTs4Sh5LIcDymGTs%2FzO8HAg3w%3D%3D&Expires=1764148872)
