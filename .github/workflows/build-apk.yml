@@ -1,0 +1,60 @@
+name: Build APK for Play Store
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Setup Expo
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Build APK for Play Store
+        env:
+          EAS_NO_VCS_DETECTION: 1
+        run: |
+          eas build --platform android --non-interactive --wait
+          
+      - name: Download APK
+        run: |
+          mkdir -p ./builds
+          eas build:list --platform android --limit 1 --json > build-info.json
+          echo "Build completed! APK ready for Play Store submission."
+          cat build-info.json
+
+      - name: Upload APK as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: b10-news-apk
+          path: ./builds/
+          retention-days: 30
+
+      - name: Create Release with APK
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: ./builds/**
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
