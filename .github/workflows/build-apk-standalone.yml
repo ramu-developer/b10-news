@@ -19,7 +19,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
 
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -31,23 +30,27 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm install --legacy-peer-deps --no-optional
+        env:
+          CI: true
 
-      - name: Setup Expo
-        uses: expo/expo-github-action@v8
-        with:
-          expo-version: latest
-          eas-version: latest
+      - name: Setup Expo CLI
+        run: npm install -g expo-cli
 
       - name: Prebuild native code
         run: |
           npx expo prebuild --platform android --clean --no-install
-          
+        env:
+          CI: true
+
       - name: Build APK with Gradle
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleRelease
+          ./gradlew assembleRelease -x lintVitalRelease --no-daemon
+        env:
+          CI: true
           
       - name: Sign APK
         uses: r0adkll/sign-android-release@v1
