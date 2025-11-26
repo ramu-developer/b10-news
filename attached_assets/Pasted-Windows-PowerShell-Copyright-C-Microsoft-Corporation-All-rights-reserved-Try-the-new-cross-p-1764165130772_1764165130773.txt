@@ -1,0 +1,33 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\WINDOWS\system32> keytool -genkey -v -keystore b10-news.keystore -alias b10newskey -keyalg RSA -keysize 2048 -validity 10000 -keypass B10News@2025 -storepass B10News@2025 -dname "CN=ramu, OU=B10 News, L=Allagadda, ST=Andhra Pradesh, C=IN"
+keytool : The term 'keytool' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ keytool -genkey -v -keystore b10-news.keystore -alias b10newskey -key ...
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (keytool:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\WINDOWS\system32> java -version
+java version "21.0.9" 2025-10-21 LTS
+Java(TM) SE Runtime Environment (build 21.0.9+7-LTS-338)
+Java HotSpot(TM) 64-Bit Server VM (build 21.0.9+7-LTS-338, mixed mode, sharing)
+PS C:\WINDOWS\system32> keytool -genkey -v -keystore b10-news.keystore -alias b10newskey -keyalg RSA -keysize 2048 -validity 10000 -keypass B10News@2025 -storepass B10News@2025 -dname "CN=ramu, OU=B10 News, L=Allagadda, ST=Andhra Pradesh, C=IN"
+keytool : The term 'keytool' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ keytool -genkey -v -keystore b10-news.keystore -alias b10newskey -key ...
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (keytool:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\WINDOWS\system32> & "C:\Program Files\Java\jdk-21\bin\keytool.exe" -genkey -v -keystore b10-news.keystore -alias b10newskey -keyalg RSA -keysize 2048 -validity 10000 -keypass B10News@2025 -storepass B10News@2025 -dname "CN=ramu, OU=B10 News, L=Allagadda, ST=Andhra Pradesh, C=IN"
+Generating 2,048 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 10,000 days
+        for: CN=ramu, OU=B10 News, L=Allagadda, ST=Andhra Pradesh, C=IN
+[Storing b10-news.keystore]
+PS C:\WINDOWS\system32> [Convert]::ToBase64String([IO.File]::ReadAllBytes("C:\WINDOWS\system32\b10-news.keystore")) | Set-Clipboard
+PS C:\WINDOWS\system32>
