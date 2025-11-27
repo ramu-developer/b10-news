@@ -18,7 +18,7 @@ export default function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       SplashScreen.hideAsync().catch(() => {});
-    }, 300);
+    }, 150);
     return () => clearTimeout(timer);
   }, []);
 
