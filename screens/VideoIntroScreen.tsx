@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, ActivityIndicator, Pressable } from "react-native";
+import { View, StyleSheet, ActivityIndicator } from "react-native";
 import { VideoView, useVideoPlayer } from "expo-video";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { Feather } from "@expo/vector-icons";
 import { Spacing } from "@/constants/theme";
 import { RootStackParamList } from "@/navigation/RootNavigator";
 
@@ -52,15 +51,6 @@ export default function VideoIntroScreen() {
     return () => clearInterval(interval);
   }, [player, navigation]);
 
-  const handleTogglePlayPause = () => {
-    if (player.playing) {
-      player.pause();
-    } else {
-      player.play();
-    }
-  };
-
-
   return (
     <View
       style={[
@@ -82,14 +72,6 @@ export default function VideoIntroScreen() {
         {isLoading ? (
           <View style={styles.loadingOverlay}>
             <ActivityIndicator size="large" color="#FFFFFF" />
-          </View>
-        ) : null}
-
-        {!isLoading && !hasEnded ? (
-          <View style={styles.playPauseOverlay}>
-            <Pressable onPress={handleTogglePlayPause} style={styles.playPauseButton}>
-              <Feather name="play" size={80} color="#FFFFFF" />
-            </Pressable>
           </View>
         ) : null}
       </View>
@@ -130,18 +112,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgba(33, 150, 243, 0.5)",
-  },
-  playPauseOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  playPauseButton: {
-    width: 512,
-    height: 512,
-    borderRadius: 256,
-    backgroundColor: "transparent",
-    justifyContent: "center",
-    alignItems: "center",
   },
 });
