@@ -19,6 +19,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
 
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -29,18 +30,17 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Clear npm cache
+        run: npm cache clean --force
+
       - name: Install dependencies
-        run: |
-          npm install --legacy-peer-deps --no-optional
-        env:
-          CI: true
+        run: npm install
 
       - name: Setup Expo CLI
         run: npm install -g expo-cli
 
       - name: Prebuild native code
-        run: |
-          npx expo prebuild --platform android --clean --no-install
+        run: npx expo prebuild --platform android --clean --no-install
         env:
           CI: true
 
@@ -51,7 +51,7 @@ jobs:
           ./gradlew assembleRelease -x lintVitalRelease --no-daemon
         env:
           CI: true
-          
+
       - name: Sign APK
         uses: r0adkll/sign-android-release@v1
         id: sign_apk
@@ -70,11 +70,3 @@ jobs:
           name: B10-News-signed.apk
           path: ${{ steps.sign_apk.outputs.signedReleaseFile }}
           retention-days: 30
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: ${{ steps.sign_apk.outputs.signedReleaseFile }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
