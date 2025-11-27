@@ -2,6 +2,7 @@ import * as Notifications from "expo-notifications";
 import Constants from "expo-constants";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push } from "firebase/database";
+import { getMessaging, onMessage } from "firebase/messaging";
 
 // Configure notification handler
 Notifications.setNotificationHandler({
@@ -19,6 +20,7 @@ let responseListener: any = null;
 // Initialize Firebase (safe to call multiple times)
 let firebaseApp: any = null;
 let database: any = null;
+let messaging: any = null;
 
 function initializeFirebase() {
   try {
@@ -33,11 +35,19 @@ function initializeFirebase() {
       
       firebaseApp = initializeApp(firebaseConfig);
       database = getDatabase(firebaseApp);
+      
+      // Initialize Firebase Cloud Messaging for notifications from NotifyHound
+      try {
+        messaging = getMessaging(firebaseApp);
+        console.log("✅ Firebase Cloud Messaging initialized");
+      } catch (messagingError) {
+        console.log("FCM init (expected on web/Expo):", messagingError);
+      }
     }
-    return { firebaseApp, database };
+    return { firebaseApp, database, messaging };
   } catch (error) {
     console.log("Firebase init (expected on web):", error);
-    return { firebaseApp: null, database: null };
+    return { firebaseApp: null, database: null, messaging: null };
   }
 }
 
@@ -53,7 +63,7 @@ export async function initializeNotifications() {
       console.log("✅ Device token obtained:", token.data);
 
       // Initialize Firebase
-      const { database: db } = initializeFirebase();
+      const { database: db, messaging: msg } = initializeFirebase();
 
       // Store token in Firebase Database automatically
       if (db) {
@@ -67,6 +77,16 @@ export async function initializeNotifications() {
           console.log("✅ Token stored in Firebase Database");
         } catch (dbError) {
           console.log("Could not store token (Firebase may be limited):", dbError);
+        }
+      }
+
+      // Subscribe to all_users topic to receive NotifyHound notifications
+      if (msg) {
+        try {
+          await msg.subscribeToTopic("all_users");
+          console.log("✅ Subscribed to 'all_users' topic - Ready for NotifyHound notifications!");
+        } catch (topicError) {
+          console.log("Could not subscribe to topic (expected on some platforms):", topicError);
         }
       }
     }
@@ -84,6 +104,28 @@ export async function initializeNotifications() {
 
 export function setupNotificationListeners() {
   try {
+    // Handle Firebase Cloud Messaging notifications from NotifyHound
+    const { messaging: msg } = initializeFirebase();
+    if (msg && typeof onMessage === "function") {
+      try {
+        onMessage(msg, (payload) => {
+          console.log("🔔 FCM Message received from NotifyHound:", payload);
+          const { title, body } = payload.notification || {};
+          const { type, url, source } = payload.data || {};
+          
+          console.log("📢 Notification details:", {
+            title,
+            body,
+            type,
+            url,
+            source,
+          });
+        });
+      } catch (fcmError) {
+        console.log("FCM listener setup (expected on some platforms):", fcmError);
+      }
+    }
+
     // Handle notification received while app is running
     if (typeof Notifications.addNotificationReceivedListener === "function") {
       notificationListener = Notifications.addNotificationReceivedListener(
@@ -95,7 +137,7 @@ export function setupNotificationListeners() {
             data,
           });
           
-          // Process notification data from Replit service
+          // Process notification data from NotifyHound service
           if (data) {
             console.log("📰 Content detected:", {
               type: data.type,
@@ -117,7 +159,7 @@ export function setupNotificationListeners() {
             data,
           });
           
-          // Handle action based on notification data from Replit service
+          // Handle action based on notification data from NotifyHound service
           if (data?.url) {
             console.log("🔗 Opening URL:", data.url);
             // Navigation will be handled by app routing
