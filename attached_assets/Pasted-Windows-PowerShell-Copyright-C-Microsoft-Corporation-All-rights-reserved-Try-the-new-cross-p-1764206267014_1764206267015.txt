@@ -1,0 +1,359 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32>
+PS C:\WINDOWS\system32> cd "C:\Users\Windows\OneDrive\Documents\GitHub"; git clone https://github.com/ramu-developer/b10-news.git
+Cloning into 'b10-news'...
+remote: Enumerating objects: 431, done.
+remote: Counting objects: 100% (431/431), done.
+remote: Compressing objects: 100% (404/404), done.
+remote: Total 431 (delta 11), reused 427 (delta 10), pack-reused 0 (from 0)
+Receiving objects: 100% (431/431), 30.53 MiB | 3.72 MiB/s, done.
+Resolving deltas: 100% (11/11), done.
+Updating files: 100% (418/418), done.
+PS C:\Users\Windows\OneDrive\Documents\GitHub> cd "C:\Users\Windows\OneDrive\Documents\GitHub\b10-news"
+>> git add .
+>> git commit -m "Add complete B10 News project files"
+>> git push origin main
+warning: in the working copy of '.github/workflows/build-apk-standalone.yml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.github/workflows/build-apk.yml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.replit', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'App.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'BUILD_AND_DEPLOY_GUIDE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'DEPLOY_AUTOMATIC_NOTIFICATIONS.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'DEPLOY_AUTOMATIC_NOTIFICATIONS.sh', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'DEPLOY_FINAL.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'DEPLOY_FIXED.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'DEPLOY_SIMPLE.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'FINAL_CHECKLIST.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'FIREBASE_ANDROID_BUILD_SETUP.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'FIREBASE_SETUP.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'FIREBASE_SETUP_GUIDE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'FIREBASE_SETUP_INSTRUCTIONS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'GITHUB_APK_BUILD_GUIDE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'PLAY_STORE_SUBMISSION_GUIDE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'PRIVACY_POLICY_TEMPLATE.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'QUICK_START.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'TECHNICAL_FOUNDATION.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'attached_assets/google-services_1763898847233.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'babel.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Button.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Card.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/ErrorBoundary.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/ErrorFallback.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/ScreenFlatList.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/ScreenKeyboardAwareScrollView.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/ScreenScrollView.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/Spacer.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/ThemedText.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/ThemedView.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'components/VideosSection.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'constants/theme.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'design_guidelines.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'eas.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'eslint.config.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'firebase-functions.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'firebase.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'hooks/useColorScheme.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'hooks/useColorScheme.web.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'hooks/useTheme.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'navigation/RootNavigator.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package-lock.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'replit.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'screens/Frame02Screen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'screens/Frame03Screen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'screens/Frame04Screen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'screens/PrivacyPolicyScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'screens/VideoIntroScreen.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/build.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/landing-page-template.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/notificationService.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tsconfig.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'utils/youtubeAPI.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.config/eas-cli-nodejs/user-settings.json', LF will be replaced by CRLF the next time Git touches it
+[main 83398cc] Add complete B10 News project files
+ 270 files changed, 4 insertions(+)
+ create mode 100644 .config/eas-cli-nodejs/user-settings.json
+ create mode 100644 .local/state/replit/agent/.agent_state_01116f78ffa2c446de5627ce374ce534f8f441f2.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_01582d0b33a323691db80a012b5380ca838a49c6.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_05dffb9084ab8991d6f206581a5a24481106db7e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_074c09e9cc440924f1b7af2c53c84099cc119ccd.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_07ea1253df7254fd14afe6038fb582df69eb93df.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_07fe803d2bb4a23ca5938d1243f0ce9c59acb96b.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_08e0f4b9df1b4330a68b907c784f4c31404535b1.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_0a00f820d27720b75b3bb0e7f53c9b20fda4c4e4.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_0a472289de439a6fe9169cbc6bfe52dcdbb979e1.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_0afa723c4a2cdd461c7bd30f3630375d6cd8a119.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_0be9a7129fe9aecdcfa06770a2f3f30b8df619b2.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_0dc6110c613d904a4ef3229c88b228abbb0aaf17.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_0f1cc616e354b040c15c9b724ba7ca5b19cba624.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_0ff2056e5a4b6adbc5a0b7707f4f5393e99d8d95.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_133d573a5dba6f78e314c7d657891a868e7e20bf.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_13dd968f54017fb762e25343d695b6ccd91fd700.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_15d39175dbc54e72597f466c02722d554a13f2d9.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_17ed6d4f9706eaa88300d4fc771ae82c5a023df8.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_188e45d54cc4ea6b573012eeb27e09a9c3108fd2.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_1a382ca5b6c4dd9d69a49b94f47d159aa3721ee6.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_1a4873634df364b6c980209ba37ab5a6194e7aa5.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_1a9f39159708ae3808dbf149c600c414f9ffb4eb.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_1b2f0359840f786359703c8585eb34f8ec96b3ba.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_1b511e4a433ef6df7c501ae5841041f98298fc88.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_1c237ce9c7e39d81324c886d4d1acaa5bcf3e84e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_1ebcb3854b7096666a773723ef3af4915fdd90d9.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_20b829dc168af1f6201f0b506598431cd9eaa5aa.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_213dd1423f10dcd9686cd060aa4b036d6b08108a.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_21afc55acded87f6c4e8a51762eb77ec5bb475b7.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_21e36956a01741beee9372cc618b922db9ee607a.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_235465104e7f57260acd94c54a468493d802efdf.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_25ea0c80350f7ffe0f4030fdbcba00fe64306801.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_26f9b1f5b1a946306fb83ae9e773560f62b8145c.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_2946c5dc7c14b49b4e43e06c0e619480b116a4cf.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_2a3b571bccc76fb4fc241f0fe23c8989185e21a6.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_2b382be08bdf941ad0751f68fe3d475a88f00903.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_2bdb486f218e19b8183fee673e6166c22e641765.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_2d49f93e7f315f3de69faa4410fead1f50d9c78b.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_2d4cb951f4ef645321c22185bcc2b50c1496369e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_2d933f90196372dc8be5cdfc60d33ec6bd6f4939.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_2e8f42529e415ad7453bde5c38d40a176fcaf223.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_2f033cae43fae10d02578124895d15b85134d5c0.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_2fff6ac7dc0f3d1cbf351dcd984a1ca29cb9d813.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_32c87c177f869771d0df56370986d2926fc268b4.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_337478f50cadca513f9afca6c0704f168d9548d3.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_3462e8a597cc00411931c198416c915cce737934.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_3538f66eabf9ade8b925f318312b0a27d5ee28a0.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_366e7b0d838fd9392b43e168e4c41cd77bc1da15.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_37788d11f078138f9c06a8df4041ff48c4aad0be.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_38c5abd8a213d8f2f57846643148c724169b674f.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_391d77e9a5bdfce60cfb59e6aae426a6756f6faa.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_39edc1a4fa1ca5de272cb794ff4be47b75d37cb2.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_3aa5b77d50b255ac0ab140e621a827260de99c09.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_3ab7ddfc76e571f17c8f457261e04dbd4d2baf4a.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_3b91eb402ac6a5f23a3b5a1ac261ee135f5a35d4.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_3c1fd414ec2424808664848882767955e11ceab2.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_3f8de76971505330b183dd8c58d8ed02aad086eb.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_3fac7290b8db2f1a7d26fb246376050d72773d41.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_4048220b939a26b958e69469504aea55aed995a2.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_41527bf15e79afa6cd84f392c56b42f2c21ec8e8.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_41d36d0d01a61420921b96dbfbb90545ba3e5d41.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_42c35c826cc7a9dcbdf70caf3703525b66c158de.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_42ee6feefcf563b6fc32986c7285157243fff9c2.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_433b463fd3d6a5925307961360ae83a5d7b64460.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_43a917e1f5f215461d0cf62e7fb938604bc31f7e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_43face653db67d9cadaa9b05f35541887600ca25.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_47a7f9f693a06fdc0be2a45f086be019e65d7357.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_486932eccc31b030c48ccc36909ca1f01629996f.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_4aae759c2ed4b4e3a1087a4eba97f6b7df1c5ac8.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_4be26bae7d2bfd59d645775898c694b84ccea9ee.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_4c14036ee53788e35765a8f76a633a2012421294.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_4c869b508336c03f9d5ff8387f32f6bf159a5418.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_4d0756dda4295f379898be5f9727bac723443f36.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_4d51ad7841fa93976f27a9030f3605ceb9af7f3c.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_4d7f60a23a29894e4e26126e804fc9cf984ccec4.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_4e519c469b8c6ad9541292679dc8e9b5eea31820.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_4e94150a52ad18d19304bf5769794e57c5898c14.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_50d6f2c4c18a608ac6a0336af1b2634339b19c89.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_5234af28eb51bb181c282aab05af10b532e4aad3.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_5262e4beeb2dba1396626eec906a7c8bda8202e8.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_5272298e304b837e92f561ec8ff3c0248e10d0d5.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_528650e65123c227682be71d1f3cad4edeb44be9.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_536b98ae23af25c35dd33cef9855f4577a5f58f3.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_574b01e43cd41551cf6082e6846fedfebf6a0ac7.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_57c06ad31dd969dc604dcfe625ff66c814e16bd2.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_57fdb8596378d471aa19a25a12af17dcffdc835b.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_582bfa78f44a99ac83decb7ef8a14cdf7473ad7a.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_5b30aad0594bf0b9fec8d4c2e26ef000b2eded02.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_5b804d065ae9fbb26b281e9e18301c9ab360f00b.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_5bd2bc814fb9e1b3750695949e77c54fb80a7761.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_5d79c0f588d2cd7d5fbc4c58674bcce4243cddea.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_5d8857d8ce15fbaf9dbca206151f58a6296b2a47.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_5f04077fa839570a800f7ab26540de1eb204ebee.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_5f559568770923d7dcf2cdb0f2927054d4469716.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_5fd037de8eab905e4fee9b0531131f53c8b73863.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_6080ce756eb1c9c1d3d59de983cc2305574e384d.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_6128a4417b851f8ea45826321a470b300c2a6c3b.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_616a2ef1a32cab0f446b923cda79c42b5e4668db.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_61c9093b5868821c9699c9741f93208e543765b4.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_638385e2e9e9915d781836c519cfe6e7522adce3.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_65c0c8d5d892e676da98bf96857fc4081f473dd0.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_671b10dccab803b1fb7930dbc54fe4f0d5a57a59.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_678dd3d2aa1ef17d0019e70aa4aa8185aacf7481.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_6978e1c3829acba851bb4c35231d2f56a1d4a984.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_6a0e5e3f5a66fc38b44d28a0b90271eb4e7a84d2.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_6b1cfd25215178664dee06a0c4e429ecef058e24.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_6e5c9c00d860df332843bc68c7cb2d746fbf75a9.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_72c1a7be7d7d80c6afb43800f86041d4a959f8bc.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_73f668f8278eb4e8012b31622bd9d495989df924.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_7416640bc03918e25817a96d9c8bd4c579be8186.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_748de1e2ae9afd974cdd599d858263b1e6700bbc.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_74c09dff7a913f5e4981b2216d457eb97bf9bfee.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_75255fad3f083c674bcfd781d0a4c820e62e848e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_76c2f454dae58f7b18f3957d9856a4a36a984c06.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_770d4145c8e3a163560d6c2ccf5be2f6287a70ef.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_7a72850763b0a7922de5c5297a02e41b4faaa442.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_7ad0973fce9bc610d4a713f7756bda6d2cfddba3.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_7cb73664db87eec39357e076d6d4078b3cdc334c.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_7d021e8a41f41073a13290c58773e92421863cfd.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_7db4bff3769f33e26ad71c1a73d64f649029e348.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_7e285fa89e81745edcbfdd310886f9808414cc53.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_7ec169b18fbc75eb586348b9c8e4ebcdd78ae1d8.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_7ee3f12b628fb671145bb4230eddbaa9f25183fb.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_7fd069c9d7234f3dd6d646688b7aa7e27ab22503.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_8248affca609444b516884af8811546aede8d9b7.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_82b465d4c97c1dd129a5db421113a9c03ab2f1f5.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_84869abd7f880a44e27ab8e4c49cd1d02d3d8e97.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_84a7cbc28de592492ba5325dbe31ba2fa8d48727.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_84ad4d9f57ac4b85f0bb5ce34ff45aff71c6900c.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_84b3fbbdbcf4780ca72795c166d0db9be1837ad1.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_851a60ae0dbf6863f4e39c7b18182b8e35d7632e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_856e876b9677bd7d06a6cbe05aa134c8e9cf4baa.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_864ee1b4244a6e5e45aeed41672c652d90700c60.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_86b2bfd9f66110201e61581a6c50bf7727a583e5.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_86dfb0cc0f72f60c5a1a0afdf148eb25a14a25f3.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_86fdd83291368ee7e9b102569234c91643d75f54.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_8d0effc6cf034d671057befe7515565c7d2ad4e4.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_8e14a4573aede004e3566ca4fd526fda34e9a610.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_8fbfe7f1de954a30087eed6801ce4ee3c157a525.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_91f568787ef1ca563c8b03d14be9d28df9238549.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_92480d53528f666f4a09c5e1067f752e72fd6a02.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_92e6391f8175a5502cfec101b8ca0eba6aa9f4bb.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_93009e769fdbf078625b0ece39c7139ce317cc63.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_93ead7728c435e04cba4f6cb865cd1eb4a71c91f.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_9783e4830606836b5c06b7ccebccf4208ed5b523.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_97be2f2a9d760858aa7c28f72b79d202cffbf01e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_981e7b8936d3e0417015dae149b1408728f01918.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_98603bf3a9f687ebca4445be893d4b4dbe34118e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_989098e711a95e02937e75b24d0323d37568b869.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_99cf02f57ad9c7b5bab8bfca094edab0e5cd817a.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_9bda526e420d9212d88f52e82ec34abe7882790e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_9c0958bd811c90bbe33184063922c5c543454ee4.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_9e63b41175baa849f7431e34bafd4b6428c822fd.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_9e9bb2db7ab97b4f5b46e65ed519931b320b24ca.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_9ee74999a719957ca3b2de83c190148b16dac22e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_9f10f573e9b7088d1c03fda44239f9c525f0d818.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_9f6b8e59a9e43d765f7c18ac428e90ae7e6b055d.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_9fcdde966ee33a0bd3c02611169164f0b6025080.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a04dc3348164eb2057f85bfb261aaed5501e9334.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a0f2f85e9f7ba0d78f236b3655e046c271feb523.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a1086ad371f2780ce0dec29fe473cd4639f1e3e6.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a1d61e8e8d331eb297980797b9cf9a5ed50cf98f.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a25e94136502f8de2a17fdd2345b9deeb57bccda.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a2843fe3c37854de02a92bd6d9787bd230b692e0.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a28b31b3a40cda621aece0314e26a2f89b162375.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a2ad8998a9f744aa856ea952789db15d88ce3de5.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a691a60ad5b2515f157da5cecf45a0bd2eeb51ac.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a8241b026bc2ba7d700f8c1b6664440fa7ae2f7d.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a827779cab2500cf3f74836d059e83136d011f81.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a857b08f1d73504ef6fe037da55c6b33e603f1a3.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a8dd24bac021dc949e12f24dd734db7f255d0cfb.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_a969a35e30db31e0d3209299312a7930a96813d0.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_aba8753460ebd4bce5dc1e020a6038b959792a0c.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_ad561e5d9bd44285bd7dc9c075f43d6e87de6611.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_adad234b3ee4cf4a2fb5f3ef03e6547580fa7345.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_ae90b3826e0ea30088ab004136d7a7694214a236.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_ae95cfa2e6f3946b6659b7abcd4247d8abf313ba.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_aebafe72319a2226c46a6b505ccfcab09558d8b7.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_af618a8f467d1f95685509487819383c73eae352.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_afe5c5929850894788346551d5f79df1c88a8d46.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b096f3442b7157f8d66556f792cb26c7465c5126.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b0df4f6ade9b7e97ac0dedb0e722c54ac6c86fa5.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b1604e6fe247db53173d8a8dec1a5336fe9a4e89.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b16c2056822ba500779db5bf8793817b79737f40.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b17267018360ffc2245b886f9d6a84bb5c0dc94d.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b193edc86cc850874e3d4d65539f6c7ffc0ddd46.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b19d66463d6dd2e380ae158d56ba31a784c1ded6.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b2dfa3281a14e1692d9a403ec537585ebf0076da.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b2e78473589d09cdd3270f3a75f1a6dc3a6497fb.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b318ee5415f9df2b3dd2158ba4e476e1605496be.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b3d06a0f287c31e980f66875aaa90a89bd082a0b.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b3eef6e9eec9d345d8ef689515059c6dabe3f45e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b42baf756f65e946ee755ca65b47032b2f5d1703.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b4d8166ed74e4ce2ea56f7c0455c07eb8aa296d4.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b5bdd1b396139e404735f1e8add5d581d07d0d80.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b60cc5ea31bfdd7983c7f58bff5cc47cc29cc6a3.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_b80c48fd3cf71c2f107b057aa748c0cbdc806ba6.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_ba80480f4ab97a47681792abdb003376ffbd1d9c.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_bb9e087331439674b966f33ef2e0930a6198f1cb.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_bbca2b22e7968762217f5571da6b92301e057eb4.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_bea4fa2352db1dab7a77b4e4a5e438abd4e05a06.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_beed119fc4e0ecc516ee74a8d1157a36ce1fc095.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_bf2b31b32adf7a3d2c8f99a7240f9d19b3a77c33.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_bf5a6814b9f980de345000cce3204db55f583122.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_bff83136b5424bf95aaf2ddfc92dfae41aa6413f.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_c025760172c664763dd88cad3a32ff9225902bb7.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_c11d0269f48338adfd170bce7a554adb6bdee1ed.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_c362fcd8a3ba8b0a0b1caa0766c2e3f45bf3a550.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_c38feed94633541638776781db9f0ed2e71c5aaa.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_c539e64f44241cb25d0367caefac285861cbec5f.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_c5d6e275d0093eba91466ae8c55c03d6117f39f2.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_c61e5d07ddb07f43313c41f36b8c4d713ec0e616.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_c716efc3d25d4f21dc539e134d80bdc8a39272c1.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_c72b72cf2f2f99331fc8ad16db4d9551546903fe.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_c768b88c09553e331cdcbd6fb5167ea24660b69d.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_c79172a745b9623def29b1edff04aa36eef0b85d.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_c8020d5ed44760af3260667387f1c97c4829b178.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_ca081dbdc3469d06074d5f42f0f96bbd286da04d.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_cbf416ae8d7e23f579d137d60ae98e411bd89460.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_cd40f327f2ed9c90f002022da905fb3f7c3ffc67.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_ce51299867cb7b63a48e5826beaf088864b09e80.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_cf82d8f539b813da52b5ede1f538cde83ac7c5e0.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_cfa8788a874dc53aa616f00889f1cf7dd0b87981.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_d22413f2a6fbdea8c394c9830a1426e3f6e4a122.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_d2df947a358854089540b334ca5460299ebe580e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_d333ee676715e5fff74c4bd6193fe2de725e8543.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_d3c0804890a59cf6a4a2ceaf6528c552a21e3db2.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_d43b0996ceb8b0b7449388a03d38fa5f4ea7269e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_d50c1bc58d55238ae5a1cec0710fa02e8e07cafa.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_d585d894eef152085e58233b04ae7cb8983b3c04.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_d98465015ff57b496859602cab3efec166c2568b.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_daed538b647a713dbee3f1788932dbdc334cbae5.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_dcaf2ab6e15b2b63fc5617387d12fddf7fefa547.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_ddbafe596bd1f977306c6073766a3a9ada883686.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_de149dc6be0fdfca6e3e4731b3110a3a19e5525e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_deb877826fdd103687d657af57c6186d01c8f774.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_e082a909b8aa1887df6710704f3704afd8246659.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_e112db33ca81c6e2384f4fabc97d32fa264b8a96.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_e1d38d4ae46d9c670fbc7078a67fefb52f8847a6.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_e3b75ad760cd76810bb0a2efefae3222731ef7f7.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_e4a75dd30297dab7068fee6fba387757c535dd70.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_e7f80cbf01331ec9a5ebec91a90b2f6b73da852e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_e8dff7cda97264dd945ba460699c3bee3b2cd4ae.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_eb10fa01f91fe3d1f9267d1fe619411daa657338.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_ece91666bd508e41165f0f1b0404d23a109b24e3.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_ed2b1c5ed0772a28632d157ec886a6b2e536ce38.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_efe0f88b0c3b1b04c2c85cde5bdc2b130c38c482.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_f0436c575e9ced2e0a1be548c4a799e079ed4edd.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_f1322cdef2349b7eb6d9acf08182ab693f5bfd4b.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_f25daa28a1cc04acb675b94be67db53ff4b39127.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_f29d718a0e4d72c8aeaec56025ecebf92bd0ef11.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_f39a2d5b6538debbce1971e6787441081ea46476.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_f7397fd92c48dad6f7eb014d408a2cb1e317f0cb.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_f7e35d69f167bcbe9810245beb044734b9a21b99.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_f8285d996cbf5560018d4922cac5cc83e9fe012e.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_f8761147fe1a270741b25b331c1caa6cd055d4f4.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_f98a5bf364c6c5fd87251115428489065ac8f87c.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_f9de9a09f1a89b2af8cd04fc75a831dd3045e971.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_fa34ecc99e5e2ae3df51ab21e9cc879eee94b557.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_fb18a5a093cdde445e1bd938201e3615c0352e8b.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_fc18e05d61f6e5e90dee7d928a3b99532e5e38a5.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_fc51c4e1044d0f911d23dc20874c19952ae0f759.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_fd61755fbe00d5596f6891d17d003baf73993748.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_fe3b73572925798a786f0d21fa2ae0a62d53e505.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_ffceb40f680241d835df605b7a4edb1b37b0b491.bin
+ create mode 100644 .local/state/replit/agent/.agent_state_main.bin
+ create mode 100644 .local/state/replit/agent/.latest.json
+ create mode 100644 .local/state/replit/agent/rapid_build_success
+ create mode 100644 .local/state/replit/agent/repl_state.bin
+fatal: 'origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS C:\Users\Windows\OneDrive\Documents\GitHub\b10-news>
