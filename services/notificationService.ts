@@ -1,5 +1,4 @@
 import * as Notifications from "expo-notifications";
-import * as Device from "expo-device";
 import Constants from "expo-constants";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push } from "firebase/database";
@@ -54,10 +53,10 @@ function initializeFirebase() {
 
 export async function registerTokenWithBackend(token: string) {
   try {
-    // Get unique device ID
-    const deviceId = Device.getDeviceId() || `expo-${Constants.sessionId}`;
+    // Use session ID as unique device ID
+    const deviceId = `b10-news-${Constants.sessionId}`;
     
-    // NotifyHound backend URL - update this with your actual backend URL
+    // NotifyHound backend URL
     const backendUrl = process.env.EXPO_PUBLIC_NOTIFYHOUND_URL || "https://e418e926-1b2b-448a-abdf-a3bf17167ade-00-38cbm3g4eaphv.riker.replit.dev:8000";
     
     const response = await fetch(`${backendUrl}/api/register-token`, {
