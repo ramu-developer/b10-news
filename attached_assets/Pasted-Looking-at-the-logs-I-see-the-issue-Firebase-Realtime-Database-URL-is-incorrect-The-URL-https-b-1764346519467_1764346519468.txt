@@ -1,0 +1,48 @@
+Looking at the logs, I see the issue: Firebase Realtime Database URL is incorrect. The URL https://b10-news.firebaseio.com/ doesn't exist or isn't configured.
+
+Let me take a simpler approach - store device tokens locally on the backend instead of trying to read from Firebase Database:
+
+
+Show 7 more
+
+Opened notification-service/services/firebase-service.js
+
+Decided on local token storage
+Now I need to update the firebase service to use local token storage:
+
+
+Show 3 more
+
+Edited notification-service/services/firebase-service.js
+
+Decided on Firebase removal strategy
+Now let me remove the database URL requirement since we're not using Firebase Realtime Database anymore, and restart the service:
+
+
+Show 10 more
+Checked system logs
+
+Planned user testing instructions (5 seconds)
+Service is running with local token storage! I can see: [2025-11-28T16:13:57.735] [INFO] Device tokens file created
+
+Now here's how to test the complete flow:
+
+Step 1: Register a device token first (simulating what the app will do):
+
+curl -X POST https://e418e926-1b2b-448a-abdf-a3bf17167ade-00-38cbm3g4eaphv.riker.replit.dev:8000/api/register-token -H "Content-Type: application/json" -d "{\"clientId\":\"test-client\",\"deviceId\":\"test-device-001\",\"token\":\"YOUR_ACTUAL_FCM_TOKEN_FROM_APP\"}"
+
+Step 2: After registering a token, test webhook:
+
+curl -X POST https://e418e926-1b2b-448a-abdf-a3bf17167ade-00-38cbm3g4eaphv.riker.replit.dev:8000/webhook/test-client -H "Content-Type: application/json" -d "{\"title\":\"Local Token Test!\",\"body\":\"Sending to locally registered devices\",\"postId\":\"local-token-test-1\"}"
+
+To get the real FCM token, you need to:
+
+Update your App.tsx to get the FCM token when app starts
+Call the /api/register-token endpoint with that token
+Quick question: Do you have the FCM token from your Android app? If not, I'll update your app code to:
+
+Get the FCM device token on startup
+Automatically register it with the backend
+Checkpoint made
+just now
+Introduce local storage for device tokens and new registration endpoint

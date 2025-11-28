@@ -1,4 +1,5 @@
 import * as Notifications from "expo-notifications";
+import * as Device from "expo-device";
 import Constants from "expo-constants";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push } from "firebase/database";
@@ -51,6 +52,36 @@ function initializeFirebase() {
   }
 }
 
+export async function registerTokenWithBackend(token: string) {
+  try {
+    // Get unique device ID
+    const deviceId = Device.getDeviceId() || `expo-${Constants.sessionId}`;
+    
+    // NotifyHound backend URL - update this with your actual backend URL
+    const backendUrl = process.env.EXPO_PUBLIC_NOTIFYHOUND_URL || "https://e418e926-1b2b-448a-abdf-a3bf17167ade-00-38cbm3g4eaphv.riker.replit.dev:8000";
+    
+    const response = await fetch(`${backendUrl}/api/register-token`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        clientId: "b10-news",
+        deviceId: deviceId,
+        token: token,
+      }),
+    });
+
+    if (response.ok) {
+      console.log("✅ Token registered with NotifyHound backend");
+    } else {
+      console.log("Failed to register token:", response.status);
+    }
+  } catch (error) {
+    console.log("Could not register token with backend:", error);
+  }
+}
+
 export async function initializeNotifications() {
   try {
     // Get push token
@@ -61,6 +92,9 @@ export async function initializeNotifications() {
     if (token?.data) {
       deviceToken = token.data;
       console.log("✅ Device token obtained:", token.data);
+
+      // Register token with NotifyHound backend
+      await registerTokenWithBackend(token.data);
 
       // Initialize Firebase
       const { database: db, messaging: msg } = initializeFirebase();
