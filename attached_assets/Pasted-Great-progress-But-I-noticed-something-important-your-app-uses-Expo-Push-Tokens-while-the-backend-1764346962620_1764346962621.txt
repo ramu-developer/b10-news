@@ -1,0 +1,110 @@
+Great progress! But I noticed something important - your app uses Expo Push Tokens while the backend currently sends via Firebase FCM. These are different systems.
+
+I need to update the backend to support Expo's push notification API:
+
+
+Created notification-service/services/expo-push-service.js
+
+Opened notification-service/monitors/webhook-handler.js
+
+Decided on unified notification service
+Now I need to update the webhook handler to use Expo push for Expo tokens:
+
+
+Edited notification-service/monitors/webhook-handler.js
+
+Edited notification-service/monitors/webhook-handler.js
+
+Decided on webhook logic updates
+Now let me update the second webhook endpoint similarly:
+
+
+Edited notification-service/monitors/webhook-handler.js
+
+Opened notification-service/monitors/rss-monitor.js
+
+Decided on RSS monitor update
+Now I need to update the RSS monitor to also use Expo push for the registered tokens:
+
+
+Show 5 more
+Checked system logs
+
+Decided on next review steps
+Backend is now running with full Expo push notification support. Let me review the changes:
+
+
+Reviewed Expo push notification integration
+
+Decided on push token handling
+Good catch! Let me fix the issues the review found:
+
+
+Edited notification-service/services/firebase-service.js
+
+Edited notification-service/services/expo-push-service.js
+
+Decided on webhook/RSS updates
+Now let me update the webhook handler and RSS monitor to pass the correct parameters:
+
+
+Show 5 more
+Checked system logs
+
+Documented Expo push support
+Backend is running with all fixes. Let me update the documentation and finalize the task list:
+
+
+Opened replit.md
+
+Save device codes in file
+
+Add way to save device codes
+
+Use saved codes for notifications
+
+Add alerts to mobile app
+
+Show 2 more
+
+Edited replit.md
+
+Decided on backend push notification strategy (4 seconds)
+Backend is now fully ready with Expo Push notification support! Here's what I updated:
+
+What Changed on Backend
+Local Token Storage (/api/register-token)
+
+App registers its Expo push token with the backend
+Stored locally in JSON file (no Firebase Database needed)
+Expo Push API Integration
+
+Detects Expo tokens (ExponentPushToken[...])
+Sends via Expo's Push API instead of FCM
+Auto-removes invalid/expired tokens
+Dual Support
+
+Expo tokens → Expo Push API
+FCM tokens → Firebase Cloud Messaging
+Next Steps for You
+Push your updated app code to GitHub:
+
+cd C:\Users\Windows\OneDrive\Documents\GitHub\b10-news
+git add .
+git commit -m "Register Expo push token with NotifyHound backend"
+git push origin main
+
+Then:
+
+Wait 15-20 minutes for GitHub Actions to build
+Download new APK when checkmark appears ✅
+Uninstall old app and install new APK
+Open app and wait 30 seconds (it registers its token)
+Test with webhook:
+curl -X POST https://e418e926-1b2b-448a-abdf-a3bf17167ade-00-38cbm3g4eaphv.riker.replit.dev:8000/webhook/test-client -H "Content-Type: application/json" -d "{\"title\":\"Expo Push Test!\",\"body\":\"If you see this, notifications work!\",\"postId\":\"expo-test-final\"}"
+
+Tell me when you've pushed the code to GitHub! 🚀
+
+Checkpoint made
+just now
+Add ability to register device tokens with the backend servic
