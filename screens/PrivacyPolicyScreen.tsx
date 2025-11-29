@@ -44,7 +44,7 @@ export default function PrivacyPolicyScreen() {
         showsVerticalScrollIndicator={false}
       >
         <Text style={styles.sectionTitle}>Privacy Policy for B10 News</Text>
-        <Text style={styles.lastUpdated}>Last Updated: November 23, 2025</Text>
+        <Text style={styles.lastUpdated}>Last Updated: November 29, 2025</Text>
 
         <Section title="1. Introduction">
           <Text style={styles.text}>
@@ -78,6 +78,14 @@ export default function PrivacyPolicyScreen() {
             </Text>
             <Bullet text="When you view YouTube videos in the App" />
             <Bullet text="YouTube collects viewing data per their privacy policy" />
+
+            <Text style={[styles.text, { fontWeight: "600", marginTop: Spacing.md }]}>
+              Push Notifications & NotifyHound:
+            </Text>
+            <Bullet text="We send push notifications to notify you about new content" />
+            <Bullet text="Your device token is registered with our notification service" />
+            <Bullet text="NotifyHound service monitors RSS feeds for new YouTube videos and blog posts" />
+            <Bullet text="Notifications are sent through Expo Push Notification service" />
           </Subsection>
         </Section>
 
@@ -85,6 +93,7 @@ export default function PrivacyPolicyScreen() {
           <Bullet text="Provide and improve the App's functionality" />
           <Bullet text="Understand user behavior and preferences" />
           <Bullet text="Fix technical issues and app crashes (via Firebase Crashlytics)" />
+          <Bullet text="Send push notifications about new content (YouTube videos and blog posts)" />
           <Bullet text="Comply with legal obligations" />
           <Bullet text="Send important updates about the App" />
         </Section>
@@ -92,6 +101,8 @@ export default function PrivacyPolicyScreen() {
         <Section title="4. Data Sharing">
           <Bullet text="Firebase: Your data is shared with Google Firebase for analytics and crash reporting" />
           <Bullet text="YouTube: Your viewing data is shared with YouTube when you access videos" />
+          <Bullet text="Expo: Your push notification token is shared with Expo for notification delivery" />
+          <Bullet text="NotifyHound: RSS feed data is processed through NotifyHound service for content monitoring" />
           <Bullet text="Third-party service providers: Only as necessary for app functionality" />
           <Bullet text="Legal requirements: We may share data if required by law" />
         </Section>
