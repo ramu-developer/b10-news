@@ -85,6 +85,7 @@
             <li><strong>Usage data:</strong> How you interact with the App (features used, time spent)</li>
             <li><strong>Location data:</strong> General location based on IP address (not precise location)</li>
             <li><strong>Analytics data:</strong> App performance, crashes, and user behavior</li>
+            <li><strong>Push notification token:</strong> A unique identifier used to send you news alerts</li>
         </ul>
 
         <h3>2.3 Third-Party Services</h3>
@@ -107,6 +108,22 @@
             <li>NotifyHound service monitors RSS feeds for new YouTube videos and blog posts</li>
             <li>Notifications are sent through Expo Push Notification service</li>
         </ul>
+
+        <h3>2.4 Push Notifications</h3>
+        <p><strong>Push Notification Service:</strong></p>
+        <ul>
+            <li>We collect your device's push notification token (Expo Push Token)</li>
+            <li>This token is used solely to send you news alerts about new content</li>
+            <li>Your token is stored on our secure notification server</li>
+            <li>You can disable notifications anytime in your device settings</li>
+        </ul>
+
+        <p><strong>Data Collected:</strong></p>
+        <ul>
+            <li>Device push token (anonymous identifier)</li>
+            <li>Device ID (for token management)</li>
+            <li>No personal information is linked to your notification token</li>
+        </ul>
     </div>
 
     <div class="section">
@@ -127,6 +144,7 @@
             <li><strong>Firebase:</strong> Your data is shared with Google Firebase for analytics and crash reporting</li>
             <li><strong>YouTube:</strong> Your viewing data is shared with YouTube when you access videos</li>
             <li><strong>Expo:</strong> Your push notification token is shared with Expo for notification delivery</li>
+            <li><strong>Expo Push Service:</strong> Your push token is sent through Expo's push notification service to deliver alerts</li>
             <li><strong>NotifyHound:</strong> RSS feed data is processed through NotifyHound service for content monitoring</li>
             <li><strong>Third-party service providers:</strong> Only as necessary for app functionality</li>
             <li><strong>Legal requirements:</strong> We may share data if required by law</li>
