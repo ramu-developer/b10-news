@@ -50,13 +50,16 @@ export default function PrivacyPolicyScreen() {
           <Text style={styles.text}>
             B10 News ("we," "us," "our," or "Company") operates the B10 News mobile application (the "App"). This Privacy Policy explains our practices regarding the collection, use, and disclosure of information through the App and how we safeguard your privacy.
           </Text>
+          <Text style={[styles.text, { marginTop: Spacing.md }]}>
+            By using this App, you consent to our collection and use of personal information as outlined in this Privacy Policy.
+          </Text>
         </Section>
 
         <Section title="2. Information We Collect">
           <Subsection title="2.1 Information You Provide">
-            <Bullet text="Search history: When you search for news or categories" />
-            <Bullet text="View history: Which news articles and videos you view" />
-            <Bullet text="Preferences: Your selected news categories and preferences" />
+            <Bullet text="Search history: Stored locally on your device when you search for news or categories (never sent to servers)" />
+            <Bullet text="View history: Which news articles and videos you view (stored locally)" />
+            <Bullet text="Preferences: Your selected news categories and preferences (stored locally)" />
           </Subsection>
 
           <Subsection title="2.2 Automatically Collected Information">
@@ -71,19 +74,28 @@ export default function PrivacyPolicyScreen() {
             <Text style={[styles.text, { fontWeight: "600", marginTop: Spacing.md }]}>
               Firebase Analytics & Crashlytics:
             </Text>
-            <Bullet text="Google Firebase collects usage data and crash reports" />
-            <Bullet text="Data includes: app interactions, performance metrics, device info" />
+            <Bullet text="Collects app performance data: session duration, first open, user engagement" />
+            <Bullet text="Crash reporting: Collects error logs and device information for troubleshooting" />
+            <Bullet text="Analytics events: Features used, screen views, interaction patterns" />
+            <Bullet text="Device data: Device model, OS version, country based on IP address" />
 
             <Text style={[styles.text, { fontWeight: "600", marginTop: Spacing.md }]}>
               YouTube API:
             </Text>
-            <Bullet text="When you view YouTube videos in the App" />
+            <Bullet text="When you view YouTube videos embedded in the App" />
             <Bullet text="YouTube collects viewing data per their privacy policy" />
+
+            <Text style={[styles.text, { fontWeight: "600", marginTop: Spacing.md }]}>
+              In-App Browser:
+            </Text>
+            <Bullet text="URLs accessed through the in-app browser are not tracked or stored by us" />
+            <Bullet text="Browser interactions remain between your device and the websites you visit" />
+            <Bullet text="Third-party websites may collect their own data as per their privacy policies" />
 
             <Text style={[styles.text, { fontWeight: "600", marginTop: Spacing.md }]}>
               Push Notifications & NotifyHound:
             </Text>
-            <Bullet text="We send push notifications to notify you about new content" />
+            <Bullet text="We send push notifications to alert you about new content" />
             <Bullet text="Your device token is registered with our notification service" />
             <Bullet text="NotifyHound service monitors RSS feeds for new YouTube videos and blog posts" />
             <Bullet text="Notifications are sent through Expo Push Notification service" />
@@ -94,16 +106,23 @@ export default function PrivacyPolicyScreen() {
               Push Notification Service:
             </Text>
             <Bullet text="We collect your device's push notification token (Expo Push Token)" />
-            <Bullet text="This token is used solely to send you news alerts about new content" />
+            <Bullet text="This token is used solely to send you news alerts about new YouTube videos and blog posts" />
             <Bullet text="Your token is stored on our secure notification server" />
             <Bullet text="You can disable notifications anytime in your device settings" />
 
             <Text style={[styles.text, { fontWeight: "600", marginTop: Spacing.md }]}>
-              Data Collected:
+              Data Collected for Notifications:
             </Text>
-            <Bullet text="Device push token (anonymous identifier)" />
-            <Bullet text="Device ID (for token management)" />
-            <Bullet text="No personal information is linked to your notification token" />
+            <Bullet text="Device push token (anonymous identifier used to deliver messages)" />
+            <Bullet text="Device ID: A unique Android or iOS identifier for device-specific token management" />
+            <Bullet text="No personal information (name, email, phone) is linked to your notification token" />
+
+            <Text style={[styles.text, { fontWeight: "600", marginTop: Spacing.md }]}>
+              Blog Posts:
+            </Text>
+            <Bullet text="Blog content is monitored for updates via RSS feeds" />
+            <Bullet text="When new blog posts are published, you receive notifications if enabled" />
+            <Bullet text="No personal data about your reading habits is collected" />
           </Subsection>
         </Section>
 
@@ -119,9 +138,9 @@ export default function PrivacyPolicyScreen() {
         <Section title="4. Data Sharing">
           <Bullet text="Firebase: Your data is shared with Google Firebase for analytics and crash reporting" />
           <Bullet text="YouTube: Your viewing data is shared with YouTube when you access videos" />
-          <Bullet text="Expo: Your push notification token is shared with Expo for notification delivery" />
           <Bullet text="Expo Push Service: Your push token is sent through Expo's push notification service to deliver alerts" />
-          <Bullet text="NotifyHound: RSS feed data is processed through NotifyHound service for content monitoring" />
+          <Bullet text="NotifyHound: RSS feed data is processed for content monitoring (YouTube videos and blog posts)" />
+          <Bullet text="In-app browser: Website data flows directly between your device and the websites you visit" />
           <Bullet text="Third-party service providers: Only as necessary for app functionality" />
           <Bullet text="Legal requirements: We may share data if required by law" />
         </Section>
@@ -149,8 +168,18 @@ export default function PrivacyPolicyScreen() {
           <Bullet text="Request deletion of your data" />
           <Bullet text="Opt out of analytics collection" />
           <Bullet text="Disable push notifications in device settings" />
+          <Bullet text="Clear all locally stored data (search history, view history, preferences)" />
+
           <Text style={[styles.text, { marginTop: Spacing.md, fontWeight: "600" }]}>
-            To exercise these rights or for data deletion requests, contact: sekharbyiram@gmail.com
+            To Clear Local Data:
+          </Text>
+          <Bullet text="iOS/Android: Go to Device Settings → Apps → B10 News → Clear Storage/Cache" />
+
+          <Text style={[styles.text, { marginTop: Spacing.md, fontWeight: "600" }]}>
+            To Exercise Your Rights:
+          </Text>
+          <Text style={[styles.text, { marginTop: Spacing.sm }]}>
+            Contact: sekharbyiram@gmail.com
           </Text>
         </Section>
 

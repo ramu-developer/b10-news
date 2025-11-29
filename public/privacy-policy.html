@@ -67,6 +67,7 @@
     <div class="section">
         <h2>1. Introduction</h2>
         <p>B10 News ("we," "us," "our," or "Company") operates the B10 News mobile application (the "App"). This Privacy Policy explains our practices regarding the collection, use, and disclosure of information through the App and how we safeguard your privacy.</p>
+        <p>By using this App, you consent to our collection and use of personal information as outlined in this Privacy Policy.</p>
     </div>
 
     <div class="section">
@@ -74,9 +75,9 @@
         
         <h3>2.1 Information You Provide</h3>
         <ul>
-            <li>Search history: When you search for news or categories</li>
-            <li>View history: Which news articles and videos you view</li>
-            <li>Preferences: Your selected news categories and preferences</li>
+            <li>Search history: Stored locally on your device when you search for news or categories (never sent to servers)</li>
+            <li>View history: Which news articles and videos you view (stored locally)</li>
+            <li>Preferences: Your selected news categories and preferences (stored locally)</li>
         </ul>
 
         <h3>2.2 Automatically Collected Information</h3>
@@ -91,30 +92,46 @@
         <h3>2.3 Third-Party Services</h3>
         <p><strong>Firebase Analytics & Crashlytics:</strong></p>
         <ul>
-            <li>Google Firebase collects usage data and crash reports</li>
-            <li>Data includes: app interactions, performance metrics, device info</li>
+            <li>Collects app performance data: session duration, first open, user engagement</li>
+            <li>Crash reporting: Collects error logs and device information for troubleshooting</li>
+            <li>Analytics events: Features used, screen views, interaction patterns</li>
+            <li>Device data: Device model, OS version, country based on IP address</li>
         </ul>
 
         <p><strong>YouTube API:</strong></p>
         <ul>
-            <li>When you view YouTube videos in the App</li>
+            <li>When you view YouTube videos embedded in the App</li>
             <li>YouTube collects viewing data per their privacy policy</li>
+        </ul>
+
+        <p><strong>In-App Browser:</strong></p>
+        <ul>
+            <li>URLs accessed through the in-app browser are not tracked or stored by us</li>
+            <li>Browser interactions remain between your device and the websites you visit</li>
+            <li>Third-party websites may collect their own data as per their privacy policies</li>
         </ul>
 
         <h3>2.4 Push Notifications</h3>
         <p><strong>Push Notification Service:</strong></p>
         <ul>
             <li>We collect your device's push notification token (Expo Push Token)</li>
-            <li>This token is used solely to send you news alerts about new content</li>
+            <li>This token is used solely to send you news alerts about new YouTube videos and blog posts</li>
             <li>Your token is stored on our secure notification server</li>
             <li>You can disable notifications anytime in your device settings</li>
         </ul>
 
         <p><strong>Data Collected for Notifications:</strong></p>
         <ul>
-            <li>Device push token (anonymous identifier)</li>
-            <li>Device ID (for token management)</li>
-            <li>No personal information is linked to your notification token</li>
+            <li>Device push token (anonymous identifier used to deliver messages)</li>
+            <li>Device ID: A unique Android or iOS identifier for device-specific token management</li>
+            <li>No personal information (name, email, phone) is linked to your notification token</li>
+        </ul>
+
+        <p><strong>Blog Posts:</strong></p>
+        <ul>
+            <li>Blog content is monitored for updates via RSS feeds</li>
+            <li>When new blog posts are published, you receive notifications if enabled</li>
+            <li>No personal data about your reading habits is collected</li>
         </ul>
     </div>
 
@@ -133,11 +150,13 @@
     <div class="section">
         <h2>4. Data Sharing</h2>
         <ul>
-            <li>Firebase: Your data is shared with Google Firebase for analytics and crash reporting</li>
-            <li>YouTube: Your viewing data is shared with YouTube when you access videos</li>
-            <li>Expo Push Service: Your push token is sent through Expo's push notification service to deliver alerts</li>
-            <li>Third-party service providers: Only as necessary for app functionality</li>
-            <li>Legal requirements: We may share data if required by law</li>
+            <li><strong>Firebase:</strong> Your data is shared with Google Firebase for analytics and crash reporting</li>
+            <li><strong>YouTube:</strong> Your viewing data is shared with YouTube when you access videos</li>
+            <li><strong>Expo Push Service:</strong> Your push token is sent through Expo's push notification service to deliver alerts</li>
+            <li><strong>NotifyHound:</strong> RSS feed data is processed for content monitoring (YouTube videos and blog posts)</li>
+            <li><strong>In-app browser:</strong> Website data flows directly between your device and the websites you visit</li>
+            <li><strong>Third-party service providers:</strong> Only as necessary for app functionality</li>
+            <li><strong>Legal requirements:</strong> We may share data if required by law</li>
         </ul>
     </div>
 
@@ -172,10 +191,17 @@
             <li>Request deletion of your data</li>
             <li>Opt out of analytics collection</li>
             <li>Disable push notifications in device settings</li>
+            <li>Clear all locally stored data (search history, view history, preferences)</li>
         </ul>
+
+        <h3>To Clear Local Data:</h3>
+        <ul>
+            <li>iOS/Android: Go to Device Settings → Apps → B10 News → Clear Storage/Cache</li>
+        </ul>
+
         <div class="contact-info">
-            <p><strong>To exercise these rights or for data deletion requests, contact:</strong></p>
-            <p>Email: sekharbyiram@gmail.com</p>
+            <p><strong>To Exercise Your Rights:</strong></p>
+            <p>Contact: sekharbyiram@gmail.com</p>
         </div>
     </div>
 
