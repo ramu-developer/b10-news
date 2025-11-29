@@ -3,6 +3,7 @@ import { View, StyleSheet, Pressable, Text, ScrollView, TextInput, Modal, Activi
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Image } from "expo-image";
 import * as Linking from "expo-linking";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Spacing } from "@/constants/theme";
 import { fetchYouTubeVideos, YouTubeVideo } from "@/utils/youtubeAPI";
 import VideosSection from "@/components/VideosSection";
@@ -34,9 +35,28 @@ export default function Frame02Screen() {
   useEffect(() => {
     const loadVideos = async () => {
       setLoading(true);
-      const videosData = await fetchYouTubeVideos(200);
-      setAllVideos(videosData);
-      setFilteredVideos(videosData);
+      
+      // Try loading from cache first for instant load
+      const cachedVideos = await AsyncStorage.getItem("b10_cached_videos");
+      if (cachedVideos) {
+        try {
+          const videos = JSON.parse(cachedVideos);
+          setAllVideos(videos);
+          setFilteredVideos(videos);
+          setLoading(false);
+        } catch (error) {
+          console.error("Cache parse error:", error);
+        }
+      }
+      
+      // Fetch fresh videos (50 instead of 200 for instant load)
+      const videosData = await fetchYouTubeVideos(50);
+      if (videosData.length > 0) {
+        setAllVideos(videosData);
+        setFilteredVideos(videosData);
+        // Cache for next load
+        await AsyncStorage.setItem("b10_cached_videos", JSON.stringify(videosData));
+      }
       setLoading(false);
     };
 
