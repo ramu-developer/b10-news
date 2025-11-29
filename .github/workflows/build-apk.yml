@@ -18,18 +18,36 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Setup Expo CLI
-        run: npm install -g eas-cli
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
 
-      - name: Authenticate with EAS
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android components
         run: |
-          eas login --non-interactive --username ${{ secrets.EAS_USERNAME }} --password ${{ secrets.EAS_PASSWORD }}
+          sdkmanager --install "ndk;26.1.10909125"
+          sdkmanager --install "cmake;3.22.1"
 
-      - name: Build APK with EAS Cloud
+      - name: Setup Expo CLI
+        run: npm install -g eas-cli expo-cli
+
+      - name: Clean cache
+        run: |
+          rm -rf ~/.gradle
+          rm -rf ~/.m2
+          npm cache clean --force
+
+      - name: Prebuild Android
         env:
           EXPO_PUBLIC_FIREBASE_API_KEY: ${{ secrets.EXPO_PUBLIC_FIREBASE_API_KEY }}
           EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN }}
@@ -38,14 +56,29 @@ jobs:
           EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
           EXPO_PUBLIC_YOUTUBE_API_KEY: ${{ secrets.EXPO_PUBLIC_YOUTUBE_API_KEY }}
         run: |
-          mkdir -p ./builds
-          eas build --platform android --non-interactive --output ./builds/b10news.apk
-          echo "✅ APK built successfully!"
-          ls -lh ./builds/
+          npx expo prebuild --platform android --clean --non-interactive
 
-      - name: Upload APK as artifact
+      - name: Build Gradle APK
+        env:
+          EXPO_PUBLIC_FIREBASE_API_KEY: ${{ secrets.EXPO_PUBLIC_FIREBASE_API_KEY }}
+          EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN }}
+          EXPO_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.EXPO_PUBLIC_FIREBASE_PROJECT_ID }}
+          EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ secrets.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET }}
+          EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
+          EXPO_PUBLIC_YOUTUBE_API_KEY: ${{ secrets.EXPO_PUBLIC_YOUTUBE_API_KEY }}
+        run: |
+          cd android
+          ./gradlew clean assembleRelease -x bundleReleaseResources --no-daemon
+          cd ..
+
+      - name: Sign APK
+        run: |
+          mkdir -p ./builds
+          cp android/app/build/outputs/apk/release/app-release-unsigned.apk ./builds/b10news-unsigned.apk
+
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: b10-news-apk
-          path: ./builds/b10news.apk
+          path: ./builds/b10news-unsigned.apk
           retention-days: 90
