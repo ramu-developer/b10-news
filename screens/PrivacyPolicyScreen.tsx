@@ -111,9 +111,9 @@ export default function PrivacyPolicyScreen() {
           <Bullet text="Provide and improve the App's functionality" />
           <Bullet text="Understand user behavior and preferences" />
           <Bullet text="Fix technical issues and app crashes (via Firebase Crashlytics)" />
-          <Bullet text="Send push notifications about new content (YouTube videos and blog posts)" />
           <Bullet text="Comply with legal obligations" />
           <Bullet text="Send important updates about the App" />
+          <Bullet text="Send push notifications for new news articles and videos" />
         </Section>
 
         <Section title="4. Data Sharing">
@@ -130,6 +130,7 @@ export default function PrivacyPolicyScreen() {
           <Bullet text="We use industry-standard security measures to protect your information" />
           <Bullet text="Your data is encrypted in transit using HTTPS/TLS" />
           <Bullet text="Firebase provides security measures per Google's security standards" />
+          <Bullet text="Push notification tokens are stored securely on our servers" />
           <Bullet text="No method of transmission over the internet is 100% secure" />
         </Section>
 
@@ -137,6 +138,7 @@ export default function PrivacyPolicyScreen() {
           <Bullet text="Usage analytics: Retained for 14 months (Firebase default)" />
           <Bullet text="Crash reports: Retained for troubleshooting purposes" />
           <Bullet text="Search history: Stored locally on your device" />
+          <Bullet text="Push notification tokens: Retained until you uninstall the app or disable notifications" />
           <Bullet text="You can clear app data anytime from device settings" />
         </Section>
 
@@ -146,6 +148,7 @@ export default function PrivacyPolicyScreen() {
           <Bullet text="Request correction of inaccurate data" />
           <Bullet text="Request deletion of your data" />
           <Bullet text="Opt out of analytics collection" />
+          <Bullet text="Disable push notifications in device settings" />
           <Text style={[styles.text, { marginTop: Spacing.md, fontWeight: "600" }]}>
             To exercise these rights or for data deletion requests, contact: sekharbyiram@gmail.com
           </Text>
