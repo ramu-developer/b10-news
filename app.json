@@ -27,14 +27,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/app-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#FFFFFF",
-          "dark": {
-            "image": "./assets/app-icon.png",
-            "backgroundColor": "#FFFFFF"
-          }
+          "backgroundColor": "#FFFFFF"
         }
       ],
       "expo-web-browser",
