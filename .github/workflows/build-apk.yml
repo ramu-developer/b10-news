@@ -24,32 +24,36 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Setup Expo
-        uses: expo/expo-github-action@v8
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
-          expo-version: latest
-          eas-version: latest
-          token: ${{ secrets.EXPO_TOKEN }}
+          distribution: 'temurin'
+          java-version: '17'
 
-      - name: Build APK for Play Store
+      - name: Setup Expo CLI
+        run: npm install -g eas-cli
+
+      - name: Build APK (Local Build - No EAS Limit)
         env:
           EAS_NO_VCS_DETECTION: 1
-        run: |
-          eas build --platform android --non-interactive --wait
-          
-      - name: Download APK
+          EXPO_PUBLIC_FIREBASE_API_KEY: ${{ secrets.EXPO_PUBLIC_FIREBASE_API_KEY }}
+          EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN }}
+          EXPO_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.EXPO_PUBLIC_FIREBASE_PROJECT_ID }}
+          EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ secrets.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET }}
+          EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
+          EXPO_PUBLIC_YOUTUBE_API_KEY: ${{ secrets.EXPO_PUBLIC_YOUTUBE_API_KEY }}
         run: |
           mkdir -p ./builds
-          eas build:list --platform android --limit 1 --json > build-info.json
-          echo "Build completed! APK ready for Play Store submission."
-          cat build-info.json
+          eas build --platform android --local --output ./builds/b10news.apk --non-interactive
+          echo "✅ APK built successfully!"
+          ls -lh ./builds/
 
       - name: Upload APK as artifact
         uses: actions/upload-artifact@v4
         with:
           name: b10-news-apk
-          path: ./builds/
-          retention-days: 30
+          path: ./builds/b10news.apk
+          retention-days: 90
 
       - name: Create Release with APK
         uses: softprops/action-gh-release@v1
