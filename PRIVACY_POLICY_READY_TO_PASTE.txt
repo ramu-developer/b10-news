@@ -1,0 +1,131 @@
+Privacy Policy for B10 News
+Last Updated: November 29, 2025
+
+1. Introduction
+
+B10 News ("we," "us," "our," or "Company") operates the B10 News mobile application (the "App"). This Privacy Policy explains our practices regarding the collection, use, and disclosure of information through the App and how we safeguard your privacy.
+
+By using this App, you consent to our collection and use of personal information as outlined in this Privacy Policy.
+
+2. Information We Collect
+
+2.1 Information You Provide
+• Search history: Stored locally on your device when you search for news or categories (never sent to servers)
+• View history: Which news articles and videos you view (stored locally)
+• Preferences: Your selected news categories and preferences (stored locally)
+
+2.2 Automatically Collected Information
+• Device information: Device type, operating system, unique identifiers
+• Usage data: How you interact with the App (features used, time spent)
+• Location data: General location based on IP address (not precise location)
+• Analytics data: App performance, crashes, and user behavior
+• Push notification token: A unique identifier used to send you news alerts
+
+2.3 Third-Party Services
+
+Firebase Analytics & Crashlytics:
+• Collects app performance data: session duration, first open, user engagement
+• Crash reporting: Collects error logs and device information for troubleshooting
+• Analytics events: Features used, screen views, interaction patterns
+• Device data: Device model, OS version, country based on IP address
+
+YouTube API:
+• When you view YouTube videos embedded in the App
+• YouTube collects viewing data per their privacy policy
+
+In-App Browser:
+• URLs accessed through the in-app browser are not tracked or stored by us
+• Browser interactions remain between your device and the websites you visit
+• Third-party websites may collect their own data as per their privacy policies
+
+Push Notifications & NotifyHound:
+• We send push notifications to alert you about new content
+• Your device token is registered with our notification service
+• NotifyHound service monitors RSS feeds for new YouTube videos and blog posts
+• Notifications are sent through Expo Push Notification service
+
+2.4 Push Notifications
+
+Push Notification Service:
+• We collect your device's push notification token (Expo Push Token)
+• This token is used solely to send you news alerts about new YouTube videos and blog posts
+• Your token is stored on our secure notification server
+• You can disable notifications anytime in your device settings
+
+Data Collected for Notifications:
+• Device push token (anonymous identifier used to deliver messages)
+• Device ID: A unique Android or iOS identifier for device-specific token management
+• No personal information (name, email, phone) is linked to your notification token
+
+Blog Posts:
+• Blog content is monitored for updates via RSS feeds
+• When new blog posts are published, you receive notifications if enabled
+• No personal data about your reading habits is collected
+
+3. How We Use Your Information
+
+• Provide and improve the App's functionality
+• Understand user behavior and preferences
+• Fix technical issues and app crashes (via Firebase Crashlytics)
+• Comply with legal obligations
+• Send important updates about the App
+• Send push notifications for new news articles and videos
+
+4. Data Sharing
+
+• Firebase: Your data is shared with Google Firebase for analytics and crash reporting
+• YouTube: Your viewing data is shared with YouTube when you access videos
+• Expo Push Service: Your push token is sent through Expo's push notification service to deliver alerts
+• NotifyHound: RSS feed data is processed for content monitoring (YouTube videos and blog posts)
+• In-app browser: Website data flows directly between your device and the websites you visit
+• Third-party service providers: Only as necessary for app functionality
+• Legal requirements: We may share data if required by law
+
+5. Data Security
+
+• We use industry-standard security measures to protect your information
+• Your data is encrypted in transit using HTTPS/TLS
+• Firebase provides security measures per Google's security standards
+• Push notification tokens are stored securely on our servers
+• No method of transmission over the internet is 100% secure
+
+6. Data Retention
+
+• Usage analytics: Retained for 14 months (Firebase default)
+• Crash reports: Retained for troubleshooting purposes
+• Search history: Stored locally on your device
+• Push notification tokens: Retained until you uninstall the app or disable notifications
+• You can clear app data anytime from device settings
+
+7. Your Rights
+
+You have the right to:
+• Access your personal information
+• Request correction of inaccurate data
+• Request deletion of your data
+• Opt out of analytics collection
+• Disable push notifications in device settings
+• Clear all locally stored data (search history, view history, preferences)
+
+To Clear Local Data:
+iOS/Android: Go to Device Settings → Apps → B10 News → Clear Storage/Cache
+
+To Exercise Your Rights:
+Contact: sekharbyiram@gmail.com
+
+8. Children's Privacy
+
+The App is not intended for children under 13. We do not knowingly collect information from children under 13. If we become aware of such collection, we will delete the data immediately.
+
+9. Contact Information
+
+Email: sekharbyiram@gmail.com
+Website: https://www.b10vartha.in
+
+10. Policy Changes
+
+We may update this Privacy Policy periodically. Changes will be effective upon posting to the App. Your continued use of the App constitutes acceptance of the updated Privacy Policy.
+
+---
+
+Copyright © 2025 B10 News. All rights reserved.
