@@ -12,9 +12,18 @@ const featuredWidth = screenWidth; // Full width for featured video
 interface VideosSectionProps {
   videos: YouTubeVideo[];
   loading: boolean;
+  onLoadMore?: () => void;
+  loadingMore?: boolean;
+  hasMore?: boolean;
 }
 
-export default function VideosSection({ videos, loading }: VideosSectionProps) {
+export default function VideosSection({ 
+  videos, 
+  loading, 
+  onLoadMore, 
+  loadingMore = false,
+  hasMore = false 
+}: VideosSectionProps) {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
@@ -81,6 +90,21 @@ export default function VideosSection({ videos, loading }: VideosSectionProps) {
     </Pressable>
   );
 
+  const renderFooter = () => {
+    if (!hasMore) return null;
+    return (
+      <View style={styles.footerContainer}>
+        {loadingMore && <ActivityIndicator size="small" color="#2196F3" />}
+      </View>
+    );
+  };
+
+  const handleEndReached = () => {
+    if (hasMore && !loadingMore && onLoadMore) {
+      onLoadMore();
+    }
+  };
+
   return (
     <FlatList
       data={videos.slice(1)}
@@ -92,6 +116,9 @@ export default function VideosSection({ videos, loading }: VideosSectionProps) {
       scrollEnabled={true}
       contentContainerStyle={styles.listContent}
       ListHeaderComponent={renderFeaturedVideo}
+      ListFooterComponent={renderFooter}
+      onEndReached={handleEndReached}
+      onEndReachedThreshold={0.5}
     />
   );
 }
@@ -152,5 +179,10 @@ const styles = StyleSheet.create({
   emptyText: {
     fontSize: 16,
     color: "#666666",
+  },
+  footerContainer: {
+    paddingVertical: Spacing.lg,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

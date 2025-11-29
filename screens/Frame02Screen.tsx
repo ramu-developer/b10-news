@@ -28,9 +28,13 @@ export default function Frame02Screen() {
   const [selectedCategory, setSelectedCategory] = useState("national");
   const [allVideos, setAllVideos] = useState<YouTubeVideo[]>([]);
   const [filteredVideos, setFilteredVideos] = useState<YouTubeVideo[]>([]);
+  const [displayedVideos, setDisplayedVideos] = useState<YouTubeVideo[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [searchVisible, setSearchVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const videosPerBatch = 25;
+  const [displayedCount, setDisplayedCount] = useState(videosPerBatch);
 
   useEffect(() => {
     const loadVideos = async () => {
@@ -42,6 +46,7 @@ export default function Frame02Screen() {
         try {
           const videos = JSON.parse(cachedVideos);
           setAllVideos(videos);
+          setDisplayedVideos(videos.slice(0, videosPerBatch));
           setFilteredVideos(videos);
           setLoading(false);
         } catch (error) {
@@ -49,10 +54,11 @@ export default function Frame02Screen() {
         }
       }
       
-      // Fetch fresh videos (50 instead of 200 for instant load)
-      const videosData = await fetchYouTubeVideos(50);
+      // Fetch fresh videos (200 total, but show only 25 initially)
+      const videosData = await fetchYouTubeVideos(200);
       if (videosData.length > 0) {
         setAllVideos(videosData);
+        setDisplayedVideos(videosData.slice(0, videosPerBatch));
         setFilteredVideos(videosData);
         // Cache for next load
         await AsyncStorage.setItem("b10_cached_videos", JSON.stringify(videosData));
@@ -63,6 +69,19 @@ export default function Frame02Screen() {
     loadVideos();
   }, []);
 
+  const handleLoadMore = async () => {
+    if (loadingMore || displayedCount >= allVideos.length) return;
+    
+    setLoadingMore(true);
+    // Simulate slight delay for smooth UX
+    await new Promise(resolve => setTimeout(resolve, 300));
+    
+    const newCount = Math.min(displayedCount + videosPerBatch, allVideos.length);
+    setDisplayedVideos(allVideos.slice(0, newCount));
+    setDisplayedCount(newCount);
+    setLoadingMore(false);
+  };
+
   const handleSearchSubmit = (query: string) => {
     setSearchQuery(query);
     if (query.trim()) {
@@ -70,8 +89,12 @@ export default function Frame02Screen() {
         video.title.toLowerCase().includes(query.toLowerCase())
       );
       setFilteredVideos(filtered);
+      setDisplayedVideos(filtered.slice(0, videosPerBatch));
+      setDisplayedCount(videosPerBatch);
     } else {
       setFilteredVideos(allVideos);
+      setDisplayedVideos(allVideos.slice(0, videosPerBatch));
+      setDisplayedCount(videosPerBatch);
     }
   };
 
@@ -187,7 +210,13 @@ export default function Frame02Screen() {
       </View>
 
       <View style={styles.content}>
-        <VideosSection videos={filteredVideos} loading={loading} />
+        <VideosSection 
+          videos={displayedVideos} 
+          loading={loading} 
+          onLoadMore={handleLoadMore}
+          loadingMore={loadingMore}
+          hasMore={displayedCount < allVideos.length}
+        />
       </View>
 
       <Modal
@@ -222,7 +251,13 @@ export default function Frame02Screen() {
             </Pressable>
           </View>
           <View style={styles.modalContent}>
-            <VideosSection videos={filteredVideos} loading={loading} />
+            <VideosSection 
+              videos={displayedVideos} 
+              loading={loading}
+              onLoadMore={handleLoadMore}
+              loadingMore={loadingMore}
+              hasMore={displayedCount < allVideos.length}
+            />
           </View>
         </View>
       </Modal>
