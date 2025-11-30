@@ -20,6 +20,11 @@
       "minSdkVersion": 21,
       "gradleProperties": {
         "android.useAndroidX": true
+      },
+      "splash": {
+        "image": "./assets/app-icon.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
@@ -27,13 +32,6 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      [
-        "expo-splash-screen",
-        {
-          "backgroundColor": "#FFFFFF",
-          "resizeMode": "contain"
-        }
-      ],
       "expo-web-browser",
       "expo-video",
       [
