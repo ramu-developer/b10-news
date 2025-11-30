@@ -1,0 +1,62 @@
+{
+  "expo": {
+    "name": "B10 News",
+    "slug": "b10-news",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/app-icon.png",
+    "scheme": "b10news",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.b10news.app"
+    },
+    "android": {
+      "package": "com.b10news.app",
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "targetSdkVersion": 35,
+      "minSdkVersion": 21
+    },
+    "web": {
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#FFFFFF",
+          "resizeMode": "contain"
+        }
+      ],
+      "expo-web-browser",
+      "expo-video",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/Mandali-Regular.ttf"
+          ]
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/app-icon.png",
+          "color": "#FFFFFF"
+        }
+      ]
+    ],
+    "experiments": {
+      "reactCompiler": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "da9193a0-9f66-4f74-a545-bf4649c23bca"
+      },
+      "projectId": "da9193a0-9f66-4f74-a545-bf4649c23bca"
+    }
+  }
+}
