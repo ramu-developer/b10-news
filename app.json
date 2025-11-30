@@ -30,7 +30,9 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#FFFFFF"
+          "image": "./assets/app-icon.png",
+          "backgroundColor": "#FFFFFF",
+          "resizeMode": "contain"
         }
       ],
       "expo-web-browser",

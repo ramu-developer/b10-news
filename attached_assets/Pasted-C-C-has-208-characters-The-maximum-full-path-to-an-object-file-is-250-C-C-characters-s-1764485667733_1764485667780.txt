@@ -1,0 +1,46 @@
+C/C++:   has 208 characters.  The maximum full path to an object file is 250
+C/C++:   characters (see CMAKE_OBJECT_PATH_MAX).  Object file
+C/C++:     C_/Users/Windows/OneDrive/Documents/GitHub/b10-news/node_modules/react-native-keyboard-controller/common/cpp/react/renderer/components/reactnativekeyboardcontroller/RNKCOverKeyboardViewState.cpp.
+C/C++:   cannot be safely placed under this directory.  The build may not work
+C/C++:   correctly.
+
+> Task :react-native-worklets:compileReleaseJavaWithJavac
+Note: C:\Users\Windows\OneDrive\Documents\GitHub\b10-news\node_modules\react-native-worklets\android\src\main\java\com\swmansion\worklets\WorkletsPackage.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :app:processReleaseMainManifest
+C:\Users\Windows\OneDrive\Documents\GitHub\b10-news\android\app\src\main\AndroidManifest.xml Warning:
+        provider#expo.modules.filesystem.FileSystemFileProvider@android:authorities was tagged at AndroidManifest.xml:0 to replace other declarations but no other declaration present
+
+> Task :app:processReleaseResources FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/Windows/OneDrive/Documents/GitHub/b10-news/android/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:processReleaseResources'.
+> A failure occurred while executing com.android.build.gradle.internal.res.LinkApplicationAndroidResourcesTask$TaskAction
+   > Android resource linking failed
+     com.b10news.app-mergeReleaseResources-71:/values/values.xml:6959: error: resource drawable/splashscreen_logo (aka com.b10news.app:drawable/splashscreen_logo) not found.
+     com.b10news.app-mergeReleaseResources-71:/values/values.xml:6959: error: resource drawable/splashscreen_logo (aka com.b10news.app:drawable/splashscreen_logo) not found.
+     error: failed linking references.
+
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.3/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 22m 34s
+437 actionable tasks: 413 executed, 24 up-to-date
+
+C:\Users\Windows\OneDrive\Documents\GitHub\b10-news\android>.gitignore
+
